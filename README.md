@@ -44,3 +44,7 @@ We will need to implement prediction (predicting the label of a new input data) 
 1. SOFT : A pure software implementation on the ARM Cortex A9.
 2. HARD_HDL : An AXIS co-processor implementing the neural network in hardware, written in HDL. This should be able to receive the weights and the data from the software running on ARM Cortex A9, and return the predicted labels.
 3. HARD_HLS : An AXI / AXI Lite / AXIS co-processor implementing the neural network in hardware, which is at least partly created using HLS tool. This should be able to receive the weights and the data from the software running on ARM Cortex A9, and return the predicted labels. This will be evaluated as Lab 4B.
+
+Further enhancement to the co-processors made are:
+1. Loop unrolling using vivado HLS (Increased performance with higher cost).
+2. Sequential multiplier in HDL (Reduced cost with reduced performance).
