@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Webtalk v2016.3 (64-bit)
+# SW Build 1682563 on Mon Oct 10 19:07:27 MDT 2016
+# IP Build 1681267 on Mon Oct 10 21:28:31 MDT 2016
+# Start of session at: Mon Nov 11 14:54:20 2019
+# Process ID: 8296
+# Current directory: C:/Xilinx/Labs/labhls/AXISTry/AXISTry_Soln/sim/verilog
+# Command line: wbtcv.exe -mode batch -source C:/Xilinx/Labs/labhls/AXISTry/AXISTry_Soln/sim/verilog/xsim.dir/AXISTry/webtalk/xsim_webtalk.tcl -notrace
+# Log file: C:/Xilinx/Labs/labhls/AXISTry/AXISTry_Soln/sim/verilog/webtalk.log
+# Journal file: C:/Xilinx/Labs/labhls/AXISTry/AXISTry_Soln/sim/verilog\webtalk.jou
+#-----------------------------------------------------------
+source C:/Xilinx/Labs/labhls/AXISTry/AXISTry_Soln/sim/verilog/xsim.dir/AXISTry/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Mon Nov 11 14:54:20 2019...

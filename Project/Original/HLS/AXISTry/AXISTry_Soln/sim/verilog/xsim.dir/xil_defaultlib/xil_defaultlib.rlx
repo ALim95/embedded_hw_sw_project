@@ -1,0 +1,16 @@
+0.6
+2016.3
+Oct 10 2016
+19:46:48
+C:/Xilinx/Labs/labhls/AXISTry/AXISTry_Soln/sim/verilog/AESL_axi_s_M_AXIS.v,1573455249,systemVerilog,,,,AESL_axi_s_M_AXIS,C:/Xilinx/Vivado/2016.3/bin/../data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+C:/Xilinx/Labs/labhls/AXISTry/AXISTry_Soln/sim/verilog/AESL_axi_s_S_AXIS.v,1573455249,systemVerilog,,,,AESL_axi_s_S_AXIS,C:/Xilinx/Vivado/2016.3/bin/../data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+C:/Xilinx/Labs/labhls/AXISTry/AXISTry_Soln/sim/verilog/AESL_fifo.v,1573455249,systemVerilog,,,,fifo,C:/Xilinx/Vivado/2016.3/bin/../data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+C:/Xilinx/Labs/labhls/AXISTry/AXISTry_Soln/sim/verilog/AXISTry.autotb.v,1573455249,systemVerilog,,,,apatb_AXISTry_top,C:/Xilinx/Vivado/2016.3/bin/../data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+C:/Xilinx/Labs/labhls/AXISTry/AXISTry_Soln/sim/verilog/AXISTry.v,1573455227,systemVerilog,,,,AXISTry,C:/Xilinx/Vivado/2016.3/bin/../data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+C:/Xilinx/Labs/labhls/AXISTry/AXISTry_Soln/sim/verilog/AXISTry_mul_mul_1dEe.v,1573455228,systemVerilog,,,,AXISTry_mul_mul_1dEe;AXISTry_mul_mul_1dEe_DSP48_0,C:/Xilinx/Vivado/2016.3/bin/../data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+C:/Xilinx/Labs/labhls/AXISTry/AXISTry_Soln/sim/verilog/AXISTry_sigmoid_arr.v,1573455228,systemVerilog,,,,AXISTry_sigmoid_arr;AXISTry_sigmoid_arr_rom,C:/Xilinx/Vivado/2016.3/bin/../data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+C:/Xilinx/Labs/labhls/AXISTry/AXISTry_Soln/sim/verilog/AXISTry_test_data.v,1573455228,systemVerilog,,,,AXISTry_test_data;AXISTry_test_data_ram,C:/Xilinx/Vivado/2016.3/bin/../data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+C:/Xilinx/Labs/labhls/AXISTry/AXISTry_Soln/sim/verilog/AXISTry_values_hibkb.v,1573455228,systemVerilog,,,,AXISTry_values_hibkb;AXISTry_values_hibkb_ram,C:/Xilinx/Vivado/2016.3/bin/../data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+C:/Xilinx/Labs/labhls/AXISTry/AXISTry_Soln/sim/verilog/AXISTry_values_oucud.v,1573455228,systemVerilog,,,,AXISTry_values_oucud;AXISTry_values_oucud_ram,C:/Xilinx/Vivado/2016.3/bin/../data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+C:/Xilinx/Labs/labhls/AXISTry/AXISTry_Soln/sim/verilog/AXISTry_weights_HO.v,1573455228,systemVerilog,,,,AXISTry_weights_HO;AXISTry_weights_HO_ram,C:/Xilinx/Vivado/2016.3/bin/../data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+C:/Xilinx/Labs/labhls/AXISTry/AXISTry_Soln/sim/verilog/AXISTry_weights_IH.v,1573455228,systemVerilog,,,,AXISTry_weights_IH;AXISTry_weights_IH_ram,C:/Xilinx/Vivado/2016.3/bin/../data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,

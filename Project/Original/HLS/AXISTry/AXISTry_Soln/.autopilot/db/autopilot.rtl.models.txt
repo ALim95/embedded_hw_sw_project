@@ -1,0 +1,8 @@
+AXISTry_mul_mul_1dEe
+AXISTry_weights_IH
+AXISTry_weights_HO
+AXISTry_test_data
+AXISTry_values_hibkb
+AXISTry_sigmoid_arr
+AXISTry_values_oucud
+AXISTry

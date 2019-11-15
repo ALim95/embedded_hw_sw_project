@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xd:acceleratorMap xmlns:xd="http://www.xilinx.com/xidane" xd:functionName="AXISEnhanced" xd:componentRef="AXISEnhanced" xd:initiationInterval="14241" xd:clockPeriod="10.000000" xd:sequential="true" xd:hostMachine="64" xd:reset="control">
+  <xd:arg xd:name="S_AXIS.data" xd:originalName="S_AXIS" xd:direction="in" xd:interfaceRef="S_AXIS" xd:busTypeRef="axis" xd:dataWidth="32"/>
+  <xd:arg xd:name="S_AXIS.last" xd:originalName="S_AXIS" xd:direction="in" xd:interfaceRef="S_AXIS" xd:busTypeRef="axis" xd:dataWidth="1"/>
+  <xd:arg xd:name="M_AXIS.data" xd:originalName="M_AXIS" xd:direction="out" xd:interfaceRef="M_AXIS" xd:busTypeRef="axis" xd:dataWidth="32"/>
+  <xd:arg xd:name="M_AXIS.last" xd:originalName="M_AXIS" xd:direction="out" xd:interfaceRef="M_AXIS" xd:busTypeRef="axis" xd:dataWidth="1"/>
+  <xd:latencyEstimates xd:best-case="14240" xd:worst-case="14240" xd:average-case="14240"/>
+  <xd:resourceEstimates xd:LUT="1066" xd:FF="846" xd:BRAM="2" xd:DSP="8"/>
+</xd:acceleratorMap>

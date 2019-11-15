@@ -1,0 +1,64 @@
+INFO: [XSIM 43-3496] Using init file passed via -initfile option "C:/Xilinx/Vivado/2016.3/bin/../data/xsim/ip/xsim_ip.ini".
+Vivado Simulator 2016.3
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2016.3/bin/unwrapped/win64.o/xelab.exe xil_defaultlib.apatb_AXISTry_top -prj AXISTry.prj --initfile C:/Xilinx/Vivado/2016.3/bin/../data/xsim/ip/xsim_ip.ini --lib ieee_proposed=./ieee_proposed -s AXISTry 
+Multi-threading is on. Using 6 slave threads.
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Xilinx/Labs/labhls/AXISTry/AXISTry_Soln/sim/verilog/AESL_axi_s_M_AXIS.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_axi_s_M_AXIS
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Xilinx/Labs/labhls/AXISTry/AXISTry_Soln/sim/verilog/AESL_axi_s_S_AXIS.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_axi_s_S_AXIS
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Xilinx/Labs/labhls/AXISTry/AXISTry_Soln/sim/verilog/AESL_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fifo
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Xilinx/Labs/labhls/AXISTry/AXISTry_Soln/sim/verilog/AXISTry.autotb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module apatb_AXISTry_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Xilinx/Labs/labhls/AXISTry/AXISTry_Soln/sim/verilog/AXISTry.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AXISTry
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Xilinx/Labs/labhls/AXISTry/AXISTry_Soln/sim/verilog/AXISTry_mul_mul_1dEe.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AXISTry_mul_mul_1dEe_DSP48_0
+INFO: [VRFC 10-311] analyzing module AXISTry_mul_mul_1dEe
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Xilinx/Labs/labhls/AXISTry/AXISTry_Soln/sim/verilog/AXISTry_sigmoid_arr.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AXISTry_sigmoid_arr_rom
+INFO: [VRFC 10-311] analyzing module AXISTry_sigmoid_arr
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Xilinx/Labs/labhls/AXISTry/AXISTry_Soln/sim/verilog/AXISTry_test_data.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AXISTry_test_data_ram
+INFO: [VRFC 10-311] analyzing module AXISTry_test_data
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Xilinx/Labs/labhls/AXISTry/AXISTry_Soln/sim/verilog/AXISTry_values_hibkb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AXISTry_values_hibkb_ram
+INFO: [VRFC 10-311] analyzing module AXISTry_values_hibkb
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Xilinx/Labs/labhls/AXISTry/AXISTry_Soln/sim/verilog/AXISTry_values_oucud.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AXISTry_values_oucud_ram
+INFO: [VRFC 10-311] analyzing module AXISTry_values_oucud
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Xilinx/Labs/labhls/AXISTry/AXISTry_Soln/sim/verilog/AXISTry_weights_HO.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AXISTry_weights_HO_ram
+INFO: [VRFC 10-311] analyzing module AXISTry_weights_HO
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Xilinx/Labs/labhls/AXISTry/AXISTry_Soln/sim/verilog/AXISTry_weights_IH.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AXISTry_weights_IH_ram
+INFO: [VRFC 10-311] analyzing module AXISTry_weights_IH
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.AXISTry_weights_IH_ram
+Compiling module xil_defaultlib.AXISTry_weights_IH(DataWidth=16,...
+Compiling module xil_defaultlib.AXISTry_weights_HO_ram
+Compiling module xil_defaultlib.AXISTry_weights_HO(DataWidth=16,...
+Compiling module xil_defaultlib.AXISTry_test_data_ram
+Compiling module xil_defaultlib.AXISTry_test_data(DataWidth=16,A...
+Compiling module xil_defaultlib.AXISTry_values_hibkb_ram
+Compiling module xil_defaultlib.AXISTry_values_hibkb(DataWidth=1...
+Compiling module xil_defaultlib.AXISTry_sigmoid_arr_rom
+Compiling module xil_defaultlib.AXISTry_sigmoid_arr(DataWidth=8,...
+Compiling module xil_defaultlib.AXISTry_values_oucud_ram
+Compiling module xil_defaultlib.AXISTry_values_oucud(DataWidth=1...
+Compiling module xil_defaultlib.AXISTry_mul_mul_1dEe_DSP48_0
+Compiling module xil_defaultlib.AXISTry_mul_mul_1dEe(ID=1,NUM_ST...
+Compiling module xil_defaultlib.AXISTry
+Compiling module xil_defaultlib.fifo(DEPTH=548,WIDTH=32)
+Compiling module xil_defaultlib.fifo(DEPTH=548,WIDTH=1)
+Compiling module xil_defaultlib.AESL_axi_s_S_AXIS
+Compiling module xil_defaultlib.fifo(DEPTH=37,WIDTH=32)
+Compiling module xil_defaultlib.fifo(DEPTH=37,WIDTH=1)
+Compiling module xil_defaultlib.AESL_axi_s_M_AXIS
+Compiling module xil_defaultlib.apatb_AXISTry_top
+Built simulation snapshot AXISTry

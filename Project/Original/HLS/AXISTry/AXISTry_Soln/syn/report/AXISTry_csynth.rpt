@@ -1,0 +1,285 @@
+
+
+================================================================
+== Vivado HLS Report for 'AXISTry'
+================================================================
+* Date:           Mon Nov 11 14:53:47 2019
+
+* Version:        2016.3 (Build 1682563 on Mon Oct 10 19:41:59 MDT 2016)
+* Project:        AXISTry
+* Solution:       AXISTry_Soln
+* Product family: zynq
+* Target device:  xc7z020clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      6.74|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-------+-------+-------+-------+---------+
+    |    Latency    |    Interval   | Pipeline|
+    |  min  |  max  |  min  |  max  |   Type  |
+    +-------+-------+-------+-------+---------+
+    |  14564|  14564|  14565|  14565|   none  |
+    +-------+-------+-------+-------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------------------+-------+-------+----------+-----------+-----------+------+----------+
+        |                         |    Latency    | Iteration|  Initiation Interval  | Trip |          |
+        |        Loop Name        |  min  |  max  |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------------------+-------+-------+----------+-----------+-----------+------+----------+
+        |- get_weightsIH          |    156|    156|        12|          -|          -|    13|    no    |
+        | + get_weightsIH.1       |     10|     10|         2|          -|          -|     5|    no    |
+        |- get_weightsHO          |     40|     40|         8|          -|          -|     5|    no    |
+        | + get_weightsHO.1       |      6|      6|         2|          -|          -|     3|    no    |
+        |- get_prediction         |  14364|  14364|       399|          -|          -|    36|    no    |
+        | + get_prediction.1      |     26|     26|         2|          -|          -|    13|    no    |
+        | + get_prediction.2      |    290|    290|        58|          -|          -|     5|    no    |
+        |  ++ get_prediction.2.1  |     52|     52|         4|          -|          -|    13|    no    |
+        | + get_prediction.3      |     78|     78|        26|          -|          -|     3|    no    |
+        |  ++ get_prediction.3.1  |     20|     20|         4|          -|          -|     5|    no    |
+        +-------------------------+-------+-------+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+-------+
+|       Name      | BRAM_18K| DSP48E|   FF   |  LUT  |
++-----------------+---------+-------+--------+-------+
+|DSP              |        -|      2|       -|      -|
+|Expression       |        -|      -|       0|    222|
+|FIFO             |        -|      -|       -|      -|
+|Instance         |        -|      -|       -|      -|
+|Memory           |        2|      -|     128|     11|
+|Multiplexer      |        -|      -|       -|    272|
+|Register         |        -|      -|     455|      -|
++-----------------+---------+-------+--------+-------+
+|Total            |        2|      2|     583|    505|
++-----------------+---------+-------+--------+-------+
+|Available        |      280|    220|  106400|  53200|
++-----------------+---------+-------+--------+-------+
+|Utilization (%)  |    ~0   |   ~0  |   ~0   |   ~0  |
++-----------------+---------+-------+--------+-------+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP48: 
+    +-------------------------+----------------------+-----------+
+    |         Instance        |        Module        | Expression|
+    +-------------------------+----------------------+-----------+
+    |AXISTry_mul_mul_1dEe_U0  |AXISTry_mul_mul_1dEe  |  i0 * i1  |
+    |AXISTry_mul_mul_1dEe_U1  |AXISTry_mul_mul_1dEe  |  i0 * i1  |
+    +-------------------------+----------------------+-----------+
+
+    * Memory: 
+    +-----------------------+----------------------+---------+----+----+------+-----+------+-------------+
+    |         Memory        |        Module        | BRAM_18K| FF | LUT| Words| Bits| Banks| W*Bits*Banks|
+    +-----------------------+----------------------+---------+----+----+------+-----+------+-------------+
+    |sigmoid_arr_U          |AXISTry_sigmoid_arr   |        1|   0|   0|  2048|    8|     1|        16384|
+    |test_data_U            |AXISTry_test_data     |        0|  32|   4|    13|   16|     1|          208|
+    |values_hidden_layer_U  |AXISTry_values_hibkb  |        0|  32|   2|     5|   16|     1|           80|
+    |values_output_layer_U  |AXISTry_values_oucud  |        0|  32|   1|     3|   16|     1|           48|
+    |weights_HO_U           |AXISTry_weights_HO    |        0|  32|   4|    15|   16|     1|          240|
+    |weights_IH_U           |AXISTry_weights_IH    |        1|   0|   0|    65|   16|     1|         1040|
+    +-----------------------+----------------------+---------+----+----+------+-----+------+-------------+
+    |Total                  |                      |        2| 128|  11|  2149|   88|     6|        18000|
+    +-----------------------+----------------------+---------+----+----+------+-----+------+-------------+
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +--------------------------------+----------+-------+---+----+------------+------------+
+    |          Variable Name         | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +--------------------------------+----------+-------+---+----+------------+------------+
+    |i_5_fu_440_p2                   |     +    |      0|  0|   4|           4|           1|
+    |i_6_fu_501_p2                   |     +    |      0|  0|   3|           3|           1|
+    |i_7_fu_560_p2                   |     +    |      0|  0|   4|           4|           1|
+    |i_8_fu_586_p2                   |     +    |      0|  0|   3|           3|           1|
+    |j_4_fu_466_p2                   |     +    |      0|  0|   3|           3|           1|
+    |j_5_fu_527_p2                   |     +    |      0|  0|   2|           2|           1|
+    |j_6_fu_635_p2                   |     +    |      0|  0|   4|           4|           1|
+    |j_7_fu_763_p2                   |     +    |      0|  0|   3|           3|           1|
+    |k_1_fu_544_p2                   |     +    |      0|  0|   6|           6|           1|
+    |prediction_fu_718_p2            |     +    |      0|  0|   2|           2|           1|
+    |tmp_11_fu_806_p2                |     +    |      0|  0|  16|          16|          16|
+    |tmp_12_fu_450_p2                |     +    |      0|  0|   7|           7|           7|
+    |tmp_13_fu_687_p2                |     +    |      0|  0|  13|          11|          13|
+    |tmp_15_fu_815_p2                |     +    |      0|  0|  13|          11|          13|
+    |tmp_18_fu_511_p2                |     +    |      0|  0|   5|           5|           5|
+    |tmp_1_fu_428_p2                 |     +    |      0|  0|   7|           7|           7|
+    |tmp_22_fu_613_p2                |     +    |      0|  0|   2|           7|           7|
+    |tmp_23_fu_619_p2                |     +    |      0|  0|   2|           7|           7|
+    |tmp_26_fu_747_p2                |     +    |      0|  0|   2|           5|           5|
+    |tmp_5_fu_678_p2                 |     +    |      0|  0|  16|          16|          16|
+    |tmp_25_fu_741_p2                |     -    |      0|  0|   2|           5|           5|
+    |tmp_7_fu_489_p2                 |     -    |      0|  0|   5|           5|           5|
+    |M_AXIS_V_data_1_load_A          |    and   |      0|  0|   1|           1|           1|
+    |M_AXIS_V_data_1_load_B          |    and   |      0|  0|   1|           1|           1|
+    |S_AXIS_V_data_0_load_A          |    and   |      0|  0|   1|           1|           1|
+    |S_AXIS_V_data_0_load_B          |    and   |      0|  0|   1|           1|           1|
+    |M_AXIS_V_data_1_state_cmp_full  |   icmp   |      0|  0|   1|           2|           1|
+    |S_AXIS_V_data_0_state_cmp_full  |   icmp   |      0|  0|   1|           2|           1|
+    |exitcond1_fu_434_p2             |   icmp   |      0|  0|   2|           4|           3|
+    |exitcond2_fu_495_p2             |   icmp   |      0|  0|   2|           3|           3|
+    |exitcond3_fu_460_p2             |   icmp   |      0|  0|   2|           3|           3|
+    |exitcond4_fu_538_p2             |   icmp   |      0|  0|   3|           6|           6|
+    |exitcond5_fu_521_p2             |   icmp   |      0|  0|   1|           2|           2|
+    |exitcond6_fu_554_p2             |   icmp   |      0|  0|   2|           4|           3|
+    |exitcond7_fu_580_p2             |   icmp   |      0|  0|   2|           3|           3|
+    |exitcond8_fu_712_p2             |   icmp   |      0|  0|   1|           2|           2|
+    |exitcond9_fu_629_p2             |   icmp   |      0|  0|   2|           4|           3|
+    |exitcond_fu_757_p2              |   icmp   |      0|  0|   2|           3|           3|
+    |icmp1_fu_785_p2                 |   icmp   |      0|  0|   3|           6|           1|
+    |icmp_fu_657_p2                  |   icmp   |      0|  0|   3|           6|           1|
+    |tmp_16_fu_835_p2                |   icmp   |      0|  0|   6|          15|          15|
+    |tmp_2_fu_641_p2                 |   icmp   |      0|  0|   6|          16|          12|
+    |tmp_8_fu_769_p2                 |   icmp   |      0|  0|   6|          16|          12|
+    |highest_pred_2_highe_fu_852_p3  |  select  |      0|  0|  15|           1|          15|
+    |prediction_write_out_fu_844_p3  |  select  |      0|  0|  32|           1|          32|
+    +--------------------------------+----------+-------+---+----+------------+------------+
+    |Total                           |          |      0|  0| 222|         239|         241|
+    +--------------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-------------------------------+----+-----------+-----+-----------+
+    |              Name             | LUT| Input Size| Bits| Total Bits|
+    +-------------------------------+----+-----------+-----+-----------+
+    |M_AXIS_TDATA_blk_n             |   1|          2|    1|          2|
+    |M_AXIS_V_data_1_data_in        |  32|          3|   32|         96|
+    |M_AXIS_V_data_1_data_out       |  32|          2|   32|         64|
+    |M_AXIS_V_data_1_state          |   2|          3|    2|          6|
+    |M_AXIS_V_last_1_state          |   2|          3|    2|          6|
+    |S_AXIS_TDATA_blk_n             |   1|          2|    1|          2|
+    |S_AXIS_V_data_0_data_out       |  32|          2|   32|         64|
+    |S_AXIS_V_data_0_state          |   2|          3|    2|          6|
+    |S_AXIS_V_last_0_state          |   2|          3|    2|          6|
+    |ap_NS_fsm                      |  24|         31|    1|         31|
+    |highest_pred_reg_368           |  15|          2|   15|         30|
+    |i_1_reg_278                    |   3|          2|    3|          6|
+    |i_2_reg_311                    |   4|          2|    4|          8|
+    |i_3_reg_322                    |   3|          2|    3|          6|
+    |i_4_reg_357                    |   2|          2|    2|          4|
+    |i_reg_256                      |   4|          2|    4|          8|
+    |j_1_reg_289                    |   2|          2|    2|          4|
+    |j_2_reg_346                    |   4|          2|    4|          8|
+    |j_3_reg_393                    |   3|          2|    3|          6|
+    |j_reg_267                      |   3|          2|    3|          6|
+    |k_reg_300                      |   6|          2|    6|         12|
+    |sigmoid_arr_address0           |  11|          3|   11|         33|
+    |test_data_address0             |   4|          3|    4|         12|
+    |values_hidden_layer_1_reg_333  |  16|          2|   16|         32|
+    |values_hidden_layer_address0   |   3|          3|    3|          9|
+    |values_hidden_layer_d0         |  16|          5|   16|         80|
+    |values_output_layer_1_reg_380  |  16|          2|   16|         32|
+    |values_output_layer_d0         |  16|          5|   16|         80|
+    |weights_HO_address0            |   4|          3|    4|         12|
+    |weights_IH_address0            |   7|          3|    7|         21|
+    +-------------------------------+----+-----------+-----+-----------+
+    |Total                          | 272|        105|  249|        692|
+    +-------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +--------------------------------+----+----+-----+-----------+
+    |              Name              | FF | LUT| Bits| Const Bits|
+    +--------------------------------+----+----+-----+-----------+
+    |M_AXIS_V_data_1_payload_A       |  32|   0|   32|          0|
+    |M_AXIS_V_data_1_payload_B       |  32|   0|   32|          0|
+    |M_AXIS_V_data_1_sel_rd          |   1|   0|    1|          0|
+    |M_AXIS_V_data_1_sel_wr          |   1|   0|    1|          0|
+    |M_AXIS_V_data_1_state           |   2|   0|    2|          0|
+    |M_AXIS_V_last_1_sel_rd          |   1|   0|    1|          0|
+    |M_AXIS_V_last_1_state           |   2|   0|    2|          0|
+    |S_AXIS_V_data_0_payload_A       |  32|   0|   32|          0|
+    |S_AXIS_V_data_0_payload_B       |  32|   0|   32|          0|
+    |S_AXIS_V_data_0_sel_rd          |   1|   0|    1|          0|
+    |S_AXIS_V_data_0_sel_wr          |   1|   0|    1|          0|
+    |S_AXIS_V_data_0_state           |   2|   0|    2|          0|
+    |S_AXIS_V_last_0_state           |   2|   0|    2|          0|
+    |ap_CS_fsm                       |  30|   0|   30|          0|
+    |highest_pred_reg_368            |  15|   0|   15|          0|
+    |i_1_reg_278                     |   3|   0|    3|          0|
+    |i_2_cast5_reg_945               |   4|   0|   32|         28|
+    |i_2_reg_311                     |   4|   0|    4|          0|
+    |i_3_cast4_cast_reg_958          |   3|   0|    7|          4|
+    |i_3_reg_322                     |   3|   0|    3|          0|
+    |i_4_cast2_cast_reg_1027         |   2|   0|    5|          3|
+    |i_4_reg_357                     |   2|   0|    2|          0|
+    |i_5_reg_887                     |   4|   0|    4|          0|
+    |i_6_reg_913                     |   3|   0|    3|          0|
+    |i_7_reg_953                     |   4|   0|    4|          0|
+    |i_8_reg_966                     |   3|   0|    3|          0|
+    |i_reg_256                       |   4|   0|    4|          0|
+    |icmp1_reg_1073                  |   1|   0|    1|          0|
+    |icmp_reg_998                    |   1|   0|    1|          0|
+    |j_1_reg_289                     |   2|   0|    2|          0|
+    |j_2_reg_346                     |   4|   0|    4|          0|
+    |j_3_reg_393                     |   3|   0|    3|          0|
+    |j_4_reg_900                     |   3|   0|    3|          0|
+    |j_5_reg_932                     |   2|   0|    2|          0|
+    |j_6_reg_984                     |   4|   0|    4|          0|
+    |j_7_reg_1059                    |   3|   0|    3|          0|
+    |j_reg_267                       |   3|   0|    3|          0|
+    |k_1_reg_940                     |   6|   0|    6|          0|
+    |k_reg_300                       |   6|   0|    6|          0|
+    |prediction_reg_1035             |   2|   0|    2|          0|
+    |test_data_load_reg_1002         |  16|   0|   16|          0|
+    |tmp_10_reg_1087                 |  16|   0|   16|          0|
+    |tmp_1_reg_879                   |   7|   0|    7|          0|
+    |tmp_2_reg_994                   |   1|   0|    1|          0|
+    |tmp_4_reg_1012                  |  16|   0|   16|          0|
+    |tmp_7_reg_905                   |   5|   0|    5|          0|
+    |tmp_8_reg_1069                  |   1|   0|    1|          0|
+    |tmp_data_fu_120                 |  32|   0|   32|          0|
+    |values_hidden_layer_1_reg_333   |  16|   0|   16|          0|
+    |values_hidden_layer_4_reg_1077  |  16|   0|   16|          0|
+    |values_hidden_layer_s_reg_971   |   3|   0|    3|          0|
+    |values_output_layer_1_reg_380   |  16|   0|   16|          0|
+    |values_output_layer_s_reg_1041  |   2|   0|    2|          0|
+    |weights_HO_addr_reg_924         |   4|   0|    4|          0|
+    |weights_HO_load_reg_1082        |  16|   0|   16|          0|
+    |weights_IH_addr_reg_892         |   7|   0|    7|          0|
+    |weights_IH_load_reg_1007        |  16|   0|   16|          0|
+    +--------------------------------+----+----+-----+-----------+
+    |Total                           | 455|   0|  490|         35|
+    +--------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++---------------+-----+-----+--------------+---------------+--------------+
+|   RTL Ports   | Dir | Bits|   Protocol   | Source Object |    C Type    |
++---------------+-----+-----+--------------+---------------+--------------+
+|ap_clk         |  in |    1| ap_ctrl_none |    AXISTry    | return value |
+|ap_rst_n       |  in |    1| ap_ctrl_none |    AXISTry    | return value |
+|S_AXIS_TDATA   |  in |   32|     axis     | S_AXIS_V_data |    pointer   |
+|S_AXIS_TVALID  |  in |    1|     axis     | S_AXIS_V_last |    pointer   |
+|S_AXIS_TREADY  | out |    1|     axis     | S_AXIS_V_last |    pointer   |
+|S_AXIS_TLAST   |  in |    1|     axis     | S_AXIS_V_last |    pointer   |
+|M_AXIS_TDATA   | out |   32|     axis     | M_AXIS_V_data |    pointer   |
+|M_AXIS_TVALID  | out |    1|     axis     | M_AXIS_V_last |    pointer   |
+|M_AXIS_TREADY  |  in |    1|     axis     | M_AXIS_V_last |    pointer   |
+|M_AXIS_TLAST   | out |    1|     axis     | M_AXIS_V_last |    pointer   |
++---------------+-----+-----+--------------+---------------+--------------+
+

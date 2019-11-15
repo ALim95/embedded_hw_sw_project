@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="WARNING: [RTGEN 206-101] Global array 'values_output_layer' will not be exposed as RTL port." projectName="AXISEnhanced" solutionName="AXISEnhanced_Soln" date="2019-11-07T18:47:55.892+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Global array 'values_hidden_layer' will not be exposed as RTL port." projectName="AXISEnhanced" solutionName="AXISEnhanced_Soln" date="2019-11-07T18:47:55.880+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Global array 'test_data' will not be exposed as RTL port." projectName="AXISEnhanced" solutionName="AXISEnhanced_Soln" date="2019-11-07T18:47:55.869+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Global array 'weights_HO' will not be exposed as RTL port." projectName="AXISEnhanced" solutionName="AXISEnhanced_Soln" date="2019-11-07T18:47:55.859+0800" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Global array 'weights_IH' will not be exposed as RTL port." projectName="AXISEnhanced" solutionName="AXISEnhanced_Soln" date="2019-11-07T18:47:55.843+0800" type="Warning"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>

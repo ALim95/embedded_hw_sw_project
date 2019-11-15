@@ -1,0 +1,13 @@
+sv xil_defaultlib "AESL_axi_s_M_AXIS.v"
+sv xil_defaultlib "AESL_axi_s_S_AXIS.v"
+sv xil_defaultlib "AESL_fifo.v"
+sv xil_defaultlib "AXISTry.autotb.v"
+sv xil_defaultlib "AXISTry.v"
+sv xil_defaultlib "AXISTry_mul_mul_1dEe.v"
+sv xil_defaultlib "AXISTry_sigmoid_arr.v"
+sv xil_defaultlib "AXISTry_test_data.v"
+sv xil_defaultlib "AXISTry_values_hibkb.v"
+sv xil_defaultlib "AXISTry_values_oucud.v"
+sv xil_defaultlib "AXISTry_weights_HO.v"
+sv xil_defaultlib "AXISTry_weights_IH.v"
+

@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Webtalk v2016.3 (64-bit)
+# SW Build 1682563 on Mon Oct 10 19:07:27 MDT 2016
+# IP Build 1681267 on Mon Oct 10 21:28:31 MDT 2016
+# Start of session at: Thu Oct 17 19:37:17 2019
+# Process ID: 17316
+# Current directory: C:/Xilinx/Labs/labhls/AXISTry/AXISTry_Soln/sim/verilog
+# Command line: wbtcv.exe -mode batch -source C:/Xilinx/Labs/labhls/AXISTry/AXISTry_Soln/sim/verilog/xsim.dir/AXISTry/webtalk/xsim_webtalk.tcl -notrace
+# Log file: C:/Xilinx/Labs/labhls/AXISTry/AXISTry_Soln/sim/verilog/webtalk.log
+# Journal file: C:/Xilinx/Labs/labhls/AXISTry/AXISTry_Soln/sim/verilog\webtalk.jou
+#-----------------------------------------------------------
+source C:/Xilinx/Labs/labhls/AXISTry/AXISTry_Soln/sim/verilog/xsim.dir/AXISTry/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-186] 'C:/Xilinx/Labs/labhls/AXISTry/AXISTry_Soln/sim/verilog/xsim.dir/AXISTry/webtalk/usage_statistics_ext_xsim.xml' has been successfully sent to Xilinx on Thu Oct 17 19:37:20 2019. For additional details about this file, please refer to the WebTalk help file at C:/Xilinx/Vivado/2016.3/doc/webtalk_introduction.html.
+INFO: [Common 17-206] Exiting Webtalk at Thu Oct 17 19:37:20 2019...

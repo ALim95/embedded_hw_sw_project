@@ -1,0 +1,10 @@
+0.6
+2016.3
+Oct 10 2016
+19:46:48
+C:/Xilinx/Labs/labhls/AXISTry/AXISTry_Soln/sim/verilog/AESL_axi_s_M_AXIS.v,1571312218,systemVerilog,,,,AESL_axi_s_M_AXIS,C:/Xilinx/Vivado/2016.3/bin/../data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+C:/Xilinx/Labs/labhls/AXISTry/AXISTry_Soln/sim/verilog/AESL_axi_s_S_AXIS.v,1571312218,systemVerilog,,,,AESL_axi_s_S_AXIS,C:/Xilinx/Vivado/2016.3/bin/../data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+C:/Xilinx/Labs/labhls/AXISTry/AXISTry_Soln/sim/verilog/AESL_fifo.v,1571312218,systemVerilog,,,,fifo,C:/Xilinx/Vivado/2016.3/bin/../data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+C:/Xilinx/Labs/labhls/AXISTry/AXISTry_Soln/sim/verilog/AXISTry.autotb.v,1571312218,systemVerilog,,,,apatb_AXISTry_top,C:/Xilinx/Vivado/2016.3/bin/../data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+C:/Xilinx/Labs/labhls/AXISTry/AXISTry_Soln/sim/verilog/AXISTry.v,1571312185,systemVerilog,,,,AXISTry,C:/Xilinx/Vivado/2016.3/bin/../data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+C:/Xilinx/Labs/labhls/AXISTry/AXISTry_Soln/sim/verilog/AXISTry_mul_32ns_bkb.v,1571312186,systemVerilog,,,,AXISTry_mul_32ns_bkb;AXISTry_mul_32ns_bkb_Mul6S_0,C:/Xilinx/Vivado/2016.3/bin/../data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,

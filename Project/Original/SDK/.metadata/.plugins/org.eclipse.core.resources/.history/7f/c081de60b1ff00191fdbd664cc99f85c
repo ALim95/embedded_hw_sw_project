@@ -1,0 +1,827 @@
+/******************************************************************************
+ *
+ * (c) Copyright 2010-2013 Xilinx, Inc. All rights reserved.
+ *
+ * This file contains confidential and proprietary information of Xilinx, Inc.
+ * and is protected under U.S. and international copyright and other
+ * intellectual property laws.
+ *
+ * DISCLAIMER
+ * This disclaimer is not a license and does not grant any rights to the
+ * materials distributed herewith. Except as otherwise provided in a valid
+ * license issued to you by Xilinx, and to the maximum extent permitted by
+ * applicable law: (1) THESE MATERIALS ARE MADE AVAILABLE "AS IS" AND WITH ALL
+ * FAULTS, AND XILINX HEREBY DISCLAIMS ALL WARRANTIES AND CONDITIONS, EXPRESS,
+ * IMPLIED, OR STATUTORY, INCLUDING BUT NOT LIMITED TO WARRANTIES OF
+ * MERCHANTABILITY, NON-INFRINGEMENT, OR FITNESS FOR ANY PARTICULAR PURPOSE;
+ * and (2) Xilinx shall not be liable (whether in contract or tort, including
+ * negligence, or under any other theory of liability) for any loss or damage
+ * of any kind or nature related to, arising under or in connection with these
+ * materials, including for any direct, or any indirect, special, incidental,
+ * or consequential loss or damage (including loss of data, profits, goodwill,
+ * or any type of loss or damage suffered as a result of any action brought by
+ * a third party) even if such damage or loss was reasonably foreseeable or
+ * Xilinx had been advised of the possibility of the same.
+ *
+ * CRITICAL APPLICATIONS
+ * Xilinx products are not designed or intended to be fail-safe, or for use in
+ * any application requiring fail-safe performance, such as life-support or
+ * safety devices or systems, Class III medical devices, nuclear facilities,
+ * applications related to the deployment of airbags, or any other applications
+ * that could lead to death, personal injury, or severe property or
+ * environmental damage (individually and collectively, "Critical
+ * Applications"). Customer assumes the sole risk and liability of any use of
+ * Xilinx products in Critical Applications, subject only to applicable laws
+ * and regulations governing limitations on product liability.
+ *
+ * THIS COPYRIGHT NOTICE AND DISCLAIMER MUST BE RETAINED AS PART OF THIS FILE
+ * AT ALL TIMES.
+ *
+ ******************************************************************************/
+/*****************************************************************************/
+/**
+ *
+ * @file xaxidma_example_simple_poll.c
+ *
+ * This file demonstrates how to use the xaxidma driver on the Xilinx AXI
+ * DMA core (AXIDMA) to transfer packets in polling mode when the AXI DMA core
+ * is configured in simple mode.
+ *
+ * This code assumes a loopback hardware widget is connected to the AXI DMA
+ * core for data packet loopback.
+ *
+ * To see the debug print, you need a Uart16550 or uartlite in your system,
+ * and please set "-DDEBUG" in your compiler options. You need to rebuild your
+ * software executable.
+ *
+ * Make sure that MEMORY_BASE is defined properly as per the HW system. The
+ * h/w system built in Area mode has a maximum DDR memory limit of 64MB. In
+ * throughput mode, it is 512MB.  These limits are need to ensured for
+ * proper operation of this code.
+ *
+ *
+ * <pre>
+ * MODIFICATION HISTORY:
+ *
+ * Ver   Who  Date     Changes
+ * ----- ---- -------- -------------------------------------------------------
+ * 4.00a rkv  02/22/11 New example created for simple DMA, this example is for
+ *                  simple DMA
+ * 5.00a srt  03/06/12 Added Flushing and Invalidation of Caches to fix CRs
+ *               648103, 648701.
+ *               Added V7 DDR Base Address to fix CR 649405.
+ * 6.00a srt  03/27/12 Changed API calls to support MCDMA driver.
+ * 7.00a srt  06/18/12 API calls are reverted back for backward compatibility.
+ * 7.01a srt  11/02/12 Buffer sizes (Tx and Rx) are modified to meet maximum
+ *               DDR memory limit of the h/w system built with Area mode
+ * 7.02a srt  03/01/13 Updated DDR base address for IPI designs (CR 703656).
+ *
+ * </pre>
+ *
+ * ***************************************************************************
+
+ */
+/***************************** Include Files *********************************/
+#include "xaxidma.h"
+#include "xparameters.h"
+#include "xdebug.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include "platform.h"
+#include "xil_printf.h"
+#include "xtime_l.h"
+
+/******************** Constant Definitions **********************************/
+
+/*
+ * Device hardware build related constants.
+ */
+
+#define DMA_DEV_ID_0        XPAR_AXIDMA_0_DEVICE_ID
+#define DMA_DEV_ID_1        XPAR_AXIDMA_1_DEVICE_ID
+#define DDR_BASE_ADDR        XPAR_PS7_DDR_0_S_AXI_BASEADDR
+
+#ifndef DDR_BASE_ADDR
+#warning CHECK FOR THE VALID DDR ADDRESS IN XPARAMETERS.H, \
+  DEFAULT SET TO 0x01000000
+#define MEM_BASE_ADDR        0x01000000
+#else
+#define MEM_BASE_ADDR        (DDR_BASE_ADDR + 0x1000000)
+#endif
+
+#define TX_BUFFER_BASE        (MEM_BASE_ADDR + 0x00100000)
+#define RX_BUFFER_BASE        (MEM_BASE_ADDR + 0x00300000)
+#define RX_BUFFER_HIGH        (MEM_BASE_ADDR + 0x004FFFFF)
+
+#define NUM_WORDS_RX     NUM_TEST_DATA
+#define NUM_BYTES_RX         NUM_WORDS_RX * 4
+
+#define NUM_WEIGHTS_TX	(NUM_FEATURES * NUM_HIDDEN_NODES + NUM_HIDDEN_NODES * NUM_OUTPUT_NODES)
+#define NUM_WEIGHTS_BYTES_TX	NUM_WEIGHTS_TX * 4
+
+#define NUM_TEST_BYTES_TX	NUM_FEATURES * 4
+
+#define NUM_WORDS_TX   (NUM_FEATURES * NUM_HIDDEN_NODES + NUM_HIDDEN_NODES * NUM_OUTPUT_NODES + NUM_TEST_DATA * NUM_FEATURES)
+#define NUM_BYTES_TX         NUM_WORDS_TX * 4
+
+// number of training data
+#define NUM_TRAIN_DATA 142
+// number of test data
+#define NUM_TEST_DATA 36
+
+// number of input neurons
+#define NUM_FEATURES 13
+// number of neurons in hidden layer
+#define NUM_HIDDEN_NODES 5
+// number of neurons in output layer
+#define NUM_OUTPUT_NODES 3
+
+// number of training epochs (iterations)
+#define NUM_EPOCHS 30
+// number of batch size
+#define BATCH_SIZE 4
+
+#define SHIFT_AMOUNT 8 // 2^8 = 256
+#define SHIFT_MASK ((1 << SHIFT_AMOUNT) - 1) // 255 (all LSB set, all MSB clear)
+
+
+#define FRACTIONAL_BITS 8
+#define ONE (1 << FRACTIONAL_BITS)
+
+/**************************** Type Definitions *******************************/
+
+
+/***************** Macros (Inline Functions) Definitions *********************/
+
+
+/************************** Function Prototypes ******************************/
+
+#if (!defined(DEBUG))
+extern void xil_printf(const char *format, ...);
+#endif
+
+int XAxiDma_SimplePollExample(u16 DeviceId);
+static int CheckData();
+
+float get_rand();
+float sigmoid(float x);
+void init_weights();
+void feed_forward_train();
+void backprop();
+void calc_error();
+void train();
+void predict_soft();
+int16_t toFix(float val);
+int16_t fixed_sigmoid (int16_t x);
+int mul(int16_t a, int16_t b);
+void weights_to_fixed(void);
+float floatVal(int16_t fix);
+/************************** Variable Definitions *****************************/
+/*
+ * Device instance definitions
+ */
+XAxiDma AxiDma;
+
+// Timer instantiation
+XTime tStart, tEnd;
+
+// logistic regression values for backpropagation
+const float LR_IH = 0.50;
+const float LR_HO = 0.50;
+
+// other variables
+int data_num = 0;
+float rms_error = 0.0;
+
+// vector to store results in hidden and output layer
+float values_hidden_layer[NUM_HIDDEN_NODES];
+float values_output_layer[NUM_OUTPUT_NODES];
+
+// variable to store error and error terms
+float hidden_error[NUM_HIDDEN_NODES];
+float hidden_error_term[NUM_HIDDEN_NODES];
+float output_error[NUM_OUTPUT_NODES];
+float output_error_term[NUM_OUTPUT_NODES];
+
+// weight matrices
+float weights_IH[NUM_FEATURES][NUM_HIDDEN_NODES];
+float weights_HO[NUM_HIDDEN_NODES][NUM_OUTPUT_NODES];
+
+// weight matrices in fixed point
+int16_t fixed_weights_IH[NUM_FEATURES][NUM_HIDDEN_NODES];
+int16_t fixed_weights_HO[NUM_HIDDEN_NODES][NUM_OUTPUT_NODES];
+
+// arrays to store data
+u8 train_data[NUM_TRAIN_DATA][NUM_FEATURES+1];
+u8 test_data[NUM_TEST_DATA][NUM_FEATURES];
+u8 test_labels[NUM_TEST_DATA];
+int16_t fixedtest_data[NUM_TEST_DATA][NUM_FEATURES];
+
+static int sigmoid_arr[2048] = {4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,21,21,21,21,21,21,21,21,21,21,21,21,21,21,21,21,21,21,21,21,21,21,21,21,21,21,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,36,36,36,36,36,36,36,36,36,36,36,36,36,36,36,36,36,36,36,36,36,36,36,36,36,39,39,39,39,39,39,39,39,39,39,39,39,39,39,39,39,39,39,39,39,39,39,39,39,39,39,43,43,43,43,43,43,43,43,43,43,43,43,43,43,43,43,43,43,43,43,43,43,43,43,43,46,46,46,46,46,46,46,46,46,46,46,46,46,46,46,46,46,46,46,46,46,46,46,46,46,46,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,73,73,73,73,73,73,73,73,73,73,73,73,73,73,73,73,73,73,73,73,73,73,73,73,73,73,79,79,79,79,79,79,79,79,79,79,79,79,79,79,79,79,79,79,79,79,79,79,79,79,79,84,84,84,84,84,84,84,84,84,84,84,84,84,84,84,84,84,84,84,84,84,84,84,84,84,84,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,96,96,96,96,96,96,96,96,96,96,96,96,96,96,96,96,96,96,96,96,96,96,96,96,96,96,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,115,115,115,115,115,115,115,115,115,115,115,115,115,115,115,115,115,115,115,115,115,115,115,115,115,115,121,121,121,121,121,121,121,121,121,121,121,121,121,121,121,121,121,121,121,121,121,121,121,121,121,127,127,127,127,127,127,127,127,127,127,127,127,127,127,127,127,127,127,127,127,127,127,127,127,127,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,140,140,140,140,140,140,140,140,140,140,140,140,140,140,140,140,140,140,140,140,140,140,140,140,140,147,147,147,147,147,147,147,147,147,147,147,147,147,147,147,147,147,147,147,147,147,147,147,147,147,147,153,153,153,153,153,153,153,153,153,153,153,153,153,153,153,153,153,153,153,153,153,153,153,153,153,159,159,159,159,159,159,159,159,159,159,159,159,159,159,159,159,159,159,159,159,159,159,159,159,159,159,165,165,165,165,165,165,165,165,165,165,165,165,165,165,165,165,165,165,165,165,165,165,165,165,165,165,171,171,171,171,171,171,171,171,171,171,171,171,171,171,171,171,171,171,171,171,171,171,171,171,171,176,176,176,176,176,176,176,176,176,176,176,176,176,176,176,176,176,176,176,176,176,176,176,176,176,176,182,182,182,182,182,182,182,182,182,182,182,182,182,182,182,182,182,182,182,182,182,182,182,182,182,187,187,187,187,187,187,187,187,187,187,187,187,187,187,187,187,187,187,187,187,187,187,187,187,187,187,192,192,192,192,192,192,192,192,192,192,192,192,192,192,192,192,192,192,192,192,192,192,192,192,192,192,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,201,201,201,201,201,201,201,201,201,201,201,201,201,201,201,201,201,201,201,201,201,201,201,201,201,201,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,212,212,212,212,212,212,212,212,212,212,212,212,212,212,212,212,212,212,212,212,212,212,212,212,212,212,216,216,216,216,216,216,216,216,216,216,216,216,216,216,216,216,216,216,216,216,216,216,216,216,216,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,222,222,222,222,222,222,222,222,222,222,222,222,222,222,222,222,222,222,222,222,222,222,222,222,222,225,225,225,225,225,225,225,225,225,225,225,225,225,225,225,225,225,225,225,225,225,225,225,225,225,225,228,228,228,228,228,228,228,228,228,228,228,228,228,228,228,228,228,228,228,228,228,228,228,228,228,228,230,230,230,230,230,230,230,230,230,230,230,230,230,230,230,230,230,230,230,230,230,230,230,230,230,232,232,232,232,232,232,232,232,232,232,232,232,232,232,232,232,232,232,232,232,232,232,232,232,232,232,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,236,236,236,236,236,236,236,236,236,236,236,236,236,236,236,236,236,236,236,236,236,236,236,236,236,236,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,239,239,239,239,239,239,239,239,239,239,239,239,239,239,239,239,239,239,239,239,239,239,239,239,239,241,241,241,241,241,241,241,241,241,241,241,241,241,241,241,241,241,241,241,241,241,241,241,241,241,241,242,242,242,242,242,242,242,242,242,242,242,242,242,242,242,242,242,242,242,242,242,242,242,242,242,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,244,244,244,244,244,244,244,244,244,244,244,244,244,244,244,244,244,244,244,244,244,244,244,244,244,244,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,246,246,246,246,246,246,246,246,246,246,246,246,246,246,246,246,246,246,246,246,246,246,246,246,246,246,247,247,247,247,247,247,247,247,247,247,247,247,247,247,247,247,247,247,247,247,247,247,247,247,247,248,248,248,248,248,248,248,248,248,248,248,248,248,248,248,248,248,248,248,248,248,248,248,248,248,248,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,251};
+
+/*****************************************************************************/
+/*
+ * The entry point for this example. It invokes the example function,
+ * and reports the execution status.
+ *
+ * @param    None.
+ *
+ * @return
+ *        - XST_SUCCESS if example finishes successfully
+ *        - XST_FAILURE if example fails.
+ *
+ * @note        None.
+ *
+ ******************************************************************************/
+int main()
+{
+  init_platform();
+  int Status;
+  int rows,cols;
+  int i,j;
+  int choice_predict;
+
+  XTime tRandSeed;
+  xil_printf("\r\n--- Entering main() --- \r\n");
+  xil_printf("\r\n--- Send Data --- \r\n");
+  XTime_GetTime(&tRandSeed);
+  srand(tRandSeed);
+  init_weights();
+  for(rows = 0; rows < NUM_TRAIN_DATA; rows++) {
+    for (cols = 0; cols < NUM_FEATURES+1; cols++) {
+      scanf("%d", &train_data[rows][cols]);
+//      xil_printf("%d ", train_data[rows][cols]);
+    }
+//    xil_printf("\n");
+  }
+  xil_printf("\r\n--- Training Data... --- \r\n");
+  train();
+  weights_to_fixed();
+//  for(i = 0; i < NUM_FEATURES; i++){
+//	for (j = 0; j < NUM_HIDDEN_NODES; j++){
+//		printf("%f ",weights_IH[i][j]);
+//		printf("%f ", floatVal(fixed_weights_IH[i][j]));
+//		printf("%d\n\r", fixed_weights_IH[i][j]);
+//	}
+//  }
+//
+//  for(i = 0; i < NUM_HIDDEN_NODES; i++){
+//	for (j = 0; j < NUM_OUTPUT_NODES; j++){
+//		printf("%f ",weights_HO[i][j]);
+//		printf("%f ", floatVal(fixed_weights_HO[i][j]));
+//		printf("%d\n\r", fixed_weights_HO[i][j]);
+//	}
+//  }
+  xil_printf("\r\n--- Training Completed! --- \r\n");
+  xil_printf("\r\n--- Send Test Labels --- \r\n");
+  for(rows = 0; rows < NUM_TEST_DATA; rows++) {
+	scanf("%d", &test_labels[rows]);
+  }
+  xil_printf("\r\n--- Send Test Data --- \r\n");
+  for(rows = 0; rows < NUM_TEST_DATA; rows++) {
+	  for (cols = 0; cols < NUM_FEATURES; cols++) {
+		scanf("%d", &test_data[rows][cols]);
+		fixedtest_data[rows][cols] = toFix((float)test_data[rows][cols]/255.0);
+//	      xil_printf("%d ", train_data[rows][cols+1]);
+	  }
+//	    xil_printf("\n");
+	}
+  while (1) {
+	  xil_printf("\r\n--- Please enter choice for prediction (0 - soft, 1 - HDL, 2 - HLS): --- \r\n");
+	  xil_printf("--- Enter '3' to retrain weights: --- \r\n");
+	  scanf("%d", &choice_predict);
+	  if (choice_predict == 0) {
+		  predict_soft();
+//		  CheckData();
+	  } else if (choice_predict == 1){
+		  XAxiDma_SimplePollExample(DMA_DEV_ID_0);
+	  } else if (choice_predict == 2){
+		  XAxiDma_SimplePollExample(DMA_DEV_ID_1);
+	  } else if (choice_predict == 3){
+		  XTime_GetTime(&tRandSeed);
+		  srand(tRandSeed);
+		  init_weights();
+		  train();
+		  weights_to_fixed();
+	  }
+  }
+  /* Run the poll example for simple transfer */
+//  Status = XAxiDma_SimplePollExample(DMA_DEV_ID_0);
+//
+//  if (Status != XST_SUCCESS) {
+//
+//    xil_printf("XAxiDma_SimplePollExample: Failed\r\n");
+//    return XST_FAILURE;
+//  }
+//
+//  xil_printf("XAxiDma_SimplePollExample: Passed\r\n");
+//
+//  xil_printf("--- Exiting main() --- \r\n");
+  cleanup_platform();
+  return XST_SUCCESS;
+
+}
+
+
+/*****************************************************************************/
+/**
+ * The example to do the simple transfer through polling. The constant
+ * NUM_WORDS_TX defines how many times a simple transfer is repeated.
+ *
+ * @param    DeviceId is the Device Id of the XAxiDma instance
+ *
+ * @return
+ *        - XST_SUCCESS if example finishes successfully
+ *        - XST_FAILURE if error occurs
+ *
+ * @note        None
+ *
+ *
+ ******************************************************************************/
+int XAxiDma_SimplePollExample(u16 DeviceId)
+{
+  XAxiDma_Config *CfgPtr;
+  int Status;
+  int i,j;
+  u32 Index = 0;
+  int *TxBufferPtr;
+  int *RxBufferPtr;
+
+
+  TxBufferPtr = (int *)TX_BUFFER_BASE;
+  RxBufferPtr = (int *)RX_BUFFER_BASE;
+
+  /* Initialize the XAxiDma device.
+   */
+  CfgPtr = XAxiDma_LookupConfig(DeviceId);
+  if (!CfgPtr) {
+    xil_printf("No config found for %d\r\n", DeviceId);
+    return XST_FAILURE;
+  }
+  xil_printf("Found config for AXI DMA\n\r");
+
+  Status = XAxiDma_CfgInitialize(&AxiDma, CfgPtr);
+  if (Status != XST_SUCCESS) {
+    xil_printf("Initialization failed %d\r\n", Status);
+    return XST_FAILURE;
+  }
+  xil_printf("Finish initializing configurations for AXI DMA\n\r");
+
+  if(XAxiDma_HasSg(&AxiDma)){
+    xil_printf("Device configured as SG mode \r\n");
+    return XST_FAILURE;
+  }
+  xil_printf("AXI DMA is configured as Simple Transfer mode\n\r");
+
+  /* Disable interrupts, we use polling mode
+   */
+  XAxiDma_IntrDisable(&AxiDma, XAXIDMA_IRQ_ALL_MASK,
+      XAXIDMA_DEVICE_TO_DMA);
+  XAxiDma_IntrDisable(&AxiDma, XAXIDMA_IRQ_ALL_MASK,
+      XAXIDMA_DMA_TO_DEVICE);
+
+//  printf("weights IH\n\r");
+  for(i = 0; i < NUM_FEATURES; i++){
+	for (j = 0; j < NUM_HIDDEN_NODES; j++){
+		TxBufferPtr[Index++] = (int)fixed_weights_IH[i][j];
+//		printf("%d ", TxBufferPtr[Index-1]);
+//		printf("%f ",floatVal((int16_t)TxBufferPtr[Index-1]));
+	}
+//	printf("\r\n");
+  }
+
+//  printf("weights HO\n\r");
+  for(i = 0; i < NUM_HIDDEN_NODES; i++){
+	for (j = 0; j < NUM_OUTPUT_NODES; j++){
+		TxBufferPtr[Index++] = (int)fixed_weights_HO[i][j];
+//		printf("%d ", TxBufferPtr[Index-1]);
+//		printf("%f ",floatVal((int16_t)TxBufferPtr[Index-1]));
+	}
+//	printf("\r\n");
+  }
+
+  for (i = 0; i < NUM_TEST_DATA; i++){
+//	  printf("Test data\n\r");
+	  for (j = 0; j < NUM_FEATURES; j++){
+		  TxBufferPtr[Index++] = (int)fixedtest_data[i][j];
+//		  printf("%f ",floatVal((int16_t)TxBufferPtr[Index-1]));
+//		  printf("%d ", TxBufferPtr[Index-1]);
+	  }
+//	  printf("\r\n");
+  }
+	/* Flush the SrcBuffer before the DMA transfer, in case the Data Cache
+	* is enabled
+	*/
+  Xil_DCacheFlushRange((u32)TxBufferPtr, NUM_BYTES_TX);
+
+  // TRANSFERS WEIGHTS OVER FIRST AND EXPECT AN INT OF '12345'
+  Status = XAxiDma_SimpleTransfer(&AxiDma,(u32) (RxBufferPtr),
+  			1*4, XAXIDMA_DEVICE_TO_DMA); // this sets up transfer from coprocessor to dma
+
+  if (Status != XST_SUCCESS) {
+	  return XST_FAILURE;
+  }
+  Status = XAxiDma_SimpleTransfer(&AxiDma,(u32) (TxBufferPtr),
+		  NUM_WEIGHTS_BYTES_TX, XAXIDMA_DMA_TO_DEVICE); // this sets up transfer from dma to coprocessor
+
+  if (Status != XST_SUCCESS) {
+	return XST_FAILURE;
+  }
+
+  xil_printf("Waiting for AXI DMA \n\r");
+
+  while (XAxiDma_Busy(&AxiDma,XAXIDMA_DMA_TO_DEVICE)) {
+	  //wait
+  }
+  xil_printf("DMA_TO_DEVICE finishes \n\r");
+  while (XAxiDma_Busy(&AxiDma,XAXIDMA_DEVICE_TO_DMA)) {
+	  //wait
+  }
+  xil_printf("DEVICE_TO_DMA finishes \n\r");
+  printf("%d\n\r",RxBufferPtr[0]);
+  printf("%d\n\r",TxBufferPtr[0]);
+//  if (RxBufferPtr[0] != 12345) {
+//	  return XST_FAILURE;
+//  }
+
+  XTime_GetTime(&tStart);
+  for (Index = 0; Index < NUM_TEST_DATA; Index++){
+	Status = XAxiDma_SimpleTransfer(&AxiDma,(u32) (RxBufferPtr + 1 + Index),
+			1 * 4, XAXIDMA_DEVICE_TO_DMA); // this sets up transfer from coprocessor to dma
+
+	if (Status != XST_SUCCESS) {
+	  return XST_FAILURE;
+	}
+
+	Status = XAxiDma_SimpleTransfer(&AxiDma,(u32) (TxBufferPtr + NUM_WEIGHTS_TX + Index * NUM_FEATURES),
+			NUM_TEST_BYTES_TX, XAXIDMA_DMA_TO_DEVICE); // this sets up transfer from dma to coprocessor
+
+	if (Status != XST_SUCCESS) {
+	  return XST_FAILURE;
+	}
+
+//	xil_printf("Waiting for AXI DMA \n\r");
+
+	while (XAxiDma_Busy(&AxiDma,XAXIDMA_DMA_TO_DEVICE)) {
+		//wait
+	}
+//	xil_printf("DMA_TO_DEVICE finishes \n\r");
+
+	while (XAxiDma_Busy(&AxiDma,XAXIDMA_DEVICE_TO_DMA)) {
+	  //wait
+	}
+//	xil_printf("DEVICE_TO_DMA finishes \n\r");
+  }
+  XTime_GetTime(&tEnd);
+  Status = CheckData();
+  printf("Run took %.4f ms.\n", 1.0 * (tEnd - tStart) / (COUNTS_PER_SECOND/1000));
+  if (Status != XST_SUCCESS) {
+	  return XST_FAILURE;
+  }
+//	Status = XAxiDma_SimpleTransfer(&AxiDma,(u32) (RxBufferPtr),
+//			NUM_BYTES_RX, XAXIDMA_DEVICE_TO_DMA); // this sets up transfer from coprocessor to dma
+//
+//	if (Status != XST_SUCCESS) {
+//	  return XST_FAILURE;
+//	}
+//
+//	Status = XAxiDma_SimpleTransfer(&AxiDma,(u32) (TxBufferPtr),
+//			NUM_BYTES_TX, XAXIDMA_DMA_TO_DEVICE); // this sets up transfer from dma to coprocessor
+//
+//	if (Status != XST_SUCCESS) {
+//	  return XST_FAILURE;
+//	}
+//
+//	xil_printf("Waiting for AXI DMA \n\r");
+//
+//	while (XAxiDma_Busy(&AxiDma,XAXIDMA_DMA_TO_DEVICE)) {
+//		//wait
+//	}
+//	xil_printf("DMA_TO_DEVICE finishes \n\r");
+//
+//	while (XAxiDma_Busy(&AxiDma,XAXIDMA_DEVICE_TO_DMA)) {
+//	  //wait
+//	}
+//	xil_printf("DEVICE_TO_DMA finishes \n\r");
+//	Status = CheckData();
+//	if (Status != XST_SUCCESS) {
+//		return XST_FAILURE;
+//	}
+//
+//  /* Test finishes successfully
+//   */
+  return XST_SUCCESS;
+}
+
+
+
+/*****************************************************************************/
+/*
+ *
+ * This function checks data buffer after the DMA transfer is finished.
+ *
+ * @param    None
+ *
+ * @return
+ *
+ * @note        None.
+ *
+ ******************************************************************************/
+static int CheckData()
+{
+  int *RxPacket;
+  int correct = 0;
+//  int Index = 0;
+  RxPacket = (int *) (RX_BUFFER_BASE + 4);
+  /* Invalidate the DestBuffer before receiving the data, in case the
+   * Data Cache is enabled
+   */
+  Xil_DCacheInvalidateRange((u32)RxPacket, NUM_BYTES_RX);
+  xil_printf("Predictions | Actual are:\n\r");
+  for (int i = 0; i < NUM_WORDS_RX; i++){
+	  xil_printf("%d | %d\n\r", (int)RxPacket[i], test_labels[i]);
+	  if (RxPacket[i] == test_labels[i]){
+		  correct += 1;
+	  }
+  }
+  printf("Accuracy is: %f\n\r", (float)correct/NUM_TEST_DATA);
+  return XST_SUCCESS;
+}
+
+// random number for first init of matrices
+float get_rand(void){
+//	printf("%f\n\r", (float)rand());
+	return ((float)rand()) / (float)RAND_MAX;
+}
+
+// init weights with random values
+void init_weights(void){
+	for(int j = 0; j < NUM_HIDDEN_NODES; j++)
+ 	{
+    	for(int i = 0; i < NUM_FEATURES; i++)
+    	{
+     		weights_IH[i][j] = get_rand();
+//     		printf("%f ", weights_IH[i][j]);
+    	}
+//    	printf("\n\r");
+    	for(int i = 0; i < NUM_OUTPUT_NODES; i++) {
+        	weights_HO[j][i] = get_rand();
+    	}
+
+//		printf("%f\n\r", weights_HO[j][k]);
+  	}
+}
+
+// returns sigmoid function output
+float sigmoid(float x){
+	return 1/(1+exp(-1 * x));
+}
+
+// feed the data forward through the neural network
+void feed_forward_train(void){
+    int i,j;
+
+    // values for hidden layer output
+    for (i = 0; i < NUM_HIDDEN_NODES; i++){
+    	values_hidden_layer[i] = 0.0;
+    	for (j = 0; j < NUM_FEATURES; j++){
+    		values_hidden_layer[i] += (float)train_data[data_num][j+1]/(float)255 * weights_IH[j][i];
+    	}
+    	values_hidden_layer[i] = sigmoid(values_hidden_layer[i]);
+    }
+
+    // values for output layer output
+    for (i = 0; i < NUM_OUTPUT_NODES; i++){
+    	values_output_layer[i] = 0.0;
+    	for (j = 0; j < NUM_HIDDEN_NODES; j++){
+    		values_output_layer[i] += values_hidden_layer[j] * weights_HO[j][i];
+    	}
+    	values_output_layer[i] = sigmoid(values_output_layer[i]);
+    }
+}
+
+void backprop(void){
+	int i,j;
+	int target = train_data[data_num][0];
+	int labels[NUM_OUTPUT_NODES] = {0};
+
+	if (target == 1){
+		labels[0] = 1;
+	} else if (target == 2){
+		labels[1] = 1;
+	} else{
+		labels[2] = 1;
+	}
+	//Getting output errors and error terms
+//	printf("Output error:");
+	for (i = 0; i < NUM_OUTPUT_NODES; i++){
+		output_error[i] = (float)labels[i] - values_output_layer[i];
+		output_error_term[i] = output_error[i] * values_output_layer[i] * (1 - values_output_layer[i]);
+//		printf("%f ", output_error[i]);
+	}
+
+//	printf("\n\r");
+
+	//Getting hidden layer errors and error terms
+	for (i = 0; i < NUM_HIDDEN_NODES; i++){
+		hidden_error[i] = 0.0;
+		for (j = 0; j < NUM_OUTPUT_NODES; j++){
+			hidden_error[i] += output_error_term[j] * weights_HO[i][j];
+		}
+		hidden_error_term[i] = hidden_error[i] * values_hidden_layer[i] * (1 - values_hidden_layer[i]);
+	}
+
+	// Updating weights from hidden layer to output layer
+	for (i = 0; i < NUM_HIDDEN_NODES; i++){
+		for (j = 0; j < NUM_OUTPUT_NODES; j++){
+			weights_HO[i][j] += LR_HO * output_error_term[j] * values_hidden_layer[i];
+		}
+	}
+
+	// Updating weights from input layer to hidden layer
+	for (i = 0; i < NUM_FEATURES; i++){
+		for (j = 0; j < NUM_HIDDEN_NODES; j++){
+			weights_IH[i][j] += LR_IH * hidden_error_term[j] * ((float)train_data[data_num][i+1]/(float)255);
+		}
+	}
+}
+
+// train the neural network
+void train(void){
+	for(int j = 0; j <= NUM_EPOCHS; j++){
+		for(int i = 0; i < NUM_TRAIN_DATA; i++){
+			// select one of the training data
+			data_num = rand() % NUM_TRAIN_DATA;
+
+			// feed the data forward
+			feed_forward_train();
+
+			// update the weights
+			backprop();
+		}
+
+		// calculate the overall network error
+		calc_error();
+
+		// display no of epoch and overall error
+		printf("epoch = %d RMS Error = %f\n\r", j, rms_error);
+	}
+}
+
+// calculate the overall error
+void calc_error(void){
+    rms_error = 0.0;
+    float total_error = 0.0;
+    int target = 0;
+    int i,j;
+
+    // calculate error for each data
+    for(i = 0; i < NUM_TRAIN_DATA; i++){
+    	total_error = 0.0;
+        data_num = i;
+        target = train_data[data_num][0];
+        int labels[NUM_OUTPUT_NODES] = {0};
+        if (target == 1){
+			labels[0] = 1;
+		} else if (target == 2){
+			labels[1] = 1;
+		} else{
+			labels[2] = 1;
+		}
+        feed_forward_train();
+        for (j = 0; j < NUM_OUTPUT_NODES; j++){
+			output_error[j] = (float)labels[j] - values_output_layer[j];
+			total_error += output_error[j];
+		}
+        rms_error += total_error * total_error;
+    }
+
+    // square root error
+    rms_error = sqrt(rms_error / NUM_TRAIN_DATA);
+}
+
+// calculate the overall error
+void predict_soft(void){
+	u32 *RxBufferPtr;
+	int prediction[NUM_TEST_DATA] = {0};
+	int16_t highest_pred = 0;
+	int correct = 0;
+	// vector to store results in hidden and output layer
+	int16_t fixedvalues_hidden_layer[NUM_HIDDEN_NODES];
+	int16_t fixedvalues_output_layer[NUM_OUTPUT_NODES];
+	int i,j,k;
+	RxBufferPtr = (u32 *)RX_BUFFER_BASE;
+	XTime_GetTime(&tStart);
+	for (k = 0; k < NUM_TEST_DATA; k++){
+		data_num = k;
+		highest_pred = 0;
+		// values for hidden layer output
+		for (i = 0; i < NUM_HIDDEN_NODES; i++){
+			fixedvalues_hidden_layer[i] = 0;
+			values_hidden_layer[i] = 0.0;
+			for (j = 0; j < NUM_FEATURES; j++){
+				fixedvalues_hidden_layer[i] += mul(fixedtest_data[data_num][j], fixed_weights_IH[j][i]);
+//				values_hidden_layer[i] += (float)test_data[data_num][j]/(float)255 * weights_IH[j][i];
+			}
+//			printf("hidden val is: %d\n\r",fixedvalues_hidden_layer[i]);
+//			fixedvalues_hidden_layer[i] = fixed_sigmoid(fixedvalues_hidden_layer[i]);
+			if (fixedvalues_hidden_layer[i] < -1024) {
+				fixedvalues_hidden_layer[i] = -1024;
+			} else if (fixedvalues_hidden_layer[i] > 1023) {
+				fixedvalues_hidden_layer[i] = 1023;
+			}
+//			printf("HIDDEN LAYER: %d\n\r",1024+fixedvalues_hidden_layer[i]);
+			fixedvalues_hidden_layer[i] = sigmoid_arr[1024+fixedvalues_hidden_layer[i]];
+//			printf("sigmoid hidden val is: %d\n\r",fixedvalues_hidden_layer[i]);
+//			values_hidden_layer[i] = sigmoid(values_hidden_layer[i]);
+//			printf("HIDDEN LAYER: %f %f\n\r",values_hidden_layer[i], floatVal(fixedvalues_hidden_layer[i]));
+		}
+
+		// values for output layer output
+//		printf("output layer: ");
+		for (i = 0; i < NUM_OUTPUT_NODES; i++){
+			fixedvalues_output_layer[i] = 0;
+//			values_output_layer[i] = 0.0;
+			for (j = 0; j < NUM_HIDDEN_NODES; j++){
+				fixedvalues_output_layer[i] += mul(fixedvalues_hidden_layer[j], fixed_weights_HO[j][i]);
+//				values_output_layer[i] += values_hidden_layer[j] * weights_HO[j][i];
+//				printf("OUTPUT LAYER: %f %f",values_output_layer[i], floatVal(fixedvalues_output_layer[i]));
+			}
+//			printf("OUTPUT LAYER: %f %f",values_output_layer[i], floatVal(fixedvalues_output_layer[i]));
+//			fixedvalues_output_layer[i] = fixed_sigmoid(fixedvalues_output_layer[i]);
+//			printf("output val is: %d\n\r",fixedvalues_output_layer[i]);
+			if (fixedvalues_output_layer[i] < -1024) {
+				fixedvalues_output_layer[i] = -1024;
+			} else if (fixedvalues_output_layer[i] > 1023) {
+				fixedvalues_output_layer[i] = 1023;
+			}
+//			printf("OUTPUT LAYER: %d\n\r",1024+fixedvalues_output_layer[i]);
+			fixedvalues_output_layer[i] = sigmoid_arr[1024+fixedvalues_output_layer[i]];
+//			printf("sigmoid output val is: %d\n\r",fixedvalues_output_layer[i]);
+//			values_output_layer[i] = sigmoid(values_output_layer[i]);
+//			printf("OUTPUT LAYER: %f %f\n\r",values_output_layer[i], floatVal(fixedvalues_output_layer[i]));
+//			printf("Highest pred is:%d %f....fixedvalues_output_layer is:%d %f\n\r",highest_pred, floatVal(highest_pred), fixedvalues_output_layer[i], floatVal(fixedvalues_output_layer[i]));
+			if (fixedvalues_output_layer[i] > highest_pred) {
+				highest_pred = fixedvalues_output_layer[i];
+				prediction[k] = i+1;
+			}
+//			printf("\n\r");
+		}
+//		printf("%d | %d\n\r", prediction,test_labels[data_num]);
+
+//		RxBufferPtr[k] = (unsigned int)prediction;
+//		printf("%d\n\r", (unsigned int)RxBufferPtr[k]);
+
+		// Used for debug
+//		if (test_labels[data_num] != prediction){
+//			printf("Test data %d:\n\r", k);
+//			printf("Actual:%d\n\r", test_labels[data_num]);
+//			printf("Predicted:%d\n\rOutput values are:\n\r", prediction);
+//			for (i = 0; i < NUM_OUTPUT_NODES; i++) {
+//				printf("%f ", values_output_layer[i]);
+//			}
+//			printf("\n\r");
+//		}
+	}
+	XTime_GetTime(&tEnd);
+	printf("Predictions | Actual are: \n\r");
+	for (i = 0; i < NUM_TEST_DATA; i++){
+		if (prediction[i] == test_labels[i]){
+			correct += 1;
+		}
+		printf("%d | %d\n\r", prediction[i],test_labels[i]);
+	}
+	printf("Accuracy is: %f\n\r", (float)correct/NUM_TEST_DATA);
+	printf("Run took %.4f ms.\n", 1.0 * (tEnd - tStart) / (COUNTS_PER_SECOND/1000));
+
+}
+
+int16_t toFix(float val) {
+//    printf("%f\n\r",val);
+    return (int16_t) (val * ONE);
+}
+
+int mul(int16_t a, int16_t b){
+    return (int)((int)a * (int)b >> FRACTIONAL_BITS);
+}
+
+void weights_to_fixed(void){
+	int i,j;
+	// converts weightsIH to fixed point
+	for (i = 0; i < NUM_FEATURES; i++){
+		for (j = 0; j < NUM_HIDDEN_NODES; j++){
+			fixed_weights_IH[i][j] = toFix(weights_IH[i][j]);
+		}
+	}
+
+	for(i = 0; i < NUM_HIDDEN_NODES; i++){
+		for (j = 0; j < NUM_OUTPUT_NODES; j++){
+			fixed_weights_HO[i][j] = toFix(weights_HO[i][j]);
+		}
+	}
+}
+
+float floatVal(int16_t fix) {
+    return ((float) fix) / ONE;
+}

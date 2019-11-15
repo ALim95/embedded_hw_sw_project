@@ -1,0 +1,29 @@
+#-----------------------------------------------------------
+# xsim v2016.3 (64-bit)
+# SW Build 1682563 on Mon Oct 10 19:07:27 MDT 2016
+# IP Build 1681267 on Mon Oct 10 21:28:31 MDT 2016
+# Start of session at: Mon Nov 11 14:54:15 2019
+# Process ID: 14424
+# Current directory: C:/Xilinx/Labs/labhls/AXISTry/AXISTry_Soln/sim/verilog
+# Command line: xsim.exe -mode tcl -source {xsim.dir/AXISTry/xsim_script.tcl}
+# Log file: C:/Xilinx/Labs/labhls/AXISTry/AXISTry_Soln/sim/verilog/xsim.log
+# Journal file: C:/Xilinx/Labs/labhls/AXISTry/AXISTry_Soln/sim/verilog\xsim.jou
+#-----------------------------------------------------------
+source xsim.dir/AXISTry/xsim_script.tcl
+# xsim {AXISTry} -autoloadwcfg -tclbatch {AXISTry.tcl}
+Vivado Simulator 2016.3
+Time resolution is 1 ps
+source AXISTry.tcl
+## run all
+////////////////////////////////////////////////////////////////////////////////////
+// Inter-Transaction Progress: Completed Transaction / Total Transaction
+// Intra-Transaction Progress: Measured Latency / Latency Estimation * 100%
+//
+// RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
+////////////////////////////////////////////////////////////////////////////////////
+// RTL Simulation : 0 / 1 [0.00%] @ "125000"
+// RTL Simulation : 1 / 1 [0.00%] @ "145765000"
+////////////////////////////////////////////////////////////////////////////////////
+$finish called at time : 145805 ns : File "C:/Xilinx/Labs/labhls/AXISTry/AXISTry_Soln/sim/verilog/AXISTry.autotb.v" Line 220
+## quit
+INFO: [Common 17-206] Exiting xsim at Mon Nov 11 14:54:21 2019...

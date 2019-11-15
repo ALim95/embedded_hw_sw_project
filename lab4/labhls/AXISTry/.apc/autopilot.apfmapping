@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="AXISTry.cpp" path="C:\Xilinx\Labs\labhls\AXISTry.cpp"/>
+  </source>
+  <testbench>
+    <originFiles name="Test_AXISTry.cpp" path="C:\Xilinx\Labs\labhls\Test_AXISTry.cpp"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

@@ -1,0 +1,1487 @@
+16:46:15 **** Build of project mlp_bsp ****
+make -k all 
+"Running Make include in ps7_cortexa9_0/libsrc/axidma_v9_3/src"
+make -C ps7_cortexa9_0/libsrc/axidma_v9_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_3/src"
+make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_3/src"
+make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/ddrps_v1_0/src"
+make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/devcfg_v3_4/src"
+make -C ps7_cortexa9_0/libsrc/devcfg_v3_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/dmaps_v2_2/src"
+make -C ps7_cortexa9_0/libsrc/dmaps_v2_2/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/emacps_v3_3/src"
+make -C ps7_cortexa9_0/libsrc/emacps_v3_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/gpiops_v3_1/src"
+make -C ps7_cortexa9_0/libsrc/gpiops_v3_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/qspips_v3_3/src"
+make -C ps7_cortexa9_0/libsrc/qspips_v3_3/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/scugic_v3_4/src"
+make -C ps7_cortexa9_0/libsrc/scugic_v3_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/scutimer_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/sdps_v3_0/src"
+make -C ps7_cortexa9_0/libsrc/sdps_v3_0/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/standalone_v6_0/src"
+make -C ps7_cortexa9_0/libsrc/standalone_v6_0/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/ttcps_v3_1/src"
+make -C ps7_cortexa9_0/libsrc/ttcps_v3_1/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/uartps_v3_2/src"
+make -C ps7_cortexa9_0/libsrc/uartps_v3_2/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/usbps_v2_4/src"
+make -C ps7_cortexa9_0/libsrc/usbps_v2_4/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make include in ps7_cortexa9_0/libsrc/xadcps_v2_2/src"
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_2/src -s include  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Running Make libs in ps7_cortexa9_0/libsrc/axidma_v9_3/src"
+make -C ps7_cortexa9_0/libsrc/axidma_v9_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling axidma"
+arm-none-eabi-ar: creating ../../../lib/libxil.a
+"Running Make libs in ps7_cortexa9_0/libsrc/coresightps_dcc_v1_3/src"
+make -C ps7_cortexa9_0/libsrc/coresightps_dcc_v1_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling coresightps_dcc"
+"Running Make libs in ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_3/src"
+make -C ps7_cortexa9_0/libsrc/cpu_cortexa9_v2_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling cpu_cortexa9"
+"Running Make libs in ps7_cortexa9_0/libsrc/ddrps_v1_0/src"
+make -C ps7_cortexa9_0/libsrc/ddrps_v1_0/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling ddrps"
+"Running Make libs in ps7_cortexa9_0/libsrc/devcfg_v3_4/src"
+make -C ps7_cortexa9_0/libsrc/devcfg_v3_4/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling devcfg"
+"Running Make libs in ps7_cortexa9_0/libsrc/dmaps_v2_2/src"
+make -C ps7_cortexa9_0/libsrc/dmaps_v2_2/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling dmaps"
+"Running Make libs in ps7_cortexa9_0/libsrc/emacps_v3_3/src"
+make -C ps7_cortexa9_0/libsrc/emacps_v3_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling emacps"
+"Running Make libs in ps7_cortexa9_0/libsrc/gpiops_v3_1/src"
+make -C ps7_cortexa9_0/libsrc/gpiops_v3_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling gpiops"
+"Running Make libs in ps7_cortexa9_0/libsrc/qspips_v3_3/src"
+make -C ps7_cortexa9_0/libsrc/qspips_v3_3/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling qspips"
+"Running Make libs in ps7_cortexa9_0/libsrc/scugic_v3_4/src"
+make -C ps7_cortexa9_0/libsrc/scugic_v3_4/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling scugic"
+"Running Make libs in ps7_cortexa9_0/libsrc/scutimer_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scutimer_v2_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling scutimer"
+"Running Make libs in ps7_cortexa9_0/libsrc/scuwdt_v2_1/src"
+make -C ps7_cortexa9_0/libsrc/scuwdt_v2_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling scuwdt"
+"Running Make libs in ps7_cortexa9_0/libsrc/sdps_v3_0/src"
+make -C ps7_cortexa9_0/libsrc/sdps_v3_0/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling sdps"
+"Running Make libs in ps7_cortexa9_0/libsrc/standalone_v6_0/src"
+make -C ps7_cortexa9_0/libsrc/standalone_v6_0/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling standalone"
+"Running Make libs in ps7_cortexa9_0/libsrc/ttcps_v3_1/src"
+make -C ps7_cortexa9_0/libsrc/ttcps_v3_1/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling ttcps"
+"Running Make libs in ps7_cortexa9_0/libsrc/uartps_v3_2/src"
+make -C ps7_cortexa9_0/libsrc/uartps_v3_2/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling uartps"
+"Running Make libs in ps7_cortexa9_0/libsrc/usbps_v2_4/src"
+make -C ps7_cortexa9_0/libsrc/usbps_v2_4/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling usbps"
+"Running Make libs in ps7_cortexa9_0/libsrc/xadcps_v2_2/src"
+make -C ps7_cortexa9_0/libsrc/xadcps_v2_2/src -s libs  "SHELL=CMD" "COMPILER=arm-none-eabi-gcc" "ARCHIVER=arm-none-eabi-ar" "COMPILER_FLAGS=  -O2 -c" "EXTRA_COMPILER_FLAGS=-mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -nostartfiles"
+"Compiling xadcps"
+'Finished building libraries'
+16:46:48 **** Build of configuration Debug for project mlp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mlp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+'Finished building: ../src/helloworld.c'
+' '
+'Building file: ../src/platform.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mlp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+'Finished building: ../src/platform.c'
+' '
+'Building target: mlp.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mlp_bsp/ps7_cortexa9_0/lib -o "mlp.elf"  ./src/helloworld.o ./src/platform.o   -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: mlp.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mlp.elf  |tee "mlp.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  22336	   1148	  22568	  46052	   b3e4	mlp.elf
+'Finished building: mlp.elf.size'
+' '
+16:47:28 **** Incremental Build of configuration Debug for project mlp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+16:47:48 **** Incremental Build of configuration Debug for project mlp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+16:48:19 **** Clean-only build of configuration Debug for project mlp ****
+make clean 
+rm -rf  ./src/helloworld.o ./src/platform.o  ./src/helloworld.d ./src/platform.d  mlp.elf.size  mlp.elf
+' '
+16:48:19 **** Auto Build of configuration Debug for project mlp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mlp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+'Finished building: ../src/helloworld.c'
+' '
+'Building file: ../src/platform.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/platform.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mlp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/platform.d" -MT"src/platform.o" -o "src/platform.o" "../src/platform.c"
+'Finished building: ../src/platform.c'
+' '
+'Building target: mlp.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mlp_bsp/ps7_cortexa9_0/lib -o "mlp.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: mlp.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mlp.elf  |tee "mlp.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+  22336	   1148	  22568	  46052	   b3e4	mlp.elf
+'Finished building: mlp.elf.size'
+' '
+16:48:45 **** Auto Build of configuration Debug for project mlp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mlp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:246:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+       scanf("%d", &train_data[rows][cols]);
+             ^
+../src/helloworld.c:246:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:272:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+  scanf("%d", &test_labels[rows]);
+        ^
+../src/helloworld.c:272:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:277:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+   scanf("%d", &test_data[rows][cols]);
+         ^
+../src/helloworld.c:277:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:237:9: warning: unused variable 'j' [-Wunused-variable]
+   int i,j;
+         ^
+../src/helloworld.c:237:7: warning: unused variable 'i' [-Wunused-variable]
+   int i,j;
+       ^
+../src/helloworld.c:235:7: warning: unused variable 'Status' [-Wunused-variable]
+   int Status;
+       ^
+../src/helloworld.c: In function 'predict_soft':
+../src/helloworld.c:690:7: warning: variable 'RxBufferPtr' set but not used [-Wunused-but-set-variable]
+  u32 *RxBufferPtr;
+       ^
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: mlp.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mlp_bsp/ps7_cortexa9_0/lib -o "mlp.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: mlp.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mlp.elf  |tee "mlp.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 143932	  10908	  29088	 183928	  2ce78	mlp.elf
+'Finished building: mlp.elf.size'
+' '
+16:51:40 **** Auto Build of configuration Debug for project mlp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mlp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:247:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+       scanf("%d", &train_data[rows][cols]);
+             ^
+../src/helloworld.c:247:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:273:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+  scanf("%d", &test_labels[rows]);
+        ^
+../src/helloworld.c:273:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:278:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+   scanf("%d", &test_data[rows][cols]);
+         ^
+../src/helloworld.c:278:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:238:9: warning: unused variable 'j' [-Wunused-variable]
+   int i,j;
+         ^
+../src/helloworld.c:238:7: warning: unused variable 'i' [-Wunused-variable]
+   int i,j;
+       ^
+../src/helloworld.c:236:7: warning: unused variable 'Status' [-Wunused-variable]
+   int Status;
+       ^
+../src/helloworld.c: In function 'predict_soft':
+../src/helloworld.c:691:7: warning: variable 'RxBufferPtr' set but not used [-Wunused-but-set-variable]
+  u32 *RxBufferPtr;
+       ^
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: mlp.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mlp_bsp/ps7_cortexa9_0/lib -o "mlp.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: mlp.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mlp.elf  |tee "mlp.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 143932	  10908	  29088	 183928	  2ce78	mlp.elf
+'Finished building: mlp.elf.size'
+' '
+16:52:05 **** Auto Build of configuration Debug for project mlp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mlp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:247:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+       scanf("%d", &train_data[rows][cols]);
+             ^
+../src/helloworld.c:247:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:273:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+  scanf("%d", &test_labels[rows]);
+        ^
+../src/helloworld.c:273:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:278:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+   scanf("%d", &test_data[rows][cols]);
+         ^
+../src/helloworld.c:278:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:238:9: warning: unused variable 'j' [-Wunused-variable]
+   int i,j;
+         ^
+../src/helloworld.c:238:7: warning: unused variable 'i' [-Wunused-variable]
+   int i,j;
+       ^
+../src/helloworld.c:236:7: warning: unused variable 'Status' [-Wunused-variable]
+   int Status;
+       ^
+../src/helloworld.c: In function 'predict_soft':
+../src/helloworld.c:691:7: warning: variable 'RxBufferPtr' set but not used [-Wunused-but-set-variable]
+  u32 *RxBufferPtr;
+       ^
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: mlp.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mlp_bsp/ps7_cortexa9_0/lib -o "mlp.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: mlp.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mlp.elf  |tee "mlp.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 143932	  10908	  29088	 183928	  2ce78	mlp.elf
+'Finished building: mlp.elf.size'
+' '
+16:52:11 **** Incremental Build of configuration Debug for project mlp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+16:55:49 **** Auto Build of configuration Debug for project mlp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mlp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:248:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+       scanf("%d", &train_data[rows][cols]);
+             ^
+../src/helloworld.c:248:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:274:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+  scanf("%d", &test_labels[rows]);
+        ^
+../src/helloworld.c:274:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:279:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+   scanf("%d", &test_data[rows][cols]);
+         ^
+../src/helloworld.c:279:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:239:9: warning: unused variable 'j' [-Wunused-variable]
+   int i,j;
+         ^
+../src/helloworld.c:239:7: warning: unused variable 'i' [-Wunused-variable]
+   int i,j;
+       ^
+../src/helloworld.c:237:7: warning: unused variable 'Status' [-Wunused-variable]
+   int Status;
+       ^
+../src/helloworld.c: In function 'predict_soft':
+../src/helloworld.c:692:7: warning: variable 'RxBufferPtr' set but not used [-Wunused-but-set-variable]
+  u32 *RxBufferPtr;
+       ^
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: mlp.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mlp_bsp/ps7_cortexa9_0/lib -o "mlp.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: mlp.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mlp.elf  |tee "mlp.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 143932	  10908	  29088	 183928	  2ce78	mlp.elf
+'Finished building: mlp.elf.size'
+' '
+16:56:49 **** Auto Build of configuration Debug for project mlp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mlp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:249:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+       scanf("%d", &train_data[rows][cols]);
+             ^
+../src/helloworld.c:249:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:275:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+  scanf("%d", &test_labels[rows]);
+        ^
+../src/helloworld.c:275:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:280:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+   scanf("%d", &test_data[rows][cols]);
+         ^
+../src/helloworld.c:280:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:240:9: warning: unused variable 'j' [-Wunused-variable]
+   int i,j;
+         ^
+../src/helloworld.c:240:7: warning: unused variable 'i' [-Wunused-variable]
+   int i,j;
+       ^
+../src/helloworld.c:238:7: warning: unused variable 'Status' [-Wunused-variable]
+   int Status;
+       ^
+../src/helloworld.c: In function 'predict_soft':
+../src/helloworld.c:693:7: warning: variable 'RxBufferPtr' set but not used [-Wunused-but-set-variable]
+  u32 *RxBufferPtr;
+       ^
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: mlp.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mlp_bsp/ps7_cortexa9_0/lib -o "mlp.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: mlp.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mlp.elf  |tee "mlp.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 143932	  10908	  29104	 183944	  2ce88	mlp.elf
+'Finished building: mlp.elf.size'
+' '
+16:57:00 **** Auto Build of configuration Debug for project mlp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mlp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:251:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+       scanf("%d", &train_data[rows][cols]);
+             ^
+../src/helloworld.c:251:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:277:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+  scanf("%d", &test_labels[rows]);
+        ^
+../src/helloworld.c:277:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:282:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+   scanf("%d", &test_data[rows][cols]);
+         ^
+../src/helloworld.c:282:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:242:9: warning: unused variable 'j' [-Wunused-variable]
+   int i,j;
+         ^
+../src/helloworld.c:242:7: warning: unused variable 'i' [-Wunused-variable]
+   int i,j;
+       ^
+../src/helloworld.c:240:7: warning: unused variable 'Status' [-Wunused-variable]
+   int Status;
+       ^
+../src/helloworld.c: In function 'predict_soft':
+../src/helloworld.c:695:7: warning: variable 'RxBufferPtr' set but not used [-Wunused-but-set-variable]
+  u32 *RxBufferPtr;
+       ^
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: mlp.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mlp_bsp/ps7_cortexa9_0/lib -o "mlp.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: mlp.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mlp.elf  |tee "mlp.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 143932	  10908	  29104	 183944	  2ce88	mlp.elf
+'Finished building: mlp.elf.size'
+' '
+16:58:56 **** Auto Build of configuration Debug for project mlp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mlp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:251:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+       scanf("%d", &train_data[rows][cols]);
+             ^
+../src/helloworld.c:251:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:277:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+  scanf("%d", &test_labels[rows]);
+        ^
+../src/helloworld.c:277:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:282:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+   scanf("%d", &test_data[rows][cols]);
+         ^
+../src/helloworld.c:282:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:242:9: warning: unused variable 'j' [-Wunused-variable]
+   int i,j;
+         ^
+../src/helloworld.c:242:7: warning: unused variable 'i' [-Wunused-variable]
+   int i,j;
+       ^
+../src/helloworld.c:240:7: warning: unused variable 'Status' [-Wunused-variable]
+   int Status;
+       ^
+../src/helloworld.c: In function 'predict_soft':
+../src/helloworld.c:696:7: warning: variable 'RxBufferPtr' set but not used [-Wunused-but-set-variable]
+  u32 *RxBufferPtr;
+       ^
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: mlp.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mlp_bsp/ps7_cortexa9_0/lib -o "mlp.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: mlp.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mlp.elf  |tee "mlp.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 143996	  10908	  29104	 184008	  2cec8	mlp.elf
+'Finished building: mlp.elf.size'
+' '
+16:59:19 **** Auto Build of configuration Debug for project mlp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mlp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:251:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+       scanf("%d", &train_data[rows][cols]);
+             ^
+../src/helloworld.c:251:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:277:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+  scanf("%d", &test_labels[rows]);
+        ^
+../src/helloworld.c:277:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:282:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+   scanf("%d", &test_data[rows][cols]);
+         ^
+../src/helloworld.c:282:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:242:9: warning: unused variable 'j' [-Wunused-variable]
+   int i,j;
+         ^
+../src/helloworld.c:242:7: warning: unused variable 'i' [-Wunused-variable]
+   int i,j;
+       ^
+../src/helloworld.c:240:7: warning: unused variable 'Status' [-Wunused-variable]
+   int Status;
+       ^
+../src/helloworld.c: In function 'XAxiDma_SimplePollExample':
+../src/helloworld.c:469:3: error: expected ';' before 'Status'
+   Status = CheckData();
+   ^
+../src/helloworld.c: In function 'predict_soft':
+../src/helloworld.c:697:7: warning: variable 'RxBufferPtr' set but not used [-Wunused-but-set-variable]
+  u32 *RxBufferPtr;
+       ^
+../src/helloworld.c: At top level:
+../src/helloworld.c:522:12: warning: 'CheckData' defined but not used [-Wunused-function]
+ static int CheckData()
+            ^
+make: *** [src/helloworld.o] Error 1
+16:59:24 **** Auto Build of configuration Debug for project mlp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mlp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:251:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+       scanf("%d", &train_data[rows][cols]);
+             ^
+../src/helloworld.c:251:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:277:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+  scanf("%d", &test_labels[rows]);
+        ^
+../src/helloworld.c:277:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:282:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+   scanf("%d", &test_data[rows][cols]);
+         ^
+../src/helloworld.c:282:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:242:9: warning: unused variable 'j' [-Wunused-variable]
+   int i,j;
+         ^
+../src/helloworld.c:242:7: warning: unused variable 'i' [-Wunused-variable]
+   int i,j;
+       ^
+../src/helloworld.c:240:7: warning: unused variable 'Status' [-Wunused-variable]
+   int Status;
+       ^
+../src/helloworld.c: In function 'predict_soft':
+../src/helloworld.c:697:7: warning: variable 'RxBufferPtr' set but not used [-Wunused-but-set-variable]
+  u32 *RxBufferPtr;
+       ^
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: mlp.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mlp_bsp/ps7_cortexa9_0/lib -o "mlp.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: mlp.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mlp.elf  |tee "mlp.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 145036	  10908	  29104	 185048	  2d2d8	mlp.elf
+'Finished building: mlp.elf.size'
+' '
+17:02:03 **** Auto Build of configuration Debug for project mlp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mlp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:251:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+       scanf("%d", &train_data[rows][cols]);
+             ^
+../src/helloworld.c:251:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:277:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+  scanf("%d", &test_labels[rows]);
+        ^
+../src/helloworld.c:277:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:282:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+   scanf("%d", &test_data[rows][cols]);
+         ^
+../src/helloworld.c:282:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:242:9: warning: unused variable 'j' [-Wunused-variable]
+   int i,j;
+         ^
+../src/helloworld.c:242:7: warning: unused variable 'i' [-Wunused-variable]
+   int i,j;
+       ^
+../src/helloworld.c:240:7: warning: unused variable 'Status' [-Wunused-variable]
+   int Status;
+       ^
+../src/helloworld.c: In function 'predict_soft':
+../src/helloworld.c:698:34: error: invalid initializer
+  int prediction[NUM_TEST_DATA] = 0;
+                                  ^
+../src/helloworld.c:760:16: error: assignment to expression with array type
+     prediction = i+1;
+                ^
+../src/helloworld.c:765:18: warning: comparison between pointer and integer
+   if (prediction == test_labels[data_num]){
+                  ^
+../src/helloworld.c:697:7: warning: variable 'RxBufferPtr' set but not used [-Wunused-but-set-variable]
+  u32 *RxBufferPtr;
+       ^
+make: *** [src/helloworld.o] Error 1
+17:02:16 **** Auto Build of configuration Debug for project mlp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mlp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:251:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+       scanf("%d", &train_data[rows][cols]);
+             ^
+../src/helloworld.c:251:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:277:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+  scanf("%d", &test_labels[rows]);
+        ^
+../src/helloworld.c:277:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:282:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+   scanf("%d", &test_data[rows][cols]);
+         ^
+../src/helloworld.c:282:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:242:9: warning: unused variable 'j' [-Wunused-variable]
+   int i,j;
+         ^
+../src/helloworld.c:242:7: warning: unused variable 'i' [-Wunused-variable]
+   int i,j;
+       ^
+../src/helloworld.c:240:7: warning: unused variable 'Status' [-Wunused-variable]
+   int Status;
+       ^
+../src/helloworld.c: In function 'predict_soft':
+../src/helloworld.c:698:34: error: invalid initializer
+  int prediction[NUM_TEST_DATA] = 0;
+                                  ^
+../src/helloworld.c:765:18: warning: comparison between pointer and integer
+   if (prediction == test_labels[data_num]){
+                  ^
+../src/helloworld.c:697:7: warning: variable 'RxBufferPtr' set but not used [-Wunused-but-set-variable]
+  u32 *RxBufferPtr;
+       ^
+make: *** [src/helloworld.o] Error 1
+17:04:16 **** Auto Build of configuration Debug for project mlp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mlp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:251:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+       scanf("%d", &train_data[rows][cols]);
+             ^
+../src/helloworld.c:251:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:277:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+  scanf("%d", &test_labels[rows]);
+        ^
+../src/helloworld.c:277:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:282:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+   scanf("%d", &test_data[rows][cols]);
+         ^
+../src/helloworld.c:282:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:242:9: warning: unused variable 'j' [-Wunused-variable]
+   int i,j;
+         ^
+../src/helloworld.c:242:7: warning: unused variable 'i' [-Wunused-variable]
+   int i,j;
+       ^
+../src/helloworld.c:240:7: warning: unused variable 'Status' [-Wunused-variable]
+   int Status;
+       ^
+../src/helloworld.c: In function 'predict_soft':
+../src/helloworld.c:698:34: error: invalid initializer
+  int prediction[NUM_TEST_DATA] = 0;
+                                  ^
+../src/helloworld.c:697:7: warning: variable 'RxBufferPtr' set but not used [-Wunused-but-set-variable]
+  u32 *RxBufferPtr;
+       ^
+make: *** [src/helloworld.o] Error 1
+17:04:32 **** Auto Build of configuration Debug for project mlp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mlp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:251:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+       scanf("%d", &train_data[rows][cols]);
+             ^
+../src/helloworld.c:251:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:277:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+  scanf("%d", &test_labels[rows]);
+        ^
+../src/helloworld.c:277:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:282:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+   scanf("%d", &test_data[rows][cols]);
+         ^
+../src/helloworld.c:282:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:242:9: warning: unused variable 'j' [-Wunused-variable]
+   int i,j;
+         ^
+../src/helloworld.c:242:7: warning: unused variable 'i' [-Wunused-variable]
+   int i,j;
+       ^
+../src/helloworld.c:240:7: warning: unused variable 'Status' [-Wunused-variable]
+   int Status;
+       ^
+../src/helloworld.c: In function 'predict_soft':
+../src/helloworld.c:697:7: warning: variable 'RxBufferPtr' set but not used [-Wunused-but-set-variable]
+  u32 *RxBufferPtr;
+       ^
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: mlp.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mlp_bsp/ps7_cortexa9_0/lib -o "mlp.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: mlp.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mlp.elf  |tee "mlp.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 144964	  10908	  29104	 184976	  2d290	mlp.elf
+'Finished building: mlp.elf.size'
+' '
+17:04:45 **** Incremental Build of configuration Debug for project mlp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+17:06:13 **** Auto Build of configuration Debug for project mlp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mlp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:251:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+       scanf("%d", &train_data[rows][cols]);
+             ^
+../src/helloworld.c:251:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:277:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+  scanf("%d", &test_labels[rows]);
+        ^
+../src/helloworld.c:277:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:282:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+   scanf("%d", &test_data[rows][cols]);
+         ^
+../src/helloworld.c:282:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:242:9: warning: unused variable 'j' [-Wunused-variable]
+   int i,j;
+         ^
+../src/helloworld.c:242:7: warning: unused variable 'i' [-Wunused-variable]
+   int i,j;
+       ^
+../src/helloworld.c:240:7: warning: unused variable 'Status' [-Wunused-variable]
+   int Status;
+       ^
+../src/helloworld.c: In function 'predict_soft':
+../src/helloworld.c:697:7: warning: variable 'RxBufferPtr' set but not used [-Wunused-but-set-variable]
+  u32 *RxBufferPtr;
+       ^
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: mlp.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mlp_bsp/ps7_cortexa9_0/lib -o "mlp.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: mlp.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mlp.elf  |tee "mlp.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 144964	  10908	  29104	 184976	  2d290	mlp.elf
+'Finished building: mlp.elf.size'
+' '
+17:06:24 **** Auto Build of configuration Debug for project mlp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mlp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:251:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+       scanf("%d", &train_data[rows][cols]);
+             ^
+../src/helloworld.c:251:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:277:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+  scanf("%d", &test_labels[rows]);
+        ^
+../src/helloworld.c:277:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:282:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+   scanf("%d", &test_data[rows][cols]);
+         ^
+../src/helloworld.c:282:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:242:9: warning: unused variable 'j' [-Wunused-variable]
+   int i,j;
+         ^
+../src/helloworld.c:242:7: warning: unused variable 'i' [-Wunused-variable]
+   int i,j;
+       ^
+../src/helloworld.c:240:7: warning: unused variable 'Status' [-Wunused-variable]
+   int Status;
+       ^
+../src/helloworld.c: In function 'predict_soft':
+../src/helloworld.c:697:7: warning: variable 'RxBufferPtr' set but not used [-Wunused-but-set-variable]
+  u32 *RxBufferPtr;
+       ^
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: mlp.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mlp_bsp/ps7_cortexa9_0/lib -o "mlp.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: mlp.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mlp.elf  |tee "mlp.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 144940	  10908	  29104	 184952	  2d278	mlp.elf
+'Finished building: mlp.elf.size'
+' '
+17:06:34 **** Incremental Build of configuration Debug for project mlp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+17:10:08 **** Auto Build of configuration Debug for project mlp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mlp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:251:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+       scanf("%d", &train_data[rows][cols]);
+             ^
+../src/helloworld.c:251:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:277:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+  scanf("%d", &test_labels[rows]);
+        ^
+../src/helloworld.c:277:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:282:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+   scanf("%d", &test_data[rows][cols]);
+         ^
+../src/helloworld.c:282:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:242:9: warning: unused variable 'j' [-Wunused-variable]
+   int i,j;
+         ^
+../src/helloworld.c:242:7: warning: unused variable 'i' [-Wunused-variable]
+   int i,j;
+       ^
+../src/helloworld.c:240:7: warning: unused variable 'Status' [-Wunused-variable]
+   int Status;
+       ^
+../src/helloworld.c: In function 'predict_soft':
+../src/helloworld.c:697:7: warning: variable 'RxBufferPtr' set but not used [-Wunused-but-set-variable]
+  u32 *RxBufferPtr;
+       ^
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: mlp.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mlp_bsp/ps7_cortexa9_0/lib -o "mlp.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: mlp.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mlp.elf  |tee "mlp.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 144964	  10908	  29104	 184976	  2d290	mlp.elf
+'Finished building: mlp.elf.size'
+' '
+17:10:20 **** Auto Build of configuration Debug for project mlp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mlp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:251:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+       scanf("%d", &train_data[rows][cols]);
+             ^
+../src/helloworld.c:251:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:277:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+  scanf("%d", &test_labels[rows]);
+        ^
+../src/helloworld.c:277:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:282:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+   scanf("%d", &test_data[rows][cols]);
+         ^
+../src/helloworld.c:282:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:242:9: warning: unused variable 'j' [-Wunused-variable]
+   int i,j;
+         ^
+../src/helloworld.c:242:7: warning: unused variable 'i' [-Wunused-variable]
+   int i,j;
+       ^
+../src/helloworld.c:240:7: warning: unused variable 'Status' [-Wunused-variable]
+   int Status;
+       ^
+../src/helloworld.c: In function 'predict_soft':
+../src/helloworld.c:697:7: warning: variable 'RxBufferPtr' set but not used [-Wunused-but-set-variable]
+  u32 *RxBufferPtr;
+       ^
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: mlp.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mlp_bsp/ps7_cortexa9_0/lib -o "mlp.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: mlp.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mlp.elf  |tee "mlp.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 144940	  10908	  29104	 184952	  2d278	mlp.elf
+'Finished building: mlp.elf.size'
+' '
+17:10:22 **** Incremental Build of configuration Debug for project mlp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+17:42:45 **** Auto Build of configuration Debug for project mlp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mlp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:251:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+       scanf("%d", &train_data[rows][cols]);
+             ^
+../src/helloworld.c:251:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:277:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+  scanf("%d", &test_labels[rows]);
+        ^
+../src/helloworld.c:277:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:282:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+   scanf("%d", &test_data[rows][cols]);
+         ^
+../src/helloworld.c:282:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:246:9: warning: unused variable 'tRandSeed' [-Wunused-variable]
+   XTime tRandSeed;
+         ^
+../src/helloworld.c:242:9: warning: unused variable 'j' [-Wunused-variable]
+   int i,j;
+         ^
+../src/helloworld.c:242:7: warning: unused variable 'i' [-Wunused-variable]
+   int i,j;
+       ^
+../src/helloworld.c:240:7: warning: unused variable 'Status' [-Wunused-variable]
+   int Status;
+       ^
+../src/helloworld.c: In function 'predict_soft':
+../src/helloworld.c:697:7: warning: variable 'RxBufferPtr' set but not used [-Wunused-but-set-variable]
+  u32 *RxBufferPtr;
+       ^
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: mlp.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mlp_bsp/ps7_cortexa9_0/lib -o "mlp.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: mlp.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mlp.elf  |tee "mlp.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 144940	  10908	  29104	 184952	  2d278	mlp.elf
+'Finished building: mlp.elf.size'
+' '
+17:44:03 **** Auto Build of configuration Debug for project mlp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mlp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:253:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+       scanf("%d", &train_data[rows][cols]);
+             ^
+../src/helloworld.c:253:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:279:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+  scanf("%d", &test_labels[rows]);
+        ^
+../src/helloworld.c:279:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:284:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+   scanf("%d", &test_data[rows][cols]);
+         ^
+../src/helloworld.c:284:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:242:9: warning: unused variable 'j' [-Wunused-variable]
+   int i,j;
+         ^
+../src/helloworld.c:242:7: warning: unused variable 'i' [-Wunused-variable]
+   int i,j;
+       ^
+../src/helloworld.c:240:7: warning: unused variable 'Status' [-Wunused-variable]
+   int Status;
+       ^
+../src/helloworld.c: In function 'predict_soft':
+../src/helloworld.c:699:7: warning: variable 'RxBufferPtr' set but not used [-Wunused-but-set-variable]
+  u32 *RxBufferPtr;
+       ^
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: mlp.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mlp_bsp/ps7_cortexa9_0/lib -o "mlp.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: mlp.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mlp.elf  |tee "mlp.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 144940	  10908	  29104	 184952	  2d278	mlp.elf
+'Finished building: mlp.elf.size'
+' '
+17:44:10 **** Incremental Build of configuration Debug for project mlp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+17:45:49 **** Auto Build of configuration Debug for project mlp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mlp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:253:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+       scanf("%d", &train_data[rows][cols]);
+             ^
+../src/helloworld.c:253:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:279:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+  scanf("%d", &test_labels[rows]);
+        ^
+../src/helloworld.c:279:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:284:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+   scanf("%d", &test_data[rows][cols]);
+         ^
+../src/helloworld.c:284:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:242:9: warning: unused variable 'j' [-Wunused-variable]
+   int i,j;
+         ^
+../src/helloworld.c:242:7: warning: unused variable 'i' [-Wunused-variable]
+   int i,j;
+       ^
+../src/helloworld.c:240:7: warning: unused variable 'Status' [-Wunused-variable]
+   int Status;
+       ^
+../src/helloworld.c: In function 'predict_soft':
+../src/helloworld.c:705:7: warning: variable 'RxBufferPtr' set but not used [-Wunused-but-set-variable]
+  u32 *RxBufferPtr;
+       ^
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: mlp.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mlp_bsp/ps7_cortexa9_0/lib -o "mlp.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: mlp.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mlp.elf  |tee "mlp.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 145004	  10908	  29104	 185016	  2d2b8	mlp.elf
+'Finished building: mlp.elf.size'
+' '
+17:46:41 **** Auto Build of configuration Debug for project mlp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mlp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:253:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+       scanf("%d", &train_data[rows][cols]);
+             ^
+../src/helloworld.c:253:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:279:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+  scanf("%d", &test_labels[rows]);
+        ^
+../src/helloworld.c:279:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:284:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+   scanf("%d", &test_data[rows][cols]);
+         ^
+../src/helloworld.c:284:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:242:9: warning: unused variable 'j' [-Wunused-variable]
+   int i,j;
+         ^
+../src/helloworld.c:242:7: warning: unused variable 'i' [-Wunused-variable]
+   int i,j;
+       ^
+../src/helloworld.c:240:7: warning: unused variable 'Status' [-Wunused-variable]
+   int Status;
+       ^
+../src/helloworld.c: In function 'predict_soft':
+../src/helloworld.c:705:7: warning: variable 'RxBufferPtr' set but not used [-Wunused-but-set-variable]
+  u32 *RxBufferPtr;
+       ^
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: mlp.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mlp_bsp/ps7_cortexa9_0/lib -o "mlp.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: mlp.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mlp.elf  |tee "mlp.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 145020	  10908	  29104	 185032	  2d2c8	mlp.elf
+'Finished building: mlp.elf.size'
+' '
+17:46:43 **** Incremental Build of configuration Debug for project mlp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+17:47:29 **** Auto Build of configuration Debug for project mlp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mlp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:253:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+       scanf("%d", &train_data[rows][cols]);
+             ^
+../src/helloworld.c:253:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:279:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+  scanf("%d", &test_labels[rows]);
+        ^
+../src/helloworld.c:279:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:284:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+   scanf("%d", &test_data[rows][cols]);
+         ^
+../src/helloworld.c:284:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:242:9: warning: unused variable 'j' [-Wunused-variable]
+   int i,j;
+         ^
+../src/helloworld.c:242:7: warning: unused variable 'i' [-Wunused-variable]
+   int i,j;
+       ^
+../src/helloworld.c:240:7: warning: unused variable 'Status' [-Wunused-variable]
+   int Status;
+       ^
+../src/helloworld.c: In function 'predict_soft':
+../src/helloworld.c:705:7: warning: variable 'RxBufferPtr' set but not used [-Wunused-but-set-variable]
+  u32 *RxBufferPtr;
+       ^
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: mlp.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mlp_bsp/ps7_cortexa9_0/lib -o "mlp.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: mlp.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mlp.elf  |tee "mlp.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 145004	  10908	  29104	 185016	  2d2b8	mlp.elf
+'Finished building: mlp.elf.size'
+' '
+17:47:48 **** Auto Build of configuration Debug for project mlp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mlp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:253:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+       scanf("%d", &train_data[rows][cols]);
+             ^
+../src/helloworld.c:253:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:279:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+  scanf("%d", &test_labels[rows]);
+        ^
+../src/helloworld.c:279:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:284:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+   scanf("%d", &test_data[rows][cols]);
+         ^
+../src/helloworld.c:284:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:242:9: warning: unused variable 'j' [-Wunused-variable]
+   int i,j;
+         ^
+../src/helloworld.c:242:7: warning: unused variable 'i' [-Wunused-variable]
+   int i,j;
+       ^
+../src/helloworld.c:240:7: warning: unused variable 'Status' [-Wunused-variable]
+   int Status;
+       ^
+../src/helloworld.c: In function 'predict_soft':
+../src/helloworld.c:706:7: warning: variable 'RxBufferPtr' set but not used [-Wunused-but-set-variable]
+  u32 *RxBufferPtr;
+       ^
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: mlp.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mlp_bsp/ps7_cortexa9_0/lib -o "mlp.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: mlp.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mlp.elf  |tee "mlp.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 145116	  10908	  29104	 185128	  2d328	mlp.elf
+'Finished building: mlp.elf.size'
+' '
+17:48:11 **** Auto Build of configuration Debug for project mlp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mlp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:253:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+       scanf("%d", &train_data[rows][cols]);
+             ^
+../src/helloworld.c:253:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:279:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+  scanf("%d", &test_labels[rows]);
+        ^
+../src/helloworld.c:279:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:284:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+   scanf("%d", &test_data[rows][cols]);
+         ^
+../src/helloworld.c:284:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:242:9: warning: unused variable 'j' [-Wunused-variable]
+   int i,j;
+         ^
+../src/helloworld.c:242:7: warning: unused variable 'i' [-Wunused-variable]
+   int i,j;
+       ^
+../src/helloworld.c:240:7: warning: unused variable 'Status' [-Wunused-variable]
+   int Status;
+       ^
+../src/helloworld.c: In function 'predict_soft':
+../src/helloworld.c:706:7: warning: variable 'RxBufferPtr' set but not used [-Wunused-but-set-variable]
+  u32 *RxBufferPtr;
+       ^
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: mlp.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mlp_bsp/ps7_cortexa9_0/lib -o "mlp.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: mlp.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mlp.elf  |tee "mlp.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 145108	  10908	  29104	 185120	  2d320	mlp.elf
+'Finished building: mlp.elf.size'
+' '
+17:48:47 **** Auto Build of configuration Debug for project mlp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mlp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:253:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+       scanf("%d", &train_data[rows][cols]);
+             ^
+../src/helloworld.c:253:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:279:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+  scanf("%d", &test_labels[rows]);
+        ^
+../src/helloworld.c:279:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:284:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+   scanf("%d", &test_data[rows][cols]);
+         ^
+../src/helloworld.c:284:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:242:9: warning: unused variable 'j' [-Wunused-variable]
+   int i,j;
+         ^
+../src/helloworld.c:242:7: warning: unused variable 'i' [-Wunused-variable]
+   int i,j;
+       ^
+../src/helloworld.c:240:7: warning: unused variable 'Status' [-Wunused-variable]
+   int Status;
+       ^
+../src/helloworld.c: In function 'predict_soft':
+../src/helloworld.c:705:7: warning: variable 'RxBufferPtr' set but not used [-Wunused-but-set-variable]
+  u32 *RxBufferPtr;
+       ^
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: mlp.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mlp_bsp/ps7_cortexa9_0/lib -o "mlp.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: mlp.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mlp.elf  |tee "mlp.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 144996	  10908	  29104	 185008	  2d2b0	mlp.elf
+'Finished building: mlp.elf.size'
+' '
+17:49:02 **** Auto Build of configuration Debug for project mlp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mlp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:253:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+       scanf("%d", &train_data[rows][cols]);
+             ^
+../src/helloworld.c:253:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:279:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+  scanf("%d", &test_labels[rows]);
+        ^
+../src/helloworld.c:279:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:284:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+   scanf("%d", &test_data[rows][cols]);
+         ^
+../src/helloworld.c:284:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:242:9: warning: unused variable 'j' [-Wunused-variable]
+   int i,j;
+         ^
+../src/helloworld.c:242:7: warning: unused variable 'i' [-Wunused-variable]
+   int i,j;
+       ^
+../src/helloworld.c:240:7: warning: unused variable 'Status' [-Wunused-variable]
+   int Status;
+       ^
+../src/helloworld.c: In function 'predict_soft':
+../src/helloworld.c:705:7: warning: variable 'RxBufferPtr' set but not used [-Wunused-but-set-variable]
+  u32 *RxBufferPtr;
+       ^
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: mlp.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mlp_bsp/ps7_cortexa9_0/lib -o "mlp.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: mlp.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mlp.elf  |tee "mlp.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 145020	  10908	  29104	 185032	  2d2c8	mlp.elf
+'Finished building: mlp.elf.size'
+' '
+17:49:07 **** Incremental Build of configuration Debug for project mlp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+17:50:18 **** Auto Build of configuration Debug for project mlp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mlp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:253:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+       scanf("%d", &train_data[rows][cols]);
+             ^
+../src/helloworld.c:253:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:279:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+  scanf("%d", &test_labels[rows]);
+        ^
+../src/helloworld.c:279:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:284:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+   scanf("%d", &test_data[rows][cols]);
+         ^
+../src/helloworld.c:284:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:242:9: warning: unused variable 'j' [-Wunused-variable]
+   int i,j;
+         ^
+../src/helloworld.c:242:7: warning: unused variable 'i' [-Wunused-variable]
+   int i,j;
+       ^
+../src/helloworld.c:240:7: warning: unused variable 'Status' [-Wunused-variable]
+   int Status;
+       ^
+../src/helloworld.c: In function 'predict_soft':
+../src/helloworld.c:706:7: warning: variable 'RxBufferPtr' set but not used [-Wunused-but-set-variable]
+  u32 *RxBufferPtr;
+       ^
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: mlp.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mlp_bsp/ps7_cortexa9_0/lib -o "mlp.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: mlp.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mlp.elf  |tee "mlp.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 145100	  10908	  29104	 185112	  2d318	mlp.elf
+'Finished building: mlp.elf.size'
+' '
+17:50:21 **** Incremental Build of configuration Debug for project mlp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+14:06:24 **** Auto Build of configuration Debug for project mlp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+'Building file: ../src/helloworld.c'
+'Invoking: ARM v7 gcc compiler'
+arm-none-eabi-gcc -Wall -O0 -g3 -c -fmessage-length=0 -MT"src/helloworld.o" -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -I../../mlp_bsp/ps7_cortexa9_0/include -MMD -MP -MF"src/helloworld.d" -MT"src/helloworld.o" -o "src/helloworld.o" "../src/helloworld.c"
+../src/helloworld.c: In function 'main':
+../src/helloworld.c:253:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+       scanf("%d", &train_data[rows][cols]);
+             ^
+../src/helloworld.c:253:13: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:279:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+  scanf("%d", &test_labels[rows]);
+        ^
+../src/helloworld.c:279:8: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:284:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+   scanf("%d", &test_data[rows][cols]);
+         ^
+../src/helloworld.c:284:9: warning: format '%d' expects argument of type 'int *', but argument 2 has type 'u8 * {aka unsigned char *}' [-Wformat=]
+../src/helloworld.c:242:9: warning: unused variable 'j' [-Wunused-variable]
+   int i,j;
+         ^
+../src/helloworld.c:242:7: warning: unused variable 'i' [-Wunused-variable]
+   int i,j;
+       ^
+../src/helloworld.c:240:7: warning: unused variable 'Status' [-Wunused-variable]
+   int Status;
+       ^
+../src/helloworld.c: In function 'predict_soft':
+../src/helloworld.c:706:7: warning: variable 'RxBufferPtr' set but not used [-Wunused-but-set-variable]
+  u32 *RxBufferPtr;
+       ^
+'Finished building: ../src/helloworld.c'
+' '
+'Building target: mlp.elf'
+'Invoking: ARM v7 gcc linker'
+arm-none-eabi-gcc -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard -Wl,-build-id=none -specs=Xilinx.spec -Wl,-T -Wl,../src/lscript.ld -L../../mlp_bsp/ps7_cortexa9_0/lib -o "mlp.elf"  ./src/helloworld.o ./src/platform.o   -lm -Wl,--start-group,-lxil,-lgcc,-lc,--end-group
+'Finished building target: mlp.elf'
+' '
+'Invoking: ARM v7 Print Size'
+arm-none-eabi-size mlp.elf  |tee "mlp.elf.size"
+   text	   data	    bss	    dec	    hex	filename
+ 145100	  10908	  29104	 185112	  2d318	mlp.elf
+'Finished building: mlp.elf.size'
+' '
+14:06:44 **** Incremental Build of configuration Debug for project mlp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+14:07:09 **** Incremental Build of configuration Debug for project mlp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+14:07:56 **** Incremental Build of configuration Debug for project mlp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.
+14:09:10 **** Incremental Build of configuration Debug for project mlp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+' '
+make: Nothing to be done for `main-build'.

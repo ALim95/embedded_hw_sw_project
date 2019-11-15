@@ -1,0 +1,1 @@
+lappend pragmaStatus0 {pragma "UNROLL" source "C:/Xilinx/Labs/labhls/AXISTry.cpp" location "AXISTry/get_test_data_inner" found 0 funcFound 1 applied 0 ambiguous 0 reason "Directive 'UNROLL' cannot be applied: Label 'get_test_data_inner' does not exist in function 'AXISTry'. "}

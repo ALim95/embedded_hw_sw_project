@@ -1,0 +1,2376 @@
+
+
+================================================================
+== Vivado HLS Report for 'AXISEnhanced'
+================================================================
+* Date:           Thu Nov 07 18:47:55 2019
+
+* Version:        2016.3 (Build 1682563 on Mon Oct 10 19:41:59 MDT 2016)
+* Project:        AXISEnhanced
+* Solution:       AXISEnhanced_Soln
+* Product family: zynq
+* Target device:  xc7z020clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|      8.15|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-------+-------+-------+-------+---------+
+    |    Latency    |    Interval   | Pipeline|
+    |  min  |  max  |  min  |  max  |   Type  |
+    +-------+-------+-------+-------+---------+
+    |  14240|  14240|  14241|  14241|   none  |
+    +-------+-------+-------+-------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +---------------------+-------+-------+----------+-----------+-----------+------+----------+
+        |                     |    Latency    | Iteration|  Initiation Interval  | Trip |          |
+        |      Loop Name      |  min  |  max  |  Latency |  achieved |   target  | Count| Pipelined|
+        +---------------------+-------+-------+----------+-----------+-----------+------+----------+
+        |- get_weightsIH      |    156|    156|        12|          -|          -|    13|    no    |
+        | + get_weightsIH.1   |     10|     10|         2|          -|          -|     5|    no    |
+        |- get_weightsHO      |     40|     40|         8|          -|          -|     5|    no    |
+        | + get_weightsHO.1   |      6|      6|         2|          -|          -|     3|    no    |
+        |- get_prediction     |  14040|  14040|       390|          -|          -|    36|    no    |
+        | + get_prediction.1  |     26|     26|         2|          -|          -|    13|    no    |
+        | + get_prediction.2  |     52|     52|         4|          -|          -|    13|    no    |
+        | + get_prediction.3  |     52|     52|         4|          -|          -|    13|    no    |
+        | + get_prediction.4  |     52|     52|         4|          -|          -|    13|    no    |
+        | + get_prediction.5  |     52|     52|         4|          -|          -|    13|    no    |
+        | + get_prediction.6  |     52|     52|         4|          -|          -|    13|    no    |
+        | + get_prediction.7  |     20|     20|         4|          -|          -|     5|    no    |
+        | + get_prediction.8  |     20|     20|         4|          -|          -|     5|    no    |
+        | + get_prediction.9  |     20|     20|         4|          -|          -|     5|    no    |
+        +---------------------+-------+-------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 77
+* Pipeline: 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / (!exitcond1)
+	5  / (exitcond1)
+3 --> 
+	4  / (!exitcond3)
+	2  / (exitcond3)
+4 --> 
+	3  / true
+5 --> 
+	8  / (exitcond2)
+	6  / (!exitcond2)
+6 --> 
+	7  / (!exitcond5)
+	5  / (exitcond5)
+7 --> 
+	6  / true
+8 --> 
+	9  / true
+9 --> 
+	10  / (!exitcond4)
+10 --> 
+	11  / (!exitcond6)
+	12  / (exitcond6)
+11 --> 
+	10  / true
+12 --> 
+	13  / (!exitcond9)
+	16  / (exitcond9)
+13 --> 
+	14  / true
+14 --> 
+	15  / true
+15 --> 
+	12  / true
+16 --> 
+	17  / true
+17 --> 
+	18  / true
+18 --> 
+	19  / true
+19 --> 
+	20  / true
+20 --> 
+	21  / (!exitcond9_1)
+	24  / (exitcond9_1)
+21 --> 
+	22  / true
+22 --> 
+	23  / true
+23 --> 
+	20  / true
+24 --> 
+	25  / true
+25 --> 
+	26  / true
+26 --> 
+	27  / true
+27 --> 
+	28  / true
+28 --> 
+	29  / (!exitcond9_2)
+	32  / (exitcond9_2)
+29 --> 
+	30  / true
+30 --> 
+	31  / true
+31 --> 
+	28  / true
+32 --> 
+	33  / true
+33 --> 
+	34  / true
+34 --> 
+	35  / true
+35 --> 
+	36  / true
+36 --> 
+	37  / (!exitcond9_3)
+	40  / (exitcond9_3)
+37 --> 
+	38  / true
+38 --> 
+	39  / true
+39 --> 
+	36  / true
+40 --> 
+	41  / true
+41 --> 
+	42  / true
+42 --> 
+	43  / true
+43 --> 
+	44  / true
+44 --> 
+	45  / (!exitcond9_4)
+	48  / (exitcond9_4)
+45 --> 
+	46  / true
+46 --> 
+	47  / true
+47 --> 
+	44  / true
+48 --> 
+	49  / true
+49 --> 
+	50  / true
+50 --> 
+	51  / true
+51 --> 
+	52  / true
+52 --> 
+	53  / (!exitcond)
+	56  / (exitcond)
+53 --> 
+	54  / true
+54 --> 
+	55  / true
+55 --> 
+	52  / true
+56 --> 
+	57  / true
+57 --> 
+	58  / true
+58 --> 
+	59  / true
+59 --> 
+	60  / true
+60 --> 
+	61  / (!exitcond_1)
+	64  / (exitcond_1)
+61 --> 
+	62  / true
+62 --> 
+	63  / true
+63 --> 
+	60  / true
+64 --> 
+	65  / true
+65 --> 
+	66  / true
+66 --> 
+	67  / true
+67 --> 
+	68  / true
+68 --> 
+	69  / true
+69 --> 
+	70  / (!exitcond_2)
+	73  / (exitcond_2)
+70 --> 
+	71  / true
+71 --> 
+	72  / true
+72 --> 
+	69  / true
+73 --> 
+	74  / true
+74 --> 
+	75  / true
+75 --> 
+	76  / true
+76 --> 
+	77  / true
+77 --> 
+	9  / true
+* FSM state operations: 
+
+ <State 1>: 1.57ns
+ST_1: StgValue_78 (10)  [1/1] 0.00ns
+:0  call void (...)* @_ssdm_op_SpecBitsMap(i32* %S_AXIS_V_data), !map !57
+
+ST_1: StgValue_79 (11)  [1/1] 0.00ns
+:1  call void (...)* @_ssdm_op_SpecBitsMap(i1* %S_AXIS_V_last), !map !63
+
+ST_1: StgValue_80 (12)  [1/1] 0.00ns
+:2  call void (...)* @_ssdm_op_SpecBitsMap(i32* %M_AXIS_V_data), !map !67
+
+ST_1: StgValue_81 (13)  [1/1] 0.00ns
+:3  call void (...)* @_ssdm_op_SpecBitsMap(i1* %M_AXIS_V_last), !map !71
+
+ST_1: StgValue_82 (14)  [1/1] 0.00ns
+:4  call void (...)* @_ssdm_op_SpecTopModule([13 x i8]* @AXISEnhanced_str) nounwind
+
+ST_1: StgValue_83 (15)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:45
+:5  call void (...)* @_ssdm_op_SpecInterface(i32 0, [13 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+
+ST_1: StgValue_84 (16)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:46
+:6  call void (...)* @_ssdm_op_SpecInterface(i32* %S_AXIS_V_data, i1* %S_AXIS_V_last, [5 x i8]* @p_str2, i32 1, i32 1, [5 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+
+ST_1: StgValue_85 (17)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:47
+:7  call void (...)* @_ssdm_op_SpecInterface(i32* %M_AXIS_V_data, i1* %M_AXIS_V_last, [5 x i8]* @p_str2, i32 1, i32 1, [5 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1, [1 x i8]* @p_str1, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str1, [1 x i8]* @p_str1) nounwind
+
+ST_1: StgValue_86 (18)  [1/1] 1.57ns  loc: AXISEnhanced.cpp:56
+:8  br label %1
+
+
+ <State 2>: 1.88ns
+ST_2: i (20)  [1/1] 0.00ns
+:0  %i = phi i4 [ 0, %0 ], [ %i_3, %5 ]
+
+ST_2: i_cast_cast (21)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:56
+:1  %i_cast_cast = zext i4 %i to i7
+
+ST_2: tmp_s (22)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:56
+:2  %tmp_s = call i6 @_ssdm_op_BitConcatenate.i6.i4.i2(i4 %i, i2 0)
+
+ST_2: p_shl_cast (23)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:59
+:3  %p_shl_cast = zext i6 %tmp_s to i7
+
+ST_2: tmp_1 (24)  [1/1] 1.72ns  loc: AXISEnhanced.cpp:59
+:4  %tmp_1 = add i7 %i_cast_cast, %p_shl_cast
+
+ST_2: exitcond1 (25)  [1/1] 1.88ns  loc: AXISEnhanced.cpp:56
+:5  %exitcond1 = icmp eq i4 %i, -3
+
+ST_2: empty (26)  [1/1] 0.00ns
+:6  %empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 13, i64 13, i64 13)
+
+ST_2: i_3 (27)  [1/1] 0.80ns  loc: AXISEnhanced.cpp:56
+:7  %i_3 = add i4 %i, 1
+
+ST_2: StgValue_95 (28)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:56
+:8  br i1 %exitcond1, label %.preheader18.preheader, label %2
+
+ST_2: StgValue_96 (30)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:56
+:0  call void (...)* @_ssdm_op_SpecLoopName([14 x i8]* @p_str4) nounwind
+
+ST_2: tmp (31)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:56
+:1  %tmp = call i32 (...)* @_ssdm_op_SpecRegionBegin([14 x i8]* @p_str4)
+
+ST_2: StgValue_98 (32)  [1/1] 1.57ns  loc: AXISEnhanced.cpp:57
+:2  br label %3
+
+ST_2: StgValue_99 (53)  [1/1] 1.57ns
+.preheader18.preheader:0  br label %.preheader18
+
+
+ <State 3>: 1.72ns
+ST_3: j (34)  [1/1] 0.00ns
+:0  %j = phi i3 [ 0, %2 ], [ %j_2, %4 ]
+
+ST_3: j_cast_cast (35)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:59
+:1  %j_cast_cast = zext i3 %j to i7
+
+ST_3: tmp_23 (36)  [1/1] 1.72ns  loc: AXISEnhanced.cpp:59
+:2  %tmp_23 = add i7 %tmp_1, %j_cast_cast
+
+ST_3: tmp_29_cast (37)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:59
+:3  %tmp_29_cast = zext i7 %tmp_23 to i32
+
+ST_3: weights_IH_addr (38)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:59
+:4  %weights_IH_addr = getelementptr [65 x i16]* @weights_IH, i32 0, i32 %tmp_29_cast
+
+ST_3: exitcond3 (39)  [1/1] 1.62ns  loc: AXISEnhanced.cpp:57
+:5  %exitcond3 = icmp eq i3 %j, -3
+
+ST_3: empty_15 (40)  [1/1] 0.00ns
+:6  %empty_15 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 5, i64 5, i64 5)
+
+ST_3: j_2 (41)  [1/1] 0.80ns  loc: AXISEnhanced.cpp:57
+:7  %j_2 = add i3 %j, 1
+
+ST_3: StgValue_108 (42)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:57
+:8  br i1 %exitcond3, label %5, label %4
+
+ST_3: empty_16 (44)  [2/2] 0.00ns  loc: AXISEnhanced.cpp:58
+:0  %empty_16 = call { i32, i1 } @_ssdm_op_Read.axis.volatile.i32P.i1P(i32* %S_AXIS_V_data, i1* %S_AXIS_V_last)
+
+ST_3: empty_17 (50)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:61
+:0  %empty_17 = call i32 (...)* @_ssdm_op_SpecRegionEnd([14 x i8]* @p_str4, i32 %tmp)
+
+ST_3: StgValue_111 (51)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:56
+:1  br label %1
+
+
+ <State 4>: 2.71ns
+ST_4: empty_16 (44)  [1/2] 0.00ns  loc: AXISEnhanced.cpp:58
+:0  %empty_16 = call { i32, i1 } @_ssdm_op_Read.axis.volatile.i32P.i1P(i32* %S_AXIS_V_data, i1* %S_AXIS_V_last)
+
+ST_4: tmp_data_2 (45)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:58
+:1  %tmp_data_2 = extractvalue { i32, i1 } %empty_16, 0
+
+ST_4: tmp_25 (46)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:59
+:2  %tmp_25 = trunc i32 %tmp_data_2 to i16
+
+ST_4: StgValue_115 (47)  [1/1] 2.71ns  loc: AXISEnhanced.cpp:59
+:3  store i16 %tmp_25, i16* %weights_IH_addr, align 2
+
+ST_4: StgValue_116 (48)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:57
+:4  br label %3
+
+
+ <State 5>: 1.72ns
+ST_5: i_1 (55)  [1/1] 0.00ns
+.preheader18:0  %i_1 = phi i3 [ %i_4, %9 ], [ 0, %.preheader18.preheader ]
+
+ST_5: i_1_cast_cast (56)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:63
+.preheader18:1  %i_1_cast_cast = zext i3 %i_1 to i5
+
+ST_5: tmp_3 (57)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:63
+.preheader18:2  %tmp_3 = call i5 @_ssdm_op_BitConcatenate.i5.i3.i2(i3 %i_1, i2 0)
+
+ST_5: tmp_6 (58)  [1/1] 1.72ns  loc: AXISEnhanced.cpp:66
+.preheader18:3  %tmp_6 = sub i5 %tmp_3, %i_1_cast_cast
+
+ST_5: exitcond2 (59)  [1/1] 1.62ns  loc: AXISEnhanced.cpp:63
+.preheader18:4  %exitcond2 = icmp eq i3 %i_1, -3
+
+ST_5: empty_18 (60)  [1/1] 0.00ns
+.preheader18:5  %empty_18 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 5, i64 5, i64 5)
+
+ST_5: i_4 (61)  [1/1] 0.80ns  loc: AXISEnhanced.cpp:63
+.preheader18:6  %i_4 = add i3 %i_1, 1
+
+ST_5: StgValue_124 (62)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:63
+.preheader18:7  br i1 %exitcond2, label %10, label %6
+
+ST_5: StgValue_125 (64)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:63
+:0  call void (...)* @_ssdm_op_SpecLoopName([14 x i8]* @p_str5) nounwind
+
+ST_5: tmp_7 (65)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:63
+:1  %tmp_7 = call i32 (...)* @_ssdm_op_SpecRegionBegin([14 x i8]* @p_str5)
+
+ST_5: StgValue_127 (66)  [1/1] 1.57ns  loc: AXISEnhanced.cpp:64
+:2  br label %7
+
+ST_5: StgValue_128 (87)  [2/2] 0.00ns  loc: AXISEnhanced.cpp:71
+:0  call void @_ssdm_op_Write.axis.volatile.i32P.i1P(i32* %M_AXIS_V_data, i1* %M_AXIS_V_last, i32 12345, i1 true)
+
+
+ <State 6>: 1.72ns
+ST_6: j_1 (68)  [1/1] 0.00ns
+:0  %j_1 = phi i2 [ 0, %6 ], [ %j_3, %8 ]
+
+ST_6: j_1_cast_cast (69)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:66
+:1  %j_1_cast_cast = zext i2 %j_1 to i5
+
+ST_6: tmp_26 (70)  [1/1] 1.72ns  loc: AXISEnhanced.cpp:66
+:2  %tmp_26 = add i5 %tmp_6, %j_1_cast_cast
+
+ST_6: tmp_30_cast (71)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:66
+:3  %tmp_30_cast = sext i5 %tmp_26 to i32
+
+ST_6: weights_HO_addr (72)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:66
+:4  %weights_HO_addr = getelementptr [15 x i16]* @weights_HO, i32 0, i32 %tmp_30_cast
+
+ST_6: exitcond5 (73)  [1/1] 1.36ns  loc: AXISEnhanced.cpp:64
+:5  %exitcond5 = icmp eq i2 %j_1, -1
+
+ST_6: empty_19 (74)  [1/1] 0.00ns
+:6  %empty_19 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 3, i64 3, i64 3)
+
+ST_6: j_3 (75)  [1/1] 0.80ns  loc: AXISEnhanced.cpp:64
+:7  %j_3 = add i2 %j_1, 1
+
+ST_6: StgValue_137 (76)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:64
+:8  br i1 %exitcond5, label %9, label %8
+
+ST_6: empty_20 (78)  [2/2] 0.00ns  loc: AXISEnhanced.cpp:65
+:0  %empty_20 = call { i32, i1 } @_ssdm_op_Read.axis.volatile.i32P.i1P(i32* %S_AXIS_V_data, i1* %S_AXIS_V_last)
+
+ST_6: empty_21 (84)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:68
+:0  %empty_21 = call i32 (...)* @_ssdm_op_SpecRegionEnd([14 x i8]* @p_str5, i32 %tmp_7)
+
+ST_6: StgValue_140 (85)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:63
+:1  br label %.preheader18
+
+
+ <State 7>: 2.39ns
+ST_7: empty_20 (78)  [1/2] 0.00ns  loc: AXISEnhanced.cpp:65
+:0  %empty_20 = call { i32, i1 } @_ssdm_op_Read.axis.volatile.i32P.i1P(i32* %S_AXIS_V_data, i1* %S_AXIS_V_last)
+
+ST_7: tmp_data_3 (79)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:65
+:1  %tmp_data_3 = extractvalue { i32, i1 } %empty_20, 0
+
+ST_7: tmp_27 (80)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:66
+:2  %tmp_27 = trunc i32 %tmp_data_3 to i16
+
+ST_7: StgValue_144 (81)  [1/1] 2.39ns  loc: AXISEnhanced.cpp:66
+:3  store i16 %tmp_27, i16* %weights_HO_addr, align 2
+
+ST_7: StgValue_145 (82)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:64
+:4  br label %7
+
+
+ <State 8>: 1.57ns
+ST_8: StgValue_146 (87)  [1/2] 0.00ns  loc: AXISEnhanced.cpp:71
+:0  call void @_ssdm_op_Write.axis.volatile.i32P.i1P(i32* %M_AXIS_V_data, i1* %M_AXIS_V_last, i32 12345, i1 true)
+
+ST_8: StgValue_147 (88)  [1/1] 1.57ns  loc: AXISEnhanced.cpp:120
+:1  br label %11
+
+
+ <State 9>: 1.94ns
+ST_9: k (90)  [1/1] 0.00ns
+:0  %k = phi i6 [ 0, %10 ], [ %k_1, %._crit_edge20.2 ]
+
+ST_9: exitcond4 (91)  [1/1] 1.94ns  loc: AXISEnhanced.cpp:120
+:1  %exitcond4 = icmp eq i6 %k, -28
+
+ST_9: empty_22 (92)  [1/1] 0.00ns
+:2  %empty_22 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 36, i64 36, i64 36)
+
+ST_9: k_1 (93)  [1/1] 1.72ns  loc: AXISEnhanced.cpp:120
+:3  %k_1 = add i6 %k, 1
+
+ST_9: StgValue_152 (94)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:120
+:4  br i1 %exitcond4, label %63, label %12
+
+ST_9: StgValue_153 (96)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:120
+:0  call void (...)* @_ssdm_op_SpecLoopName([15 x i8]* @p_str6) nounwind
+
+ST_9: tmp_8 (97)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:120
+:1  %tmp_8 = call i32 (...)* @_ssdm_op_SpecRegionBegin([15 x i8]* @p_str6)
+
+ST_9: StgValue_155 (98)  [1/1] 1.57ns  loc: AXISEnhanced.cpp:122
+:2  br label %13
+
+ST_9: StgValue_156 (547)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:164
+:0  ret void
+
+
+ <State 10>: 1.88ns
+ST_10: i_2 (100)  [1/1] 0.00ns
+:0  %i_2 = phi i4 [ 0, %12 ], [ %i_5, %14 ]
+
+ST_10: i_2_cast (101)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:122
+:1  %i_2_cast = zext i4 %i_2 to i32
+
+ST_10: exitcond6 (102)  [1/1] 1.88ns  loc: AXISEnhanced.cpp:122
+:2  %exitcond6 = icmp eq i4 %i_2, -3
+
+ST_10: empty_23 (103)  [1/1] 0.00ns
+:3  %empty_23 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 13, i64 13, i64 13)
+
+ST_10: i_5 (104)  [1/1] 0.80ns  loc: AXISEnhanced.cpp:122
+:4  %i_5 = add i4 %i_2, 1
+
+ST_10: StgValue_162 (105)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:122
+:5  br i1 %exitcond6, label %.preheader17.0, label %14
+
+ST_10: empty_24 (107)  [2/2] 0.00ns  loc: AXISEnhanced.cpp:123
+:0  %empty_24 = call { i32, i1 } @_ssdm_op_Read.axis.volatile.i32P.i1P(i32* %S_AXIS_V_data, i1* %S_AXIS_V_last)
+
+ST_10: tmp_9 (114)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:127
+.preheader17.0:0  %tmp_9 = call i32 (...)* @_ssdm_op_SpecRegionBegin([20 x i8]* @p_str7)
+
+ST_10: StgValue_165 (115)  [1/1] 1.57ns  loc: AXISEnhanced.cpp:129
+.preheader17.0:1  br label %17
+
+
+ <State 11>: 2.39ns
+ST_11: empty_24 (107)  [1/2] 0.00ns  loc: AXISEnhanced.cpp:123
+:0  %empty_24 = call { i32, i1 } @_ssdm_op_Read.axis.volatile.i32P.i1P(i32* %S_AXIS_V_data, i1* %S_AXIS_V_last)
+
+ST_11: tmp_data_4 (108)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:123
+:1  %tmp_data_4 = extractvalue { i32, i1 } %empty_24, 0
+
+ST_11: tmp_28 (109)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:124
+:2  %tmp_28 = trunc i32 %tmp_data_4 to i16
+
+ST_11: test_data_addr (110)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:124
+:3  %test_data_addr = getelementptr inbounds [13 x i16]* @test_data, i32 0, i32 %i_2_cast
+
+ST_11: StgValue_170 (111)  [1/1] 2.39ns  loc: AXISEnhanced.cpp:124
+:4  store i16 %tmp_28, i16* %test_data_addr, align 2
+
+ST_11: StgValue_171 (112)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:122
+:5  br label %13
+
+
+ <State 12>: 4.43ns
+ST_12: values_hidden_layer_2 (117)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:130
+:0  %values_hidden_layer_2 = phi i16 [ 0, %.preheader17.0 ], [ %tmp_5, %18 ]
+
+ST_12: j_s (118)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:129
+:1  %j_s = phi i4 [ 0, %.preheader17.0 ], [ %j_6, %18 ]
+
+ST_12: StgValue_174 (119)  [1/1] 2.39ns  loc: AXISEnhanced.cpp:130
+:2  store i16 %values_hidden_layer_2, i16* getelementptr inbounds ([5 x i16]* @values_hidden_layer, i32 0, i32 0), align 2
+
+ST_12: j_cast (120)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:129
+:3  %j_cast = zext i4 %j_s to i32
+
+ST_12: j_cast_cast_26 (121)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:129
+:4  %j_cast_cast_26 = zext i4 %j_s to i7
+
+ST_12: tmp_29 (122)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:129
+:5  %tmp_29 = call i6 @_ssdm_op_BitConcatenate.i6.i4.i2(i4 %j_s, i2 0)
+
+ST_12: p_shl2_cast (123)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:130
+:6  %p_shl2_cast = zext i6 %tmp_29 to i7
+
+ST_12: tmp_30 (124)  [1/1] 1.72ns  loc: AXISEnhanced.cpp:130
+:7  %tmp_30 = add i7 %j_cast_cast_26, %p_shl2_cast
+
+ST_12: tmp_32_cast (125)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:130
+:8  %tmp_32_cast = zext i7 %tmp_30 to i32
+
+ST_12: weights_IH_addr_1 (126)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:130
+:9  %weights_IH_addr_1 = getelementptr [65 x i16]* @weights_IH, i32 0, i32 %tmp_32_cast
+
+ST_12: exitcond9 (127)  [1/1] 1.88ns  loc: AXISEnhanced.cpp:129
+:10  %exitcond9 = icmp eq i4 %j_s, -3
+
+ST_12: empty_27 (128)  [1/1] 0.00ns
+:11  %empty_27 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 13, i64 13, i64 13)
+
+ST_12: j_6 (129)  [1/1] 0.80ns  loc: AXISEnhanced.cpp:129
+:12  %j_6 = add i4 %j_s, 1
+
+ST_12: StgValue_185 (130)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:129
+:13  br i1 %exitcond9, label %16, label %18
+
+ST_12: test_data_addr_1 (132)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:130
+:0  %test_data_addr_1 = getelementptr inbounds [13 x i16]* @test_data, i32 0, i32 %j_cast
+
+ST_12: test_data_load (133)  [2/2] 2.39ns  loc: AXISEnhanced.cpp:130
+:1  %test_data_load = load i16* %test_data_addr_1, align 2
+
+ST_12: weights_IH_load (134)  [2/2] 2.71ns  loc: AXISEnhanced.cpp:130
+:2  %weights_IH_load = load i16* %weights_IH_addr_1, align 2
+
+ST_12: tmp_2 (142)  [1/1] 2.28ns  loc: AXISEnhanced.cpp:132
+:0  %tmp_2 = icmp slt i16 %values_hidden_layer_2, -1024
+
+ST_12: StgValue_190 (143)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:132
+:1  br i1 %tmp_2, label %15, label %19
+
+ST_12: tmp_31 (145)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:134
+:0  %tmp_31 = call i6 @_ssdm_op_PartSelect.i6.i16.i32.i32(i16 %values_hidden_layer_2, i32 10, i32 15)
+
+ST_12: icmp (146)  [1/1] 1.94ns  loc: AXISEnhanced.cpp:134
+:1  %icmp = icmp sgt i6 %tmp_31, 0
+
+ST_12: StgValue_193 (147)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:134
+:2  br i1 %icmp, label %20, label %._crit_edge.0
+
+
+ <State 13>: 2.71ns
+ST_13: test_data_load (133)  [1/2] 2.39ns  loc: AXISEnhanced.cpp:130
+:1  %test_data_load = load i16* %test_data_addr_1, align 2
+
+ST_13: weights_IH_load (134)  [1/2] 2.71ns  loc: AXISEnhanced.cpp:130
+:2  %weights_IH_load = load i16* %weights_IH_addr_1, align 2
+
+
+ <State 14>: 6.38ns
+ST_14: tmp_i_cast (135)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:167->AXISEnhanced.cpp:130
+:3  %tmp_i_cast = sext i16 %test_data_load to i24
+
+ST_14: tmp_1_i_cast (136)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:167->AXISEnhanced.cpp:130
+:4  %tmp_1_i_cast = sext i16 %weights_IH_load to i24
+
+ST_14: tmp_2_i (137)  [1/1] 6.38ns  loc: AXISEnhanced.cpp:167->AXISEnhanced.cpp:130
+:5  %tmp_2_i = mul i24 %tmp_i_cast, %tmp_1_i_cast
+
+ST_14: tmp_4 (138)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:130
+:6  %tmp_4 = call i16 @_ssdm_op_PartSelect.i16.i24.i32.i32(i24 %tmp_2_i, i32 8, i32 23)
+
+
+ <State 15>: 1.96ns
+ST_15: tmp_5 (139)  [1/1] 1.96ns  loc: AXISEnhanced.cpp:130
+:7  %tmp_5 = add i16 %values_hidden_layer_2, %tmp_4
+
+ST_15: StgValue_201 (140)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:129
+:8  br label %17
+
+
+ <State 16>: 2.39ns
+ST_16: StgValue_202 (149)  [1/1] 2.39ns  loc: AXISEnhanced.cpp:135
+:0  store i16 1023, i16* getelementptr inbounds ([5 x i16]* @values_hidden_layer, i32 0, i32 0), align 2
+
+ST_16: StgValue_203 (150)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:136
+:1  br label %._crit_edge.0
+
+ST_16: StgValue_204 (152)  [1/1] 0.00ns
+._crit_edge.0:0  br label %.preheader17.1
+
+ST_16: StgValue_205 (154)  [1/1] 2.39ns  loc: AXISEnhanced.cpp:133
+:0  store i16 -1024, i16* getelementptr inbounds ([5 x i16]* @values_hidden_layer, i32 0, i32 0), align 2
+
+ST_16: StgValue_206 (155)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:134
+:1  br label %.preheader17.1
+
+
+ <State 17>: 2.39ns
+ST_17: values_hidden_layer_s (157)  [2/2] 2.39ns  loc: AXISEnhanced.cpp:137
+.preheader17.1:0  %values_hidden_layer_s = load i16* getelementptr inbounds ([5 x i16]* @values_hidden_layer, i32 0, i32 0), align 2
+
+
+ <State 18>: 6.74ns
+ST_18: values_hidden_layer_s (157)  [1/2] 2.39ns  loc: AXISEnhanced.cpp:137
+.preheader17.1:0  %values_hidden_layer_s = load i16* getelementptr inbounds ([5 x i16]* @values_hidden_layer, i32 0, i32 0), align 2
+
+ST_18: tmp_32 (158)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:137
+.preheader17.1:1  %tmp_32 = trunc i16 %values_hidden_layer_s to i13
+
+ST_18: tmp_13 (159)  [1/1] 1.96ns  loc: AXISEnhanced.cpp:137
+.preheader17.1:2  %tmp_13 = add i13 1024, %tmp_32
+
+ST_18: tmp_14_cast (160)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:137
+.preheader17.1:3  %tmp_14_cast = sext i13 %tmp_13 to i32
+
+ST_18: sigmoid_arr_addr (161)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:137
+.preheader17.1:4  %sigmoid_arr_addr = getelementptr [2048 x i8]* @sigmoid_arr, i32 0, i32 %tmp_14_cast
+
+ST_18: sigmoid_arr_load (162)  [2/2] 2.39ns  loc: AXISEnhanced.cpp:137
+.preheader17.1:5  %sigmoid_arr_load = load i8* %sigmoid_arr_addr, align 1
+
+
+ <State 19>: 4.78ns
+ST_19: sigmoid_arr_load (162)  [1/2] 2.39ns  loc: AXISEnhanced.cpp:137
+.preheader17.1:5  %sigmoid_arr_load = load i8* %sigmoid_arr_addr, align 1
+
+ST_19: tmp_14 (163)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:137
+.preheader17.1:6  %tmp_14 = zext i8 %sigmoid_arr_load to i16
+
+ST_19: StgValue_216 (164)  [1/1] 2.39ns  loc: AXISEnhanced.cpp:137
+.preheader17.1:7  store i16 %tmp_14, i16* getelementptr inbounds ([5 x i16]* @values_hidden_layer, i32 0, i32 0), align 2
+
+ST_19: empty_25 (165)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:138
+.preheader17.1:8  %empty_25 = call i32 (...)* @_ssdm_op_SpecRegionEnd([20 x i8]* @p_str7, i32 %tmp_9)
+
+ST_19: tmp_10 (166)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:127
+.preheader17.1:9  %tmp_10 = call i32 (...)* @_ssdm_op_SpecRegionBegin([20 x i8]* @p_str7)
+
+ST_19: StgValue_219 (167)  [1/1] 1.57ns  loc: AXISEnhanced.cpp:129
+.preheader17.1:10  br label %23
+
+
+ <State 20>: 5.33ns
+ST_20: values_hidden_layer_5 (169)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:130
+:0  %values_hidden_layer_5 = phi i16 [ 0, %.preheader17.1 ], [ %tmp_5_1, %24 ]
+
+ST_20: j_2_1 (170)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:129
+:1  %j_2_1 = phi i4 [ 0, %.preheader17.1 ], [ %j_6_1, %24 ]
+
+ST_20: StgValue_222 (171)  [1/1] 2.39ns  loc: AXISEnhanced.cpp:130
+:2  store i16 %values_hidden_layer_5, i16* getelementptr inbounds ([5 x i16]* @values_hidden_layer, i32 0, i32 1), align 2
+
+ST_20: j_2_1_cast9 (172)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:129
+:3  %j_2_1_cast9 = zext i4 %j_2_1 to i32
+
+ST_20: j_2_1_cast9_cast (173)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:129
+:4  %j_2_1_cast9_cast = zext i4 %j_2_1 to i7
+
+ST_20: tmp_33 (174)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:129
+:5  %tmp_33 = call i6 @_ssdm_op_BitConcatenate.i6.i4.i2(i4 %j_2_1, i2 0)
+
+ST_20: p_shl3_cast (175)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:130
+:6  %p_shl3_cast = zext i6 %tmp_33 to i7
+
+ST_20: tmp_34 (176)  [1/1] 1.31ns  loc: AXISEnhanced.cpp:130
+:7  %tmp_34 = add i7 %j_2_1_cast9_cast, %p_shl3_cast
+
+ST_20: tmp_35 (177)  [1/1] 1.31ns  loc: AXISEnhanced.cpp:130
+:8  %tmp_35 = add i7 %tmp_34, 1
+
+ST_20: tmp_35_cast (178)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:130
+:9  %tmp_35_cast = zext i7 %tmp_35 to i32
+
+ST_20: weights_IH_addr_2 (179)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:130
+:10  %weights_IH_addr_2 = getelementptr [65 x i16]* @weights_IH, i32 0, i32 %tmp_35_cast
+
+ST_20: exitcond9_1 (180)  [1/1] 1.88ns  loc: AXISEnhanced.cpp:129
+:11  %exitcond9_1 = icmp eq i4 %j_2_1, -3
+
+ST_20: empty_29 (181)  [1/1] 0.00ns
+:12  %empty_29 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 13, i64 13, i64 13)
+
+ST_20: j_6_1 (182)  [1/1] 0.80ns  loc: AXISEnhanced.cpp:129
+:13  %j_6_1 = add i4 %j_2_1, 1
+
+ST_20: StgValue_234 (183)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:129
+:14  br i1 %exitcond9_1, label %22, label %24
+
+ST_20: test_data_addr_2 (185)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:130
+:0  %test_data_addr_2 = getelementptr inbounds [13 x i16]* @test_data, i32 0, i32 %j_2_1_cast9
+
+ST_20: test_data_load_1 (186)  [2/2] 2.39ns  loc: AXISEnhanced.cpp:130
+:1  %test_data_load_1 = load i16* %test_data_addr_2, align 2
+
+ST_20: weights_IH_load_1 (187)  [2/2] 2.71ns  loc: AXISEnhanced.cpp:130
+:2  %weights_IH_load_1 = load i16* %weights_IH_addr_2, align 2
+
+ST_20: tmp_2_1 (195)  [1/1] 2.28ns  loc: AXISEnhanced.cpp:132
+:0  %tmp_2_1 = icmp slt i16 %values_hidden_layer_5, -1024
+
+ST_20: StgValue_239 (196)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:132
+:1  br i1 %tmp_2_1, label %21, label %25
+
+ST_20: tmp_53 (198)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:134
+:0  %tmp_53 = call i6 @_ssdm_op_PartSelect.i6.i16.i32.i32(i16 %values_hidden_layer_5, i32 10, i32 15)
+
+ST_20: icmp1 (199)  [1/1] 1.94ns  loc: AXISEnhanced.cpp:134
+:1  %icmp1 = icmp sgt i6 %tmp_53, 0
+
+ST_20: StgValue_242 (200)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:134
+:2  br i1 %icmp1, label %26, label %._crit_edge.1
+
+
+ <State 21>: 2.71ns
+ST_21: test_data_load_1 (186)  [1/2] 2.39ns  loc: AXISEnhanced.cpp:130
+:1  %test_data_load_1 = load i16* %test_data_addr_2, align 2
+
+ST_21: weights_IH_load_1 (187)  [1/2] 2.71ns  loc: AXISEnhanced.cpp:130
+:2  %weights_IH_load_1 = load i16* %weights_IH_addr_2, align 2
+
+
+ <State 22>: 6.38ns
+ST_22: tmp_i1_cast (188)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:167->AXISEnhanced.cpp:130
+:3  %tmp_i1_cast = sext i16 %test_data_load_1 to i24
+
+ST_22: tmp_1_i1_cast (189)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:167->AXISEnhanced.cpp:130
+:4  %tmp_1_i1_cast = sext i16 %weights_IH_load_1 to i24
+
+ST_22: tmp_2_i1 (190)  [1/1] 6.38ns  loc: AXISEnhanced.cpp:167->AXISEnhanced.cpp:130
+:5  %tmp_2_i1 = mul i24 %tmp_i1_cast, %tmp_1_i1_cast
+
+ST_22: tmp_4_1 (191)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:130
+:6  %tmp_4_1 = call i16 @_ssdm_op_PartSelect.i16.i24.i32.i32(i24 %tmp_2_i1, i32 8, i32 23)
+
+
+ <State 23>: 1.96ns
+ST_23: tmp_5_1 (192)  [1/1] 1.96ns  loc: AXISEnhanced.cpp:130
+:7  %tmp_5_1 = add i16 %values_hidden_layer_5, %tmp_4_1
+
+ST_23: StgValue_250 (193)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:129
+:8  br label %23
+
+
+ <State 24>: 2.39ns
+ST_24: StgValue_251 (202)  [1/1] 2.39ns  loc: AXISEnhanced.cpp:135
+:0  store i16 1023, i16* getelementptr inbounds ([5 x i16]* @values_hidden_layer, i32 0, i32 1), align 2
+
+ST_24: StgValue_252 (203)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:136
+:1  br label %._crit_edge.1
+
+ST_24: StgValue_253 (205)  [1/1] 0.00ns
+._crit_edge.1:0  br label %.preheader17.2
+
+ST_24: StgValue_254 (207)  [1/1] 2.39ns  loc: AXISEnhanced.cpp:133
+:0  store i16 -1024, i16* getelementptr inbounds ([5 x i16]* @values_hidden_layer, i32 0, i32 1), align 2
+
+ST_24: StgValue_255 (208)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:134
+:1  br label %.preheader17.2
+
+
+ <State 25>: 2.39ns
+ST_25: values_hidden_layer_3 (210)  [2/2] 2.39ns  loc: AXISEnhanced.cpp:137
+.preheader17.2:0  %values_hidden_layer_3 = load i16* getelementptr inbounds ([5 x i16]* @values_hidden_layer, i32 0, i32 1), align 2
+
+
+ <State 26>: 6.74ns
+ST_26: values_hidden_layer_3 (210)  [1/2] 2.39ns  loc: AXISEnhanced.cpp:137
+.preheader17.2:0  %values_hidden_layer_3 = load i16* getelementptr inbounds ([5 x i16]* @values_hidden_layer, i32 0, i32 1), align 2
+
+ST_26: tmp_54 (211)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:137
+.preheader17.2:1  %tmp_54 = trunc i16 %values_hidden_layer_3 to i13
+
+ST_26: tmp_14_1 (212)  [1/1] 1.96ns  loc: AXISEnhanced.cpp:137
+.preheader17.2:2  %tmp_14_1 = add i13 1024, %tmp_54
+
+ST_26: tmp_14_1_cast (213)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:137
+.preheader17.2:3  %tmp_14_1_cast = sext i13 %tmp_14_1 to i32
+
+ST_26: sigmoid_arr_addr_1 (214)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:137
+.preheader17.2:4  %sigmoid_arr_addr_1 = getelementptr [2048 x i8]* @sigmoid_arr, i32 0, i32 %tmp_14_1_cast
+
+ST_26: sigmoid_arr_load_1 (215)  [2/2] 2.39ns  loc: AXISEnhanced.cpp:137
+.preheader17.2:5  %sigmoid_arr_load_1 = load i8* %sigmoid_arr_addr_1, align 1
+
+
+ <State 27>: 4.78ns
+ST_27: sigmoid_arr_load_1 (215)  [1/2] 2.39ns  loc: AXISEnhanced.cpp:137
+.preheader17.2:5  %sigmoid_arr_load_1 = load i8* %sigmoid_arr_addr_1, align 1
+
+ST_27: tmp_15_1 (216)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:137
+.preheader17.2:6  %tmp_15_1 = zext i8 %sigmoid_arr_load_1 to i16
+
+ST_27: StgValue_265 (217)  [1/1] 2.39ns  loc: AXISEnhanced.cpp:137
+.preheader17.2:7  store i16 %tmp_15_1, i16* getelementptr inbounds ([5 x i16]* @values_hidden_layer, i32 0, i32 1), align 2
+
+ST_27: empty_28 (218)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:138
+.preheader17.2:8  %empty_28 = call i32 (...)* @_ssdm_op_SpecRegionEnd([20 x i8]* @p_str7, i32 %tmp_10)
+
+ST_27: tmp_11 (219)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:127
+.preheader17.2:9  %tmp_11 = call i32 (...)* @_ssdm_op_SpecRegionBegin([20 x i8]* @p_str7)
+
+ST_27: StgValue_268 (220)  [1/1] 1.57ns  loc: AXISEnhanced.cpp:129
+.preheader17.2:10  br label %29
+
+
+ <State 28>: 5.33ns
+ST_28: values_hidden_layer_8 (222)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:130
+:0  %values_hidden_layer_8 = phi i16 [ 0, %.preheader17.2 ], [ %tmp_5_2, %30 ]
+
+ST_28: j_2_2 (223)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:129
+:1  %j_2_2 = phi i4 [ 0, %.preheader17.2 ], [ %j_6_2, %30 ]
+
+ST_28: StgValue_271 (224)  [1/1] 2.39ns  loc: AXISEnhanced.cpp:130
+:2  store i16 %values_hidden_layer_8, i16* getelementptr inbounds ([5 x i16]* @values_hidden_layer, i32 0, i32 2), align 2
+
+ST_28: j_2_2_cast8 (225)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:129
+:3  %j_2_2_cast8 = zext i4 %j_2_2 to i32
+
+ST_28: j_2_2_cast8_cast (226)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:129
+:4  %j_2_2_cast8_cast = zext i4 %j_2_2 to i7
+
+ST_28: tmp_36 (227)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:129
+:5  %tmp_36 = call i6 @_ssdm_op_BitConcatenate.i6.i4.i2(i4 %j_2_2, i2 0)
+
+ST_28: p_shl4_cast (228)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:130
+:6  %p_shl4_cast = zext i6 %tmp_36 to i7
+
+ST_28: tmp_37 (229)  [1/1] 1.31ns  loc: AXISEnhanced.cpp:130
+:7  %tmp_37 = add i7 %j_2_2_cast8_cast, %p_shl4_cast
+
+ST_28: tmp_38 (230)  [1/1] 1.31ns  loc: AXISEnhanced.cpp:130
+:8  %tmp_38 = add i7 %tmp_37, 2
+
+ST_28: tmp_38_cast (231)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:130
+:9  %tmp_38_cast = zext i7 %tmp_38 to i32
+
+ST_28: weights_IH_addr_3 (232)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:130
+:10  %weights_IH_addr_3 = getelementptr [65 x i16]* @weights_IH, i32 0, i32 %tmp_38_cast
+
+ST_28: exitcond9_2 (233)  [1/1] 1.88ns  loc: AXISEnhanced.cpp:129
+:11  %exitcond9_2 = icmp eq i4 %j_2_2, -3
+
+ST_28: empty_31 (234)  [1/1] 0.00ns
+:12  %empty_31 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 13, i64 13, i64 13)
+
+ST_28: j_6_2 (235)  [1/1] 0.80ns  loc: AXISEnhanced.cpp:129
+:13  %j_6_2 = add i4 %j_2_2, 1
+
+ST_28: StgValue_283 (236)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:129
+:14  br i1 %exitcond9_2, label %28, label %30
+
+ST_28: test_data_addr_3 (238)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:130
+:0  %test_data_addr_3 = getelementptr inbounds [13 x i16]* @test_data, i32 0, i32 %j_2_2_cast8
+
+ST_28: test_data_load_2 (239)  [2/2] 2.39ns  loc: AXISEnhanced.cpp:130
+:1  %test_data_load_2 = load i16* %test_data_addr_3, align 2
+
+ST_28: weights_IH_load_2 (240)  [2/2] 2.71ns  loc: AXISEnhanced.cpp:130
+:2  %weights_IH_load_2 = load i16* %weights_IH_addr_3, align 2
+
+ST_28: tmp_2_2 (248)  [1/1] 2.28ns  loc: AXISEnhanced.cpp:132
+:0  %tmp_2_2 = icmp slt i16 %values_hidden_layer_8, -1024
+
+ST_28: StgValue_288 (249)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:132
+:1  br i1 %tmp_2_2, label %27, label %31
+
+ST_28: tmp_55 (251)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:134
+:0  %tmp_55 = call i6 @_ssdm_op_PartSelect.i6.i16.i32.i32(i16 %values_hidden_layer_8, i32 10, i32 15)
+
+ST_28: icmp2 (252)  [1/1] 1.94ns  loc: AXISEnhanced.cpp:134
+:1  %icmp2 = icmp sgt i6 %tmp_55, 0
+
+ST_28: StgValue_291 (253)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:134
+:2  br i1 %icmp2, label %32, label %._crit_edge.2
+
+
+ <State 29>: 2.71ns
+ST_29: test_data_load_2 (239)  [1/2] 2.39ns  loc: AXISEnhanced.cpp:130
+:1  %test_data_load_2 = load i16* %test_data_addr_3, align 2
+
+ST_29: weights_IH_load_2 (240)  [1/2] 2.71ns  loc: AXISEnhanced.cpp:130
+:2  %weights_IH_load_2 = load i16* %weights_IH_addr_3, align 2
+
+
+ <State 30>: 6.38ns
+ST_30: tmp_i2_cast (241)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:167->AXISEnhanced.cpp:130
+:3  %tmp_i2_cast = sext i16 %test_data_load_2 to i24
+
+ST_30: tmp_1_i2_cast (242)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:167->AXISEnhanced.cpp:130
+:4  %tmp_1_i2_cast = sext i16 %weights_IH_load_2 to i24
+
+ST_30: tmp_2_i2 (243)  [1/1] 6.38ns  loc: AXISEnhanced.cpp:167->AXISEnhanced.cpp:130
+:5  %tmp_2_i2 = mul i24 %tmp_i2_cast, %tmp_1_i2_cast
+
+ST_30: tmp_4_2 (244)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:130
+:6  %tmp_4_2 = call i16 @_ssdm_op_PartSelect.i16.i24.i32.i32(i24 %tmp_2_i2, i32 8, i32 23)
+
+
+ <State 31>: 1.96ns
+ST_31: tmp_5_2 (245)  [1/1] 1.96ns  loc: AXISEnhanced.cpp:130
+:7  %tmp_5_2 = add i16 %values_hidden_layer_8, %tmp_4_2
+
+ST_31: StgValue_299 (246)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:129
+:8  br label %29
+
+
+ <State 32>: 2.39ns
+ST_32: StgValue_300 (255)  [1/1] 2.39ns  loc: AXISEnhanced.cpp:135
+:0  store i16 1023, i16* getelementptr inbounds ([5 x i16]* @values_hidden_layer, i32 0, i32 2), align 2
+
+ST_32: StgValue_301 (256)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:136
+:1  br label %._crit_edge.2
+
+ST_32: StgValue_302 (258)  [1/1] 0.00ns
+._crit_edge.2:0  br label %.preheader17.3
+
+ST_32: StgValue_303 (260)  [1/1] 2.39ns  loc: AXISEnhanced.cpp:133
+:0  store i16 -1024, i16* getelementptr inbounds ([5 x i16]* @values_hidden_layer, i32 0, i32 2), align 2
+
+ST_32: StgValue_304 (261)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:134
+:1  br label %.preheader17.3
+
+
+ <State 33>: 2.39ns
+ST_33: values_hidden_layer_4 (263)  [2/2] 2.39ns  loc: AXISEnhanced.cpp:137
+.preheader17.3:0  %values_hidden_layer_4 = load i16* getelementptr inbounds ([5 x i16]* @values_hidden_layer, i32 0, i32 2), align 2
+
+
+ <State 34>: 6.74ns
+ST_34: values_hidden_layer_4 (263)  [1/2] 2.39ns  loc: AXISEnhanced.cpp:137
+.preheader17.3:0  %values_hidden_layer_4 = load i16* getelementptr inbounds ([5 x i16]* @values_hidden_layer, i32 0, i32 2), align 2
+
+ST_34: tmp_56 (264)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:137
+.preheader17.3:1  %tmp_56 = trunc i16 %values_hidden_layer_4 to i13
+
+ST_34: tmp_14_2 (265)  [1/1] 1.96ns  loc: AXISEnhanced.cpp:137
+.preheader17.3:2  %tmp_14_2 = add i13 1024, %tmp_56
+
+ST_34: tmp_14_2_cast (266)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:137
+.preheader17.3:3  %tmp_14_2_cast = sext i13 %tmp_14_2 to i32
+
+ST_34: sigmoid_arr_addr_2 (267)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:137
+.preheader17.3:4  %sigmoid_arr_addr_2 = getelementptr [2048 x i8]* @sigmoid_arr, i32 0, i32 %tmp_14_2_cast
+
+ST_34: sigmoid_arr_load_2 (268)  [2/2] 2.39ns  loc: AXISEnhanced.cpp:137
+.preheader17.3:5  %sigmoid_arr_load_2 = load i8* %sigmoid_arr_addr_2, align 1
+
+
+ <State 35>: 4.78ns
+ST_35: sigmoid_arr_load_2 (268)  [1/2] 2.39ns  loc: AXISEnhanced.cpp:137
+.preheader17.3:5  %sigmoid_arr_load_2 = load i8* %sigmoid_arr_addr_2, align 1
+
+ST_35: tmp_15_2 (269)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:137
+.preheader17.3:6  %tmp_15_2 = zext i8 %sigmoid_arr_load_2 to i16
+
+ST_35: StgValue_314 (270)  [1/1] 2.39ns  loc: AXISEnhanced.cpp:137
+.preheader17.3:7  store i16 %tmp_15_2, i16* getelementptr inbounds ([5 x i16]* @values_hidden_layer, i32 0, i32 2), align 2
+
+ST_35: empty_30 (271)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:138
+.preheader17.3:8  %empty_30 = call i32 (...)* @_ssdm_op_SpecRegionEnd([20 x i8]* @p_str7, i32 %tmp_11)
+
+ST_35: tmp_12 (272)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:127
+.preheader17.3:9  %tmp_12 = call i32 (...)* @_ssdm_op_SpecRegionBegin([20 x i8]* @p_str7)
+
+ST_35: StgValue_317 (273)  [1/1] 1.57ns  loc: AXISEnhanced.cpp:129
+.preheader17.3:10  br label %35
+
+
+ <State 36>: 5.33ns
+ST_36: values_hidden_layer_7 (275)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:130
+:0  %values_hidden_layer_7 = phi i16 [ 0, %.preheader17.3 ], [ %tmp_5_3, %36 ]
+
+ST_36: j_2_3 (276)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:129
+:1  %j_2_3 = phi i4 [ 0, %.preheader17.3 ], [ %j_6_3, %36 ]
+
+ST_36: StgValue_320 (277)  [1/1] 2.39ns  loc: AXISEnhanced.cpp:130
+:2  store i16 %values_hidden_layer_7, i16* getelementptr inbounds ([5 x i16]* @values_hidden_layer, i32 0, i32 3), align 2
+
+ST_36: j_2_3_cast7 (278)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:129
+:3  %j_2_3_cast7 = zext i4 %j_2_3 to i32
+
+ST_36: j_2_3_cast7_cast (279)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:129
+:4  %j_2_3_cast7_cast = zext i4 %j_2_3 to i7
+
+ST_36: tmp_39 (280)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:129
+:5  %tmp_39 = call i6 @_ssdm_op_BitConcatenate.i6.i4.i2(i4 %j_2_3, i2 0)
+
+ST_36: p_shl5_cast (281)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:130
+:6  %p_shl5_cast = zext i6 %tmp_39 to i7
+
+ST_36: tmp_40 (282)  [1/1] 1.31ns  loc: AXISEnhanced.cpp:130
+:7  %tmp_40 = add i7 %j_2_3_cast7_cast, %p_shl5_cast
+
+ST_36: tmp_41 (283)  [1/1] 1.31ns  loc: AXISEnhanced.cpp:130
+:8  %tmp_41 = add i7 %tmp_40, 3
+
+ST_36: tmp_41_cast (284)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:130
+:9  %tmp_41_cast = zext i7 %tmp_41 to i32
+
+ST_36: weights_IH_addr_4 (285)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:130
+:10  %weights_IH_addr_4 = getelementptr [65 x i16]* @weights_IH, i32 0, i32 %tmp_41_cast
+
+ST_36: exitcond9_3 (286)  [1/1] 1.88ns  loc: AXISEnhanced.cpp:129
+:11  %exitcond9_3 = icmp eq i4 %j_2_3, -3
+
+ST_36: empty_33 (287)  [1/1] 0.00ns
+:12  %empty_33 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 13, i64 13, i64 13)
+
+ST_36: j_6_3 (288)  [1/1] 0.80ns  loc: AXISEnhanced.cpp:129
+:13  %j_6_3 = add i4 %j_2_3, 1
+
+ST_36: StgValue_332 (289)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:129
+:14  br i1 %exitcond9_3, label %34, label %36
+
+ST_36: test_data_addr_4 (291)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:130
+:0  %test_data_addr_4 = getelementptr inbounds [13 x i16]* @test_data, i32 0, i32 %j_2_3_cast7
+
+ST_36: test_data_load_3 (292)  [2/2] 2.39ns  loc: AXISEnhanced.cpp:130
+:1  %test_data_load_3 = load i16* %test_data_addr_4, align 2
+
+ST_36: weights_IH_load_3 (293)  [2/2] 2.71ns  loc: AXISEnhanced.cpp:130
+:2  %weights_IH_load_3 = load i16* %weights_IH_addr_4, align 2
+
+ST_36: tmp_2_3 (301)  [1/1] 2.28ns  loc: AXISEnhanced.cpp:132
+:0  %tmp_2_3 = icmp slt i16 %values_hidden_layer_7, -1024
+
+ST_36: StgValue_337 (302)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:132
+:1  br i1 %tmp_2_3, label %33, label %37
+
+ST_36: tmp_57 (304)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:134
+:0  %tmp_57 = call i6 @_ssdm_op_PartSelect.i6.i16.i32.i32(i16 %values_hidden_layer_7, i32 10, i32 15)
+
+ST_36: icmp3 (305)  [1/1] 1.94ns  loc: AXISEnhanced.cpp:134
+:1  %icmp3 = icmp sgt i6 %tmp_57, 0
+
+ST_36: StgValue_340 (306)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:134
+:2  br i1 %icmp3, label %38, label %._crit_edge.3
+
+
+ <State 37>: 2.71ns
+ST_37: test_data_load_3 (292)  [1/2] 2.39ns  loc: AXISEnhanced.cpp:130
+:1  %test_data_load_3 = load i16* %test_data_addr_4, align 2
+
+ST_37: weights_IH_load_3 (293)  [1/2] 2.71ns  loc: AXISEnhanced.cpp:130
+:2  %weights_IH_load_3 = load i16* %weights_IH_addr_4, align 2
+
+
+ <State 38>: 6.38ns
+ST_38: tmp_i3_cast (294)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:167->AXISEnhanced.cpp:130
+:3  %tmp_i3_cast = sext i16 %test_data_load_3 to i24
+
+ST_38: tmp_1_i3_cast (295)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:167->AXISEnhanced.cpp:130
+:4  %tmp_1_i3_cast = sext i16 %weights_IH_load_3 to i24
+
+ST_38: tmp_2_i3 (296)  [1/1] 6.38ns  loc: AXISEnhanced.cpp:167->AXISEnhanced.cpp:130
+:5  %tmp_2_i3 = mul i24 %tmp_i3_cast, %tmp_1_i3_cast
+
+ST_38: tmp_4_3 (297)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:130
+:6  %tmp_4_3 = call i16 @_ssdm_op_PartSelect.i16.i24.i32.i32(i24 %tmp_2_i3, i32 8, i32 23)
+
+
+ <State 39>: 1.96ns
+ST_39: tmp_5_3 (298)  [1/1] 1.96ns  loc: AXISEnhanced.cpp:130
+:7  %tmp_5_3 = add i16 %values_hidden_layer_7, %tmp_4_3
+
+ST_39: StgValue_348 (299)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:129
+:8  br label %35
+
+
+ <State 40>: 2.39ns
+ST_40: StgValue_349 (308)  [1/1] 2.39ns  loc: AXISEnhanced.cpp:135
+:0  store i16 1023, i16* getelementptr inbounds ([5 x i16]* @values_hidden_layer, i32 0, i32 3), align 2
+
+ST_40: StgValue_350 (309)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:136
+:1  br label %._crit_edge.3
+
+ST_40: StgValue_351 (311)  [1/1] 0.00ns
+._crit_edge.3:0  br label %.preheader17.4
+
+ST_40: StgValue_352 (313)  [1/1] 2.39ns  loc: AXISEnhanced.cpp:133
+:0  store i16 -1024, i16* getelementptr inbounds ([5 x i16]* @values_hidden_layer, i32 0, i32 3), align 2
+
+ST_40: StgValue_353 (314)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:134
+:1  br label %.preheader17.4
+
+
+ <State 41>: 2.39ns
+ST_41: values_hidden_layer_6 (316)  [2/2] 2.39ns  loc: AXISEnhanced.cpp:137
+.preheader17.4:0  %values_hidden_layer_6 = load i16* getelementptr inbounds ([5 x i16]* @values_hidden_layer, i32 0, i32 3), align 2
+
+
+ <State 42>: 6.74ns
+ST_42: values_hidden_layer_6 (316)  [1/2] 2.39ns  loc: AXISEnhanced.cpp:137
+.preheader17.4:0  %values_hidden_layer_6 = load i16* getelementptr inbounds ([5 x i16]* @values_hidden_layer, i32 0, i32 3), align 2
+
+ST_42: tmp_58 (317)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:137
+.preheader17.4:1  %tmp_58 = trunc i16 %values_hidden_layer_6 to i13
+
+ST_42: tmp_14_3 (318)  [1/1] 1.96ns  loc: AXISEnhanced.cpp:137
+.preheader17.4:2  %tmp_14_3 = add i13 1024, %tmp_58
+
+ST_42: tmp_14_3_cast (319)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:137
+.preheader17.4:3  %tmp_14_3_cast = sext i13 %tmp_14_3 to i32
+
+ST_42: sigmoid_arr_addr_3 (320)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:137
+.preheader17.4:4  %sigmoid_arr_addr_3 = getelementptr [2048 x i8]* @sigmoid_arr, i32 0, i32 %tmp_14_3_cast
+
+ST_42: sigmoid_arr_load_3 (321)  [2/2] 2.39ns  loc: AXISEnhanced.cpp:137
+.preheader17.4:5  %sigmoid_arr_load_3 = load i8* %sigmoid_arr_addr_3, align 1
+
+
+ <State 43>: 4.78ns
+ST_43: sigmoid_arr_load_3 (321)  [1/2] 2.39ns  loc: AXISEnhanced.cpp:137
+.preheader17.4:5  %sigmoid_arr_load_3 = load i8* %sigmoid_arr_addr_3, align 1
+
+ST_43: tmp_15_3 (322)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:137
+.preheader17.4:6  %tmp_15_3 = zext i8 %sigmoid_arr_load_3 to i16
+
+ST_43: StgValue_363 (323)  [1/1] 2.39ns  loc: AXISEnhanced.cpp:137
+.preheader17.4:7  store i16 %tmp_15_3, i16* getelementptr inbounds ([5 x i16]* @values_hidden_layer, i32 0, i32 3), align 2
+
+ST_43: empty_32 (324)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:138
+.preheader17.4:8  %empty_32 = call i32 (...)* @_ssdm_op_SpecRegionEnd([20 x i8]* @p_str7, i32 %tmp_12)
+
+ST_43: tmp_15 (325)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:127
+.preheader17.4:9  %tmp_15 = call i32 (...)* @_ssdm_op_SpecRegionBegin([20 x i8]* @p_str7)
+
+ST_43: StgValue_366 (326)  [1/1] 1.57ns  loc: AXISEnhanced.cpp:129
+.preheader17.4:10  br label %41
+
+
+ <State 44>: 5.33ns
+ST_44: values_hidden_layer_1 (328)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:130
+:0  %values_hidden_layer_1 = phi i16 [ 0, %.preheader17.4 ], [ %tmp_5_4, %42 ]
+
+ST_44: j_2_4 (329)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:129
+:1  %j_2_4 = phi i4 [ 0, %.preheader17.4 ], [ %j_6_4, %42 ]
+
+ST_44: StgValue_369 (330)  [1/1] 2.39ns  loc: AXISEnhanced.cpp:130
+:2  store i16 %values_hidden_layer_1, i16* getelementptr inbounds ([5 x i16]* @values_hidden_layer, i32 0, i32 4), align 2
+
+ST_44: j_2_4_cast6 (331)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:129
+:3  %j_2_4_cast6 = zext i4 %j_2_4 to i32
+
+ST_44: j_2_4_cast6_cast (332)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:129
+:4  %j_2_4_cast6_cast = zext i4 %j_2_4 to i7
+
+ST_44: tmp_42 (333)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:129
+:5  %tmp_42 = call i6 @_ssdm_op_BitConcatenate.i6.i4.i2(i4 %j_2_4, i2 0)
+
+ST_44: p_shl6_cast (334)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:130
+:6  %p_shl6_cast = zext i6 %tmp_42 to i7
+
+ST_44: tmp_43 (335)  [1/1] 1.31ns  loc: AXISEnhanced.cpp:130
+:7  %tmp_43 = add i7 %j_2_4_cast6_cast, %p_shl6_cast
+
+ST_44: tmp_44 (336)  [1/1] 1.31ns  loc: AXISEnhanced.cpp:130
+:8  %tmp_44 = add i7 %tmp_43, 4
+
+ST_44: tmp_44_cast (337)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:130
+:9  %tmp_44_cast = zext i7 %tmp_44 to i32
+
+ST_44: weights_IH_addr_5 (338)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:130
+:10  %weights_IH_addr_5 = getelementptr [65 x i16]* @weights_IH, i32 0, i32 %tmp_44_cast
+
+ST_44: exitcond9_4 (339)  [1/1] 1.88ns  loc: AXISEnhanced.cpp:129
+:11  %exitcond9_4 = icmp eq i4 %j_2_4, -3
+
+ST_44: empty_35 (340)  [1/1] 0.00ns
+:12  %empty_35 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 13, i64 13, i64 13)
+
+ST_44: j_6_4 (341)  [1/1] 0.80ns  loc: AXISEnhanced.cpp:129
+:13  %j_6_4 = add i4 %j_2_4, 1
+
+ST_44: StgValue_381 (342)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:129
+:14  br i1 %exitcond9_4, label %40, label %42
+
+ST_44: test_data_addr_5 (344)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:130
+:0  %test_data_addr_5 = getelementptr inbounds [13 x i16]* @test_data, i32 0, i32 %j_2_4_cast6
+
+ST_44: test_data_load_4 (345)  [2/2] 2.39ns  loc: AXISEnhanced.cpp:130
+:1  %test_data_load_4 = load i16* %test_data_addr_5, align 2
+
+ST_44: weights_IH_load_4 (346)  [2/2] 2.71ns  loc: AXISEnhanced.cpp:130
+:2  %weights_IH_load_4 = load i16* %weights_IH_addr_5, align 2
+
+ST_44: tmp_2_4 (354)  [1/1] 2.28ns  loc: AXISEnhanced.cpp:132
+:0  %tmp_2_4 = icmp slt i16 %values_hidden_layer_1, -1024
+
+ST_44: StgValue_386 (355)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:132
+:1  br i1 %tmp_2_4, label %39, label %43
+
+ST_44: tmp_59 (357)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:134
+:0  %tmp_59 = call i6 @_ssdm_op_PartSelect.i6.i16.i32.i32(i16 %values_hidden_layer_1, i32 10, i32 15)
+
+ST_44: icmp4 (358)  [1/1] 1.94ns  loc: AXISEnhanced.cpp:134
+:1  %icmp4 = icmp sgt i6 %tmp_59, 0
+
+ST_44: StgValue_389 (359)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:134
+:2  br i1 %icmp4, label %44, label %._crit_edge.4
+
+
+ <State 45>: 2.71ns
+ST_45: test_data_load_4 (345)  [1/2] 2.39ns  loc: AXISEnhanced.cpp:130
+:1  %test_data_load_4 = load i16* %test_data_addr_5, align 2
+
+ST_45: weights_IH_load_4 (346)  [1/2] 2.71ns  loc: AXISEnhanced.cpp:130
+:2  %weights_IH_load_4 = load i16* %weights_IH_addr_5, align 2
+
+
+ <State 46>: 6.38ns
+ST_46: tmp_i4_cast (347)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:167->AXISEnhanced.cpp:130
+:3  %tmp_i4_cast = sext i16 %test_data_load_4 to i24
+
+ST_46: tmp_1_i4_cast (348)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:167->AXISEnhanced.cpp:130
+:4  %tmp_1_i4_cast = sext i16 %weights_IH_load_4 to i24
+
+ST_46: tmp_2_i4 (349)  [1/1] 6.38ns  loc: AXISEnhanced.cpp:167->AXISEnhanced.cpp:130
+:5  %tmp_2_i4 = mul i24 %tmp_i4_cast, %tmp_1_i4_cast
+
+ST_46: tmp_4_4 (350)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:130
+:6  %tmp_4_4 = call i16 @_ssdm_op_PartSelect.i16.i24.i32.i32(i24 %tmp_2_i4, i32 8, i32 23)
+
+
+ <State 47>: 1.96ns
+ST_47: tmp_5_4 (351)  [1/1] 1.96ns  loc: AXISEnhanced.cpp:130
+:7  %tmp_5_4 = add i16 %values_hidden_layer_1, %tmp_4_4
+
+ST_47: StgValue_397 (352)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:129
+:8  br label %41
+
+
+ <State 48>: 2.39ns
+ST_48: StgValue_398 (361)  [1/1] 2.39ns  loc: AXISEnhanced.cpp:135
+:0  store i16 1023, i16* getelementptr inbounds ([5 x i16]* @values_hidden_layer, i32 0, i32 4), align 2
+
+ST_48: StgValue_399 (362)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:136
+:1  br label %._crit_edge.4
+
+ST_48: StgValue_400 (364)  [1/1] 0.00ns
+._crit_edge.4:0  br label %.preheader17.5
+
+ST_48: StgValue_401 (366)  [1/1] 2.39ns  loc: AXISEnhanced.cpp:133
+:0  store i16 -1024, i16* getelementptr inbounds ([5 x i16]* @values_hidden_layer, i32 0, i32 4), align 2
+
+ST_48: StgValue_402 (367)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:134
+:1  br label %.preheader17.5
+
+
+ <State 49>: 2.39ns
+ST_49: values_hidden_layer_9 (369)  [2/2] 2.39ns  loc: AXISEnhanced.cpp:137
+.preheader17.5:0  %values_hidden_layer_9 = load i16* getelementptr inbounds ([5 x i16]* @values_hidden_layer, i32 0, i32 4), align 2
+
+
+ <State 50>: 6.74ns
+ST_50: values_hidden_layer_9 (369)  [1/2] 2.39ns  loc: AXISEnhanced.cpp:137
+.preheader17.5:0  %values_hidden_layer_9 = load i16* getelementptr inbounds ([5 x i16]* @values_hidden_layer, i32 0, i32 4), align 2
+
+ST_50: tmp_60 (370)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:137
+.preheader17.5:1  %tmp_60 = trunc i16 %values_hidden_layer_9 to i13
+
+ST_50: tmp_14_4 (371)  [1/1] 1.96ns  loc: AXISEnhanced.cpp:137
+.preheader17.5:2  %tmp_14_4 = add i13 1024, %tmp_60
+
+ST_50: tmp_14_4_cast (372)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:137
+.preheader17.5:3  %tmp_14_4_cast = sext i13 %tmp_14_4 to i32
+
+ST_50: sigmoid_arr_addr_4 (373)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:137
+.preheader17.5:4  %sigmoid_arr_addr_4 = getelementptr [2048 x i8]* @sigmoid_arr, i32 0, i32 %tmp_14_4_cast
+
+ST_50: sigmoid_arr_load_4 (374)  [2/2] 2.39ns  loc: AXISEnhanced.cpp:137
+.preheader17.5:5  %sigmoid_arr_load_4 = load i8* %sigmoid_arr_addr_4, align 1
+
+
+ <State 51>: 4.78ns
+ST_51: sigmoid_arr_load_4 (374)  [1/2] 2.39ns  loc: AXISEnhanced.cpp:137
+.preheader17.5:5  %sigmoid_arr_load_4 = load i8* %sigmoid_arr_addr_4, align 1
+
+ST_51: tmp_15_4 (375)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:137
+.preheader17.5:6  %tmp_15_4 = zext i8 %sigmoid_arr_load_4 to i16
+
+ST_51: StgValue_412 (376)  [1/1] 2.39ns  loc: AXISEnhanced.cpp:137
+.preheader17.5:7  store i16 %tmp_15_4, i16* getelementptr inbounds ([5 x i16]* @values_hidden_layer, i32 0, i32 4), align 2
+
+ST_51: empty_34 (377)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:138
+.preheader17.5:8  %empty_34 = call i32 (...)* @_ssdm_op_SpecRegionEnd([20 x i8]* @p_str7, i32 %tmp_15)
+
+ST_51: tmp_16 (378)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:141
+.preheader17.5:9  %tmp_16 = call i32 (...)* @_ssdm_op_SpecRegionBegin([20 x i8]* @p_str8)
+
+ST_51: StgValue_415 (379)  [1/1] 1.57ns  loc: AXISEnhanced.cpp:143
+.preheader17.5:10  br label %47
+
+
+ <State 52>: 4.11ns
+ST_52: values_output_layer_2 (381)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:144
+:0  %values_output_layer_2 = phi i16 [ 0, %.preheader17.5 ], [ %tmp_22, %48 ]
+
+ST_52: j_4 (382)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:143
+:1  %j_4 = phi i3 [ 0, %.preheader17.5 ], [ %j_7, %48 ]
+
+ST_52: StgValue_418 (383)  [1/1] 2.39ns  loc: AXISEnhanced.cpp:144
+:2  store i16 %values_output_layer_2, i16* getelementptr inbounds ([3 x i16]* @values_output_layer, i32 0, i32 0), align 2
+
+ST_52: j_4_cast4 (384)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:143
+:3  %j_4_cast4 = zext i3 %j_4 to i32
+
+ST_52: j_4_cast4_cast (385)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:143
+:4  %j_4_cast4_cast = zext i3 %j_4 to i5
+
+ST_52: tmp_45 (386)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:143
+:5  %tmp_45 = call i5 @_ssdm_op_BitConcatenate.i5.i3.i2(i3 %j_4, i2 0)
+
+ST_52: tmp_46 (387)  [1/1] 1.72ns  loc: AXISEnhanced.cpp:144
+:6  %tmp_46 = sub i5 %tmp_45, %j_4_cast4_cast
+
+ST_52: tmp_46_cast (388)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:144
+:7  %tmp_46_cast = sext i5 %tmp_46 to i32
+
+ST_52: weights_HO_addr_1 (389)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:144
+:8  %weights_HO_addr_1 = getelementptr [15 x i16]* @weights_HO, i32 0, i32 %tmp_46_cast
+
+ST_52: exitcond (390)  [1/1] 1.62ns  loc: AXISEnhanced.cpp:143
+:9  %exitcond = icmp eq i3 %j_4, -3
+
+ST_52: empty_37 (391)  [1/1] 0.00ns
+:10  %empty_37 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 5, i64 5, i64 5)
+
+ST_52: j_7 (392)  [1/1] 0.80ns  loc: AXISEnhanced.cpp:143
+:11  %j_7 = add i3 %j_4, 1
+
+ST_52: StgValue_428 (393)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:143
+:12  br i1 %exitcond, label %46, label %48
+
+ST_52: values_hidden_layer_10 (395)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:144
+:0  %values_hidden_layer_10 = getelementptr inbounds [5 x i16]* @values_hidden_layer, i32 0, i32 %j_4_cast4
+
+ST_52: values_hidden_layer_11 (396)  [2/2] 2.39ns  loc: AXISEnhanced.cpp:144
+:1  %values_hidden_layer_11 = load i16* %values_hidden_layer_10, align 2
+
+ST_52: weights_HO_load (397)  [2/2] 2.39ns  loc: AXISEnhanced.cpp:144
+:2  %weights_HO_load = load i16* %weights_HO_addr_1, align 2
+
+ST_52: tmp_17 (405)  [1/1] 2.28ns  loc: AXISEnhanced.cpp:146
+:0  %tmp_17 = icmp slt i16 %values_output_layer_2, -1024
+
+ST_52: StgValue_433 (406)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:146
+:1  br i1 %tmp_17, label %45, label %49
+
+ST_52: tmp_61 (408)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:148
+:0  %tmp_61 = call i6 @_ssdm_op_PartSelect.i6.i16.i32.i32(i16 %values_output_layer_2, i32 10, i32 15)
+
+ST_52: icmp5 (409)  [1/1] 1.94ns  loc: AXISEnhanced.cpp:148
+:1  %icmp5 = icmp sgt i6 %tmp_61, 0
+
+ST_52: StgValue_436 (410)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:148
+:2  br i1 %icmp5, label %50, label %._crit_edge19.0
+
+
+ <State 53>: 2.39ns
+ST_53: values_hidden_layer_11 (396)  [1/2] 2.39ns  loc: AXISEnhanced.cpp:144
+:1  %values_hidden_layer_11 = load i16* %values_hidden_layer_10, align 2
+
+ST_53: weights_HO_load (397)  [1/2] 2.39ns  loc: AXISEnhanced.cpp:144
+:2  %weights_HO_load = load i16* %weights_HO_addr_1, align 2
+
+
+ <State 54>: 6.38ns
+ST_54: tmp_i5_cast (398)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:167->AXISEnhanced.cpp:144
+:3  %tmp_i5_cast = sext i16 %values_hidden_layer_11 to i24
+
+ST_54: tmp_1_i5_cast (399)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:167->AXISEnhanced.cpp:144
+:4  %tmp_1_i5_cast = sext i16 %weights_HO_load to i24
+
+ST_54: tmp_2_i5 (400)  [1/1] 6.38ns  loc: AXISEnhanced.cpp:167->AXISEnhanced.cpp:144
+:5  %tmp_2_i5 = mul i24 %tmp_i5_cast, %tmp_1_i5_cast
+
+ST_54: tmp_21 (401)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:144
+:6  %tmp_21 = call i16 @_ssdm_op_PartSelect.i16.i24.i32.i32(i24 %tmp_2_i5, i32 8, i32 23)
+
+
+ <State 55>: 1.96ns
+ST_55: tmp_22 (402)  [1/1] 1.96ns  loc: AXISEnhanced.cpp:144
+:7  %tmp_22 = add i16 %values_output_layer_2, %tmp_21
+
+ST_55: StgValue_444 (403)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:143
+:8  br label %47
+
+
+ <State 56>: 2.39ns
+ST_56: StgValue_445 (412)  [1/1] 2.39ns  loc: AXISEnhanced.cpp:149
+:0  store i16 1023, i16* getelementptr inbounds ([3 x i16]* @values_output_layer, i32 0, i32 0), align 2
+
+ST_56: StgValue_446 (413)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:150
+:1  br label %._crit_edge19.0
+
+ST_56: StgValue_447 (415)  [1/1] 0.00ns
+._crit_edge19.0:0  br label %._crit_edge20.0
+
+ST_56: StgValue_448 (417)  [1/1] 2.39ns  loc: AXISEnhanced.cpp:147
+:0  store i16 -1024, i16* getelementptr inbounds ([3 x i16]* @values_output_layer, i32 0, i32 0), align 2
+
+ST_56: StgValue_449 (418)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:148
+:1  br label %._crit_edge20.0
+
+
+ <State 57>: 2.39ns
+ST_57: values_output_layer_s (420)  [2/2] 2.39ns  loc: AXISEnhanced.cpp:151
+._crit_edge20.0:0  %values_output_layer_s = load i16* getelementptr inbounds ([3 x i16]* @values_output_layer, i32 0, i32 0), align 2
+
+
+ <State 58>: 6.74ns
+ST_58: values_output_layer_s (420)  [1/2] 2.39ns  loc: AXISEnhanced.cpp:151
+._crit_edge20.0:0  %values_output_layer_s = load i16* getelementptr inbounds ([3 x i16]* @values_output_layer, i32 0, i32 0), align 2
+
+ST_58: tmp_62 (421)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:151
+._crit_edge20.0:1  %tmp_62 = trunc i16 %values_output_layer_s to i13
+
+ST_58: tmp_24 (422)  [1/1] 1.96ns  loc: AXISEnhanced.cpp:151
+._crit_edge20.0:2  %tmp_24 = add i13 1024, %tmp_62
+
+ST_58: tmp_26_cast (423)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:151
+._crit_edge20.0:3  %tmp_26_cast = sext i13 %tmp_24 to i32
+
+ST_58: sigmoid_arr_addr_5 (424)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:151
+._crit_edge20.0:4  %sigmoid_arr_addr_5 = getelementptr [2048 x i8]* @sigmoid_arr, i32 0, i32 %tmp_26_cast
+
+ST_58: sigmoid_arr_load_5 (425)  [2/2] 2.39ns  loc: AXISEnhanced.cpp:151
+._crit_edge20.0:5  %sigmoid_arr_load_5 = load i8* %sigmoid_arr_addr_5, align 1
+
+
+ <State 59>: 4.78ns
+ST_59: sigmoid_arr_load_5 (425)  [1/2] 2.39ns  loc: AXISEnhanced.cpp:151
+._crit_edge20.0:5  %sigmoid_arr_load_5 = load i8* %sigmoid_arr_addr_5, align 1
+
+ST_59: highest_pred_2 (426)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:151
+._crit_edge20.0:6  %highest_pred_2 = zext i8 %sigmoid_arr_load_5 to i16
+
+ST_59: StgValue_459 (427)  [1/1] 2.39ns  loc: AXISEnhanced.cpp:151
+._crit_edge20.0:7  store i16 %highest_pred_2, i16* getelementptr inbounds ([3 x i16]* @values_output_layer, i32 0, i32 0), align 2
+
+ST_59: empty_36 (428)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:156
+._crit_edge20.0:8  %empty_36 = call i32 (...)* @_ssdm_op_SpecRegionEnd([20 x i8]* @p_str8, i32 %tmp_16)
+
+ST_59: tmp_18 (429)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:141
+._crit_edge20.0:9  %tmp_18 = call i32 (...)* @_ssdm_op_SpecRegionBegin([20 x i8]* @p_str8)
+
+ST_59: StgValue_462 (430)  [1/1] 1.57ns  loc: AXISEnhanced.cpp:143
+._crit_edge20.0:10  br label %53
+
+
+ <State 60>: 5.01ns
+ST_60: values_output_layer_5 (432)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:144
+:0  %values_output_layer_5 = phi i16 [ 0, %._crit_edge20.0 ], [ %tmp_11_1, %54 ]
+
+ST_60: j_3_1 (433)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:143
+:1  %j_3_1 = phi i3 [ 0, %._crit_edge20.0 ], [ %j_7_1, %54 ]
+
+ST_60: StgValue_465 (434)  [1/1] 2.39ns  loc: AXISEnhanced.cpp:144
+:2  store i16 %values_output_layer_5, i16* getelementptr inbounds ([3 x i16]* @values_output_layer, i32 0, i32 1), align 2
+
+ST_60: j_3_1_cast2 (435)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:143
+:3  %j_3_1_cast2 = zext i3 %j_3_1 to i32
+
+ST_60: j_3_1_cast2_cast (436)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:143
+:4  %j_3_1_cast2_cast = zext i3 %j_3_1 to i5
+
+ST_60: tmp_47 (437)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:143
+:5  %tmp_47 = call i5 @_ssdm_op_BitConcatenate.i5.i3.i2(i3 %j_3_1, i2 0)
+
+ST_60: tmp_48 (438)  [1/1] 1.31ns  loc: AXISEnhanced.cpp:144
+:6  %tmp_48 = sub i5 %tmp_47, %j_3_1_cast2_cast
+
+ST_60: tmp_49 (439)  [1/1] 1.31ns  loc: AXISEnhanced.cpp:144
+:7  %tmp_49 = add i5 %tmp_48, 1
+
+ST_60: tmp_49_cast (440)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:144
+:8  %tmp_49_cast = sext i5 %tmp_49 to i32
+
+ST_60: weights_HO_addr_2 (441)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:144
+:9  %weights_HO_addr_2 = getelementptr [15 x i16]* @weights_HO, i32 0, i32 %tmp_49_cast
+
+ST_60: exitcond_1 (442)  [1/1] 1.62ns  loc: AXISEnhanced.cpp:143
+:10  %exitcond_1 = icmp eq i3 %j_3_1, -3
+
+ST_60: empty_39 (443)  [1/1] 0.00ns
+:11  %empty_39 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 5, i64 5, i64 5)
+
+ST_60: j_7_1 (444)  [1/1] 0.80ns  loc: AXISEnhanced.cpp:143
+:12  %j_7_1 = add i3 %j_3_1, 1
+
+ST_60: StgValue_476 (445)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:143
+:13  br i1 %exitcond_1, label %52, label %54
+
+ST_60: values_hidden_layer_12 (447)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:144
+:0  %values_hidden_layer_12 = getelementptr inbounds [5 x i16]* @values_hidden_layer, i32 0, i32 %j_3_1_cast2
+
+ST_60: values_hidden_layer_13 (448)  [2/2] 2.39ns  loc: AXISEnhanced.cpp:144
+:1  %values_hidden_layer_13 = load i16* %values_hidden_layer_12, align 2
+
+ST_60: weights_HO_load_1 (449)  [2/2] 2.39ns  loc: AXISEnhanced.cpp:144
+:2  %weights_HO_load_1 = load i16* %weights_HO_addr_2, align 2
+
+ST_60: tmp_8_1 (457)  [1/1] 2.28ns  loc: AXISEnhanced.cpp:146
+:0  %tmp_8_1 = icmp slt i16 %values_output_layer_5, -1024
+
+ST_60: StgValue_481 (458)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:146
+:1  br i1 %tmp_8_1, label %51, label %55
+
+ST_60: tmp_63 (460)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:148
+:0  %tmp_63 = call i6 @_ssdm_op_PartSelect.i6.i16.i32.i32(i16 %values_output_layer_5, i32 10, i32 15)
+
+ST_60: icmp6 (461)  [1/1] 1.94ns  loc: AXISEnhanced.cpp:148
+:1  %icmp6 = icmp sgt i6 %tmp_63, 0
+
+ST_60: StgValue_484 (462)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:148
+:2  br i1 %icmp6, label %56, label %._crit_edge19.1
+
+
+ <State 61>: 2.39ns
+ST_61: values_hidden_layer_13 (448)  [1/2] 2.39ns  loc: AXISEnhanced.cpp:144
+:1  %values_hidden_layer_13 = load i16* %values_hidden_layer_12, align 2
+
+ST_61: weights_HO_load_1 (449)  [1/2] 2.39ns  loc: AXISEnhanced.cpp:144
+:2  %weights_HO_load_1 = load i16* %weights_HO_addr_2, align 2
+
+
+ <State 62>: 6.38ns
+ST_62: tmp_i6_cast (450)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:167->AXISEnhanced.cpp:144
+:3  %tmp_i6_cast = sext i16 %values_hidden_layer_13 to i24
+
+ST_62: tmp_1_i6_cast (451)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:167->AXISEnhanced.cpp:144
+:4  %tmp_1_i6_cast = sext i16 %weights_HO_load_1 to i24
+
+ST_62: tmp_2_i6 (452)  [1/1] 6.38ns  loc: AXISEnhanced.cpp:167->AXISEnhanced.cpp:144
+:5  %tmp_2_i6 = mul i24 %tmp_i6_cast, %tmp_1_i6_cast
+
+ST_62: tmp_10_1 (453)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:144
+:6  %tmp_10_1 = call i16 @_ssdm_op_PartSelect.i16.i24.i32.i32(i24 %tmp_2_i6, i32 8, i32 23)
+
+
+ <State 63>: 1.96ns
+ST_63: tmp_11_1 (454)  [1/1] 1.96ns  loc: AXISEnhanced.cpp:144
+:7  %tmp_11_1 = add i16 %values_output_layer_5, %tmp_10_1
+
+ST_63: StgValue_492 (455)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:143
+:8  br label %53
+
+
+ <State 64>: 2.39ns
+ST_64: StgValue_493 (464)  [1/1] 2.39ns  loc: AXISEnhanced.cpp:149
+:0  store i16 1023, i16* getelementptr inbounds ([3 x i16]* @values_output_layer, i32 0, i32 1), align 2
+
+ST_64: StgValue_494 (465)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:150
+:1  br label %._crit_edge19.1
+
+ST_64: StgValue_495 (467)  [1/1] 0.00ns
+._crit_edge19.1:0  br label %._crit_edge20.1
+
+ST_64: StgValue_496 (469)  [1/1] 2.39ns  loc: AXISEnhanced.cpp:147
+:0  store i16 -1024, i16* getelementptr inbounds ([3 x i16]* @values_output_layer, i32 0, i32 1), align 2
+
+ST_64: StgValue_497 (470)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:148
+:1  br label %._crit_edge20.1
+
+
+ <State 65>: 2.39ns
+ST_65: values_output_layer_1 (472)  [2/2] 2.39ns  loc: AXISEnhanced.cpp:151
+._crit_edge20.1:0  %values_output_layer_1 = load i16* getelementptr inbounds ([3 x i16]* @values_output_layer, i32 0, i32 1), align 2
+
+
+ <State 66>: 6.74ns
+ST_66: values_output_layer_1 (472)  [1/2] 2.39ns  loc: AXISEnhanced.cpp:151
+._crit_edge20.1:0  %values_output_layer_1 = load i16* getelementptr inbounds ([3 x i16]* @values_output_layer, i32 0, i32 1), align 2
+
+ST_66: tmp_64 (473)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:151
+._crit_edge20.1:1  %tmp_64 = trunc i16 %values_output_layer_1 to i13
+
+ST_66: tmp_17_1 (474)  [1/1] 1.96ns  loc: AXISEnhanced.cpp:151
+._crit_edge20.1:2  %tmp_17_1 = add i13 1024, %tmp_64
+
+ST_66: tmp_17_1_cast (475)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:151
+._crit_edge20.1:3  %tmp_17_1_cast = sext i13 %tmp_17_1 to i32
+
+ST_66: sigmoid_arr_addr_6 (476)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:151
+._crit_edge20.1:4  %sigmoid_arr_addr_6 = getelementptr [2048 x i8]* @sigmoid_arr, i32 0, i32 %tmp_17_1_cast
+
+ST_66: sigmoid_arr_load_6 (477)  [2/2] 2.39ns  loc: AXISEnhanced.cpp:151
+._crit_edge20.1:5  %sigmoid_arr_load_6 = load i8* %sigmoid_arr_addr_6, align 1
+
+
+ <State 67>: 8.15ns
+ST_67: sigmoid_arr_load_6 (477)  [1/2] 2.39ns  loc: AXISEnhanced.cpp:151
+._crit_edge20.1:5  %sigmoid_arr_load_6 = load i8* %sigmoid_arr_addr_6, align 1
+
+ST_67: highest_pred_2_1 (478)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:151
+._crit_edge20.1:6  %highest_pred_2_1 = zext i8 %sigmoid_arr_load_6 to i16
+
+ST_67: StgValue_507 (479)  [1/1] 2.39ns  loc: AXISEnhanced.cpp:151
+._crit_edge20.1:7  store i16 %highest_pred_2_1, i16* getelementptr inbounds ([3 x i16]* @values_output_layer, i32 0, i32 1), align 2
+
+ST_67: tmp_18_1 (480)  [1/1] 2.00ns  loc: AXISEnhanced.cpp:152
+._crit_edge20.1:8  %tmp_18_1 = icmp ugt i8 %sigmoid_arr_load_6, %sigmoid_arr_load_5
+
+ST_67: highest_pred_2_highe (481)  [1/1] 1.37ns  loc: AXISEnhanced.cpp:152
+._crit_edge20.1:9  %highest_pred_2_highe = select i1 %tmp_18_1, i13 %tmp_17_1, i13 %tmp_24
+
+ST_67: highest_pred_2_highe_1 (482)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:152
+._crit_edge20.1:10  %highest_pred_2_highe_1 = sext i13 %highest_pred_2_highe to i32
+
+ST_67: sigmoid_arr_addr_8 (483)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:151
+._crit_edge20.1:11  %sigmoid_arr_addr_8 = getelementptr [2048 x i8]* @sigmoid_arr, i32 0, i32 %highest_pred_2_highe_1
+
+ST_67: sigmoid_arr_load_8 (484)  [2/2] 2.39ns  loc: AXISEnhanced.cpp:152
+._crit_edge20.1:12  %sigmoid_arr_load_8 = load i8* %sigmoid_arr_addr_8, align 1
+
+
+ <State 68>: 2.39ns
+ST_68: sigmoid_arr_load_8 (484)  [1/2] 2.39ns  loc: AXISEnhanced.cpp:152
+._crit_edge20.1:12  %sigmoid_arr_load_8 = load i8* %sigmoid_arr_addr_8, align 1
+
+ST_68: empty_38 (485)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:156
+._crit_edge20.1:13  %empty_38 = call i32 (...)* @_ssdm_op_SpecRegionEnd([20 x i8]* @p_str8, i32 %tmp_18)
+
+ST_68: tmp_19 (486)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:141
+._crit_edge20.1:14  %tmp_19 = call i32 (...)* @_ssdm_op_SpecRegionBegin([20 x i8]* @p_str8)
+
+ST_68: StgValue_516 (487)  [1/1] 1.57ns  loc: AXISEnhanced.cpp:143
+._crit_edge20.1:15  br label %59
+
+
+ <State 69>: 5.01ns
+ST_69: values_output_layer_8 (489)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:144
+:0  %values_output_layer_8 = phi i16 [ 0, %._crit_edge20.1 ], [ %tmp_11_2, %60 ]
+
+ST_69: j_3_2 (490)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:143
+:1  %j_3_2 = phi i3 [ 0, %._crit_edge20.1 ], [ %j_7_2, %60 ]
+
+ST_69: StgValue_519 (491)  [1/1] 2.39ns  loc: AXISEnhanced.cpp:144
+:2  store i16 %values_output_layer_8, i16* getelementptr inbounds ([3 x i16]* @values_output_layer, i32 0, i32 2), align 2
+
+ST_69: j_3_2_cast1 (492)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:143
+:3  %j_3_2_cast1 = zext i3 %j_3_2 to i32
+
+ST_69: j_3_2_cast1_cast (493)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:143
+:4  %j_3_2_cast1_cast = zext i3 %j_3_2 to i5
+
+ST_69: tmp_50 (494)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:143
+:5  %tmp_50 = call i5 @_ssdm_op_BitConcatenate.i5.i3.i2(i3 %j_3_2, i2 0)
+
+ST_69: tmp_51 (495)  [1/1] 1.31ns  loc: AXISEnhanced.cpp:144
+:6  %tmp_51 = sub i5 %tmp_50, %j_3_2_cast1_cast
+
+ST_69: tmp_52 (496)  [1/1] 1.31ns  loc: AXISEnhanced.cpp:144
+:7  %tmp_52 = add i5 %tmp_51, 2
+
+ST_69: tmp_52_cast (497)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:144
+:8  %tmp_52_cast = sext i5 %tmp_52 to i32
+
+ST_69: weights_HO_addr_3 (498)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:144
+:9  %weights_HO_addr_3 = getelementptr [15 x i16]* @weights_HO, i32 0, i32 %tmp_52_cast
+
+ST_69: exitcond_2 (499)  [1/1] 1.62ns  loc: AXISEnhanced.cpp:143
+:10  %exitcond_2 = icmp eq i3 %j_3_2, -3
+
+ST_69: empty_42 (500)  [1/1] 0.00ns
+:11  %empty_42 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 5, i64 5, i64 5)
+
+ST_69: j_7_2 (501)  [1/1] 0.80ns  loc: AXISEnhanced.cpp:143
+:12  %j_7_2 = add i3 %j_3_2, 1
+
+ST_69: StgValue_530 (502)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:143
+:13  br i1 %exitcond_2, label %58, label %60
+
+ST_69: values_hidden_layer_14 (504)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:144
+:0  %values_hidden_layer_14 = getelementptr inbounds [5 x i16]* @values_hidden_layer, i32 0, i32 %j_3_2_cast1
+
+ST_69: values_hidden_layer_15 (505)  [2/2] 2.39ns  loc: AXISEnhanced.cpp:144
+:1  %values_hidden_layer_15 = load i16* %values_hidden_layer_14, align 2
+
+ST_69: weights_HO_load_2 (506)  [2/2] 2.39ns  loc: AXISEnhanced.cpp:144
+:2  %weights_HO_load_2 = load i16* %weights_HO_addr_3, align 2
+
+ST_69: tmp_8_2 (514)  [1/1] 2.28ns  loc: AXISEnhanced.cpp:146
+:0  %tmp_8_2 = icmp slt i16 %values_output_layer_8, -1024
+
+ST_69: StgValue_535 (515)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:146
+:1  br i1 %tmp_8_2, label %57, label %61
+
+ST_69: tmp_65 (517)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:148
+:0  %tmp_65 = call i6 @_ssdm_op_PartSelect.i6.i16.i32.i32(i16 %values_output_layer_8, i32 10, i32 15)
+
+ST_69: icmp7 (518)  [1/1] 1.94ns  loc: AXISEnhanced.cpp:148
+:1  %icmp7 = icmp sgt i6 %tmp_65, 0
+
+ST_69: StgValue_538 (519)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:148
+:2  br i1 %icmp7, label %62, label %._crit_edge19.2
+
+
+ <State 70>: 2.39ns
+ST_70: values_hidden_layer_15 (505)  [1/2] 2.39ns  loc: AXISEnhanced.cpp:144
+:1  %values_hidden_layer_15 = load i16* %values_hidden_layer_14, align 2
+
+ST_70: weights_HO_load_2 (506)  [1/2] 2.39ns  loc: AXISEnhanced.cpp:144
+:2  %weights_HO_load_2 = load i16* %weights_HO_addr_3, align 2
+
+
+ <State 71>: 6.38ns
+ST_71: tmp_i7_cast (507)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:167->AXISEnhanced.cpp:144
+:3  %tmp_i7_cast = sext i16 %values_hidden_layer_15 to i24
+
+ST_71: tmp_1_i7_cast (508)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:167->AXISEnhanced.cpp:144
+:4  %tmp_1_i7_cast = sext i16 %weights_HO_load_2 to i24
+
+ST_71: tmp_2_i7 (509)  [1/1] 6.38ns  loc: AXISEnhanced.cpp:167->AXISEnhanced.cpp:144
+:5  %tmp_2_i7 = mul i24 %tmp_i7_cast, %tmp_1_i7_cast
+
+ST_71: tmp_10_2 (510)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:144
+:6  %tmp_10_2 = call i16 @_ssdm_op_PartSelect.i16.i24.i32.i32(i24 %tmp_2_i7, i32 8, i32 23)
+
+
+ <State 72>: 1.96ns
+ST_72: tmp_11_2 (511)  [1/1] 1.96ns  loc: AXISEnhanced.cpp:144
+:7  %tmp_11_2 = add i16 %values_output_layer_8, %tmp_10_2
+
+ST_72: StgValue_546 (512)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:143
+:8  br label %59
+
+
+ <State 73>: 2.39ns
+ST_73: StgValue_547 (521)  [1/1] 2.39ns  loc: AXISEnhanced.cpp:149
+:0  store i16 1023, i16* getelementptr inbounds ([3 x i16]* @values_output_layer, i32 0, i32 2), align 2
+
+ST_73: StgValue_548 (522)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:150
+:1  br label %._crit_edge19.2
+
+ST_73: StgValue_549 (524)  [1/1] 0.00ns
+._crit_edge19.2:0  br label %._crit_edge20.2
+
+ST_73: StgValue_550 (526)  [1/1] 2.39ns  loc: AXISEnhanced.cpp:147
+:0  store i16 -1024, i16* getelementptr inbounds ([3 x i16]* @values_output_layer, i32 0, i32 2), align 2
+
+ST_73: StgValue_551 (527)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:148
+:1  br label %._crit_edge20.2
+
+
+ <State 74>: 2.39ns
+ST_74: values_output_layer_3 (529)  [2/2] 2.39ns  loc: AXISEnhanced.cpp:151
+._crit_edge20.2:0  %values_output_layer_3 = load i16* getelementptr inbounds ([3 x i16]* @values_output_layer, i32 0, i32 2), align 2
+
+
+ <State 75>: 6.74ns
+ST_75: values_output_layer_3 (529)  [1/2] 2.39ns  loc: AXISEnhanced.cpp:151
+._crit_edge20.2:0  %values_output_layer_3 = load i16* getelementptr inbounds ([3 x i16]* @values_output_layer, i32 0, i32 2), align 2
+
+ST_75: tmp_66 (530)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:151
+._crit_edge20.2:1  %tmp_66 = trunc i16 %values_output_layer_3 to i13
+
+ST_75: tmp_17_2 (531)  [1/1] 1.96ns  loc: AXISEnhanced.cpp:151
+._crit_edge20.2:2  %tmp_17_2 = add i13 1024, %tmp_66
+
+ST_75: tmp_17_2_cast (532)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:151
+._crit_edge20.2:3  %tmp_17_2_cast = sext i13 %tmp_17_2 to i32
+
+ST_75: sigmoid_arr_addr_7 (533)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:151
+._crit_edge20.2:4  %sigmoid_arr_addr_7 = getelementptr [2048 x i8]* @sigmoid_arr, i32 0, i32 %tmp_17_2_cast
+
+ST_75: sigmoid_arr_load_7 (534)  [2/2] 2.39ns  loc: AXISEnhanced.cpp:151
+._crit_edge20.2:5  %sigmoid_arr_load_7 = load i8* %sigmoid_arr_addr_7, align 1
+
+
+ <State 76>: 5.76ns
+ST_76: sigmoid_arr_load_7 (534)  [1/2] 2.39ns  loc: AXISEnhanced.cpp:151
+._crit_edge20.2:5  %sigmoid_arr_load_7 = load i8* %sigmoid_arr_addr_7, align 1
+
+ST_76: highest_pred_2_2 (535)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:151
+._crit_edge20.2:6  %highest_pred_2_2 = zext i8 %sigmoid_arr_load_7 to i16
+
+ST_76: StgValue_561 (536)  [1/1] 2.39ns  loc: AXISEnhanced.cpp:151
+._crit_edge20.2:7  store i16 %highest_pred_2_2, i16* getelementptr inbounds ([3 x i16]* @values_output_layer, i32 0, i32 2), align 2
+
+ST_76: tmp_18_2 (537)  [1/1] 2.00ns  loc: AXISEnhanced.cpp:152
+._crit_edge20.2:8  %tmp_18_2 = icmp ugt i8 %sigmoid_arr_load_7, %sigmoid_arr_load_8
+
+ST_76: prediction_write_out (538)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:152 (grouped into LUT with out node tmp_data)
+._crit_edge20.2:9  %prediction_write_out = select i1 %tmp_18_2, i2 -1, i2 -2
+
+ST_76: tmp_20 (539)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:152 (grouped into LUT with out node tmp_data)
+._crit_edge20.2:10  %tmp_20 = or i1 %tmp_18_2, %tmp_18_1
+
+ST_76: tmp_data (540)  [1/1] 1.37ns  loc: AXISEnhanced.cpp:152 (out node of the LUT)
+._crit_edge20.2:11  %tmp_data = select i1 %tmp_20, i2 %prediction_write_out, i2 1
+
+ST_76: tmp_data_1 (541)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:152
+._crit_edge20.2:12  %tmp_data_1 = zext i2 %tmp_data to i32
+
+ST_76: StgValue_567 (543)  [2/2] 0.00ns  loc: AXISEnhanced.cpp:162
+._crit_edge20.2:14  call void @_ssdm_op_Write.axis.volatile.i32P.i1P(i32* %M_AXIS_V_data, i1* %M_AXIS_V_last, i32 %tmp_data_1, i1 true)
+
+
+ <State 77>: 0.00ns
+ST_77: empty_40 (542)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:156
+._crit_edge20.2:13  %empty_40 = call i32 (...)* @_ssdm_op_SpecRegionEnd([20 x i8]* @p_str8, i32 %tmp_19)
+
+ST_77: StgValue_569 (543)  [1/2] 0.00ns  loc: AXISEnhanced.cpp:162
+._crit_edge20.2:14  call void @_ssdm_op_Write.axis.volatile.i32P.i1P(i32* %M_AXIS_V_data, i1* %M_AXIS_V_last, i32 %tmp_data_1, i1 true)
+
+ST_77: empty_41 (544)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:163
+._crit_edge20.2:15  %empty_41 = call i32 (...)* @_ssdm_op_SpecRegionEnd([15 x i8]* @p_str6, i32 %tmp_8)
+
+ST_77: StgValue_571 (545)  [1/1] 0.00ns  loc: AXISEnhanced.cpp:120
+._crit_edge20.2:16  br label %11
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.57ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', AXISEnhanced.cpp:56) [20]  (1.57 ns)
+
+ <State 2>: 1.88ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', AXISEnhanced.cpp:56) [20]  (0 ns)
+	'icmp' operation ('exitcond1', AXISEnhanced.cpp:56) [25]  (1.88 ns)
+
+ <State 3>: 1.72ns
+The critical path consists of the following:
+	'phi' operation ('j') with incoming values : ('j', AXISEnhanced.cpp:57) [34]  (0 ns)
+	'add' operation ('tmp_23', AXISEnhanced.cpp:59) [36]  (1.72 ns)
+
+ <State 4>: 2.71ns
+The critical path consists of the following:
+	axis read on port 'S_AXIS_V_data' (AXISEnhanced.cpp:58) [44]  (0 ns)
+	'store' operation (AXISEnhanced.cpp:59) of variable 'tmp_25', AXISEnhanced.cpp:59 on array 'weights_IH' [47]  (2.71 ns)
+
+ <State 5>: 1.72ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', AXISEnhanced.cpp:63) [55]  (0 ns)
+	'sub' operation ('tmp_6', AXISEnhanced.cpp:66) [58]  (1.72 ns)
+
+ <State 6>: 1.72ns
+The critical path consists of the following:
+	'phi' operation ('j') with incoming values : ('j', AXISEnhanced.cpp:64) [68]  (0 ns)
+	'add' operation ('tmp_26', AXISEnhanced.cpp:66) [70]  (1.72 ns)
+
+ <State 7>: 2.39ns
+The critical path consists of the following:
+	axis read on port 'S_AXIS_V_data' (AXISEnhanced.cpp:65) [78]  (0 ns)
+	'store' operation (AXISEnhanced.cpp:66) of variable 'tmp_27', AXISEnhanced.cpp:66 on array 'weights_HO' [81]  (2.39 ns)
+
+ <State 8>: 1.57ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('k') with incoming values : ('k', AXISEnhanced.cpp:120) [90]  (1.57 ns)
+
+ <State 9>: 1.94ns
+The critical path consists of the following:
+	'phi' operation ('k') with incoming values : ('k', AXISEnhanced.cpp:120) [90]  (0 ns)
+	'icmp' operation ('exitcond4', AXISEnhanced.cpp:120) [91]  (1.94 ns)
+
+ <State 10>: 1.88ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', AXISEnhanced.cpp:122) [100]  (0 ns)
+	'icmp' operation ('exitcond6', AXISEnhanced.cpp:122) [102]  (1.88 ns)
+
+ <State 11>: 2.39ns
+The critical path consists of the following:
+	axis read on port 'S_AXIS_V_data' (AXISEnhanced.cpp:123) [107]  (0 ns)
+	'store' operation (AXISEnhanced.cpp:124) of variable 'tmp_28', AXISEnhanced.cpp:124 on array 'test_data' [111]  (2.39 ns)
+
+ <State 12>: 4.43ns
+The critical path consists of the following:
+	'phi' operation ('j_s', AXISEnhanced.cpp:129) with incoming values : ('j_6', AXISEnhanced.cpp:129) [118]  (0 ns)
+	'add' operation ('tmp_30', AXISEnhanced.cpp:130) [124]  (1.72 ns)
+	'getelementptr' operation ('weights_IH_addr_1', AXISEnhanced.cpp:130) [126]  (0 ns)
+	'load' operation ('b', AXISEnhanced.cpp:130) on array 'weights_IH' [134]  (2.71 ns)
+
+ <State 13>: 2.71ns
+The critical path consists of the following:
+	'load' operation ('b', AXISEnhanced.cpp:130) on array 'weights_IH' [134]  (2.71 ns)
+
+ <State 14>: 6.38ns
+The critical path consists of the following:
+	'mul' operation ('tmp_2_i', AXISEnhanced.cpp:167->AXISEnhanced.cpp:130) [137]  (6.38 ns)
+
+ <State 15>: 1.96ns
+The critical path consists of the following:
+	'add' operation ('tmp_5', AXISEnhanced.cpp:130) [139]  (1.96 ns)
+
+ <State 16>: 2.39ns
+The critical path consists of the following:
+	'store' operation (AXISEnhanced.cpp:135) of constant 1023 on array 'values_hidden_layer' [149]  (2.39 ns)
+
+ <State 17>: 2.39ns
+The critical path consists of the following:
+	'load' operation ('values_hidden_layer_s', AXISEnhanced.cpp:137) on array 'values_hidden_layer' [157]  (2.39 ns)
+
+ <State 18>: 6.74ns
+The critical path consists of the following:
+	'load' operation ('values_hidden_layer_s', AXISEnhanced.cpp:137) on array 'values_hidden_layer' [157]  (2.39 ns)
+	'add' operation ('tmp_13', AXISEnhanced.cpp:137) [159]  (1.96 ns)
+	'getelementptr' operation ('sigmoid_arr_addr', AXISEnhanced.cpp:137) [161]  (0 ns)
+	'load' operation ('sigmoid_arr_load', AXISEnhanced.cpp:137) on array 'sigmoid_arr' [162]  (2.39 ns)
+
+ <State 19>: 4.78ns
+The critical path consists of the following:
+	'load' operation ('sigmoid_arr_load', AXISEnhanced.cpp:137) on array 'sigmoid_arr' [162]  (2.39 ns)
+	'store' operation (AXISEnhanced.cpp:137) of variable 'tmp_14', AXISEnhanced.cpp:137 on array 'values_hidden_layer' [164]  (2.39 ns)
+
+ <State 20>: 5.33ns
+The critical path consists of the following:
+	'phi' operation ('j_2_1', AXISEnhanced.cpp:129) with incoming values : ('j_6_1', AXISEnhanced.cpp:129) [170]  (0 ns)
+	'add' operation ('tmp_34', AXISEnhanced.cpp:130) [176]  (1.31 ns)
+	'add' operation ('tmp_35', AXISEnhanced.cpp:130) [177]  (1.31 ns)
+	'getelementptr' operation ('weights_IH_addr_2', AXISEnhanced.cpp:130) [179]  (0 ns)
+	'load' operation ('b', AXISEnhanced.cpp:130) on array 'weights_IH' [187]  (2.71 ns)
+
+ <State 21>: 2.71ns
+The critical path consists of the following:
+	'load' operation ('b', AXISEnhanced.cpp:130) on array 'weights_IH' [187]  (2.71 ns)
+
+ <State 22>: 6.38ns
+The critical path consists of the following:
+	'mul' operation ('tmp_2_i1', AXISEnhanced.cpp:167->AXISEnhanced.cpp:130) [190]  (6.38 ns)
+
+ <State 23>: 1.96ns
+The critical path consists of the following:
+	'add' operation ('tmp_5_1', AXISEnhanced.cpp:130) [192]  (1.96 ns)
+
+ <State 24>: 2.39ns
+The critical path consists of the following:
+	'store' operation (AXISEnhanced.cpp:135) of constant 1023 on array 'values_hidden_layer' [202]  (2.39 ns)
+
+ <State 25>: 2.39ns
+The critical path consists of the following:
+	'load' operation ('values_hidden_layer_3', AXISEnhanced.cpp:137) on array 'values_hidden_layer' [210]  (2.39 ns)
+
+ <State 26>: 6.74ns
+The critical path consists of the following:
+	'load' operation ('values_hidden_layer_3', AXISEnhanced.cpp:137) on array 'values_hidden_layer' [210]  (2.39 ns)
+	'add' operation ('tmp_14_1', AXISEnhanced.cpp:137) [212]  (1.96 ns)
+	'getelementptr' operation ('sigmoid_arr_addr_1', AXISEnhanced.cpp:137) [214]  (0 ns)
+	'load' operation ('sigmoid_arr_load_1', AXISEnhanced.cpp:137) on array 'sigmoid_arr' [215]  (2.39 ns)
+
+ <State 27>: 4.78ns
+The critical path consists of the following:
+	'load' operation ('sigmoid_arr_load_1', AXISEnhanced.cpp:137) on array 'sigmoid_arr' [215]  (2.39 ns)
+	'store' operation (AXISEnhanced.cpp:137) of variable 'tmp_15_1', AXISEnhanced.cpp:137 on array 'values_hidden_layer' [217]  (2.39 ns)
+
+ <State 28>: 5.33ns
+The critical path consists of the following:
+	'phi' operation ('j_2_2', AXISEnhanced.cpp:129) with incoming values : ('j_6_2', AXISEnhanced.cpp:129) [223]  (0 ns)
+	'add' operation ('tmp_37', AXISEnhanced.cpp:130) [229]  (1.31 ns)
+	'add' operation ('tmp_38', AXISEnhanced.cpp:130) [230]  (1.31 ns)
+	'getelementptr' operation ('weights_IH_addr_3', AXISEnhanced.cpp:130) [232]  (0 ns)
+	'load' operation ('b', AXISEnhanced.cpp:130) on array 'weights_IH' [240]  (2.71 ns)
+
+ <State 29>: 2.71ns
+The critical path consists of the following:
+	'load' operation ('b', AXISEnhanced.cpp:130) on array 'weights_IH' [240]  (2.71 ns)
+
+ <State 30>: 6.38ns
+The critical path consists of the following:
+	'mul' operation ('tmp_2_i2', AXISEnhanced.cpp:167->AXISEnhanced.cpp:130) [243]  (6.38 ns)
+
+ <State 31>: 1.96ns
+The critical path consists of the following:
+	'add' operation ('tmp_5_2', AXISEnhanced.cpp:130) [245]  (1.96 ns)
+
+ <State 32>: 2.39ns
+The critical path consists of the following:
+	'store' operation (AXISEnhanced.cpp:135) of constant 1023 on array 'values_hidden_layer' [255]  (2.39 ns)
+
+ <State 33>: 2.39ns
+The critical path consists of the following:
+	'load' operation ('values_hidden_layer_4', AXISEnhanced.cpp:137) on array 'values_hidden_layer' [263]  (2.39 ns)
+
+ <State 34>: 6.74ns
+The critical path consists of the following:
+	'load' operation ('values_hidden_layer_4', AXISEnhanced.cpp:137) on array 'values_hidden_layer' [263]  (2.39 ns)
+	'add' operation ('tmp_14_2', AXISEnhanced.cpp:137) [265]  (1.96 ns)
+	'getelementptr' operation ('sigmoid_arr_addr_2', AXISEnhanced.cpp:137) [267]  (0 ns)
+	'load' operation ('sigmoid_arr_load_2', AXISEnhanced.cpp:137) on array 'sigmoid_arr' [268]  (2.39 ns)
+
+ <State 35>: 4.78ns
+The critical path consists of the following:
+	'load' operation ('sigmoid_arr_load_2', AXISEnhanced.cpp:137) on array 'sigmoid_arr' [268]  (2.39 ns)
+	'store' operation (AXISEnhanced.cpp:137) of variable 'tmp_15_2', AXISEnhanced.cpp:137 on array 'values_hidden_layer' [270]  (2.39 ns)
+
+ <State 36>: 5.33ns
+The critical path consists of the following:
+	'phi' operation ('j_2_3', AXISEnhanced.cpp:129) with incoming values : ('j_6_3', AXISEnhanced.cpp:129) [276]  (0 ns)
+	'add' operation ('tmp_40', AXISEnhanced.cpp:130) [282]  (1.31 ns)
+	'add' operation ('tmp_41', AXISEnhanced.cpp:130) [283]  (1.31 ns)
+	'getelementptr' operation ('weights_IH_addr_4', AXISEnhanced.cpp:130) [285]  (0 ns)
+	'load' operation ('b', AXISEnhanced.cpp:130) on array 'weights_IH' [293]  (2.71 ns)
+
+ <State 37>: 2.71ns
+The critical path consists of the following:
+	'load' operation ('b', AXISEnhanced.cpp:130) on array 'weights_IH' [293]  (2.71 ns)
+
+ <State 38>: 6.38ns
+The critical path consists of the following:
+	'mul' operation ('tmp_2_i3', AXISEnhanced.cpp:167->AXISEnhanced.cpp:130) [296]  (6.38 ns)
+
+ <State 39>: 1.96ns
+The critical path consists of the following:
+	'add' operation ('tmp_5_3', AXISEnhanced.cpp:130) [298]  (1.96 ns)
+
+ <State 40>: 2.39ns
+The critical path consists of the following:
+	'store' operation (AXISEnhanced.cpp:135) of constant 1023 on array 'values_hidden_layer' [308]  (2.39 ns)
+
+ <State 41>: 2.39ns
+The critical path consists of the following:
+	'load' operation ('values_hidden_layer_6', AXISEnhanced.cpp:137) on array 'values_hidden_layer' [316]  (2.39 ns)
+
+ <State 42>: 6.74ns
+The critical path consists of the following:
+	'load' operation ('values_hidden_layer_6', AXISEnhanced.cpp:137) on array 'values_hidden_layer' [316]  (2.39 ns)
+	'add' operation ('tmp_14_3', AXISEnhanced.cpp:137) [318]  (1.96 ns)
+	'getelementptr' operation ('sigmoid_arr_addr_3', AXISEnhanced.cpp:137) [320]  (0 ns)
+	'load' operation ('sigmoid_arr_load_3', AXISEnhanced.cpp:137) on array 'sigmoid_arr' [321]  (2.39 ns)
+
+ <State 43>: 4.78ns
+The critical path consists of the following:
+	'load' operation ('sigmoid_arr_load_3', AXISEnhanced.cpp:137) on array 'sigmoid_arr' [321]  (2.39 ns)
+	'store' operation (AXISEnhanced.cpp:137) of variable 'tmp_15_3', AXISEnhanced.cpp:137 on array 'values_hidden_layer' [323]  (2.39 ns)
+
+ <State 44>: 5.33ns
+The critical path consists of the following:
+	'phi' operation ('j_2_4', AXISEnhanced.cpp:129) with incoming values : ('j_6_4', AXISEnhanced.cpp:129) [329]  (0 ns)
+	'add' operation ('tmp_43', AXISEnhanced.cpp:130) [335]  (1.31 ns)
+	'add' operation ('tmp_44', AXISEnhanced.cpp:130) [336]  (1.31 ns)
+	'getelementptr' operation ('weights_IH_addr_5', AXISEnhanced.cpp:130) [338]  (0 ns)
+	'load' operation ('b', AXISEnhanced.cpp:130) on array 'weights_IH' [346]  (2.71 ns)
+
+ <State 45>: 2.71ns
+The critical path consists of the following:
+	'load' operation ('b', AXISEnhanced.cpp:130) on array 'weights_IH' [346]  (2.71 ns)
+
+ <State 46>: 6.38ns
+The critical path consists of the following:
+	'mul' operation ('tmp_2_i4', AXISEnhanced.cpp:167->AXISEnhanced.cpp:130) [349]  (6.38 ns)
+
+ <State 47>: 1.96ns
+The critical path consists of the following:
+	'add' operation ('tmp_5_4', AXISEnhanced.cpp:130) [351]  (1.96 ns)
+
+ <State 48>: 2.39ns
+The critical path consists of the following:
+	'store' operation (AXISEnhanced.cpp:135) of constant 1023 on array 'values_hidden_layer' [361]  (2.39 ns)
+
+ <State 49>: 2.39ns
+The critical path consists of the following:
+	'load' operation ('values_hidden_layer_9', AXISEnhanced.cpp:137) on array 'values_hidden_layer' [369]  (2.39 ns)
+
+ <State 50>: 6.74ns
+The critical path consists of the following:
+	'load' operation ('values_hidden_layer_9', AXISEnhanced.cpp:137) on array 'values_hidden_layer' [369]  (2.39 ns)
+	'add' operation ('tmp_14_4', AXISEnhanced.cpp:137) [371]  (1.96 ns)
+	'getelementptr' operation ('sigmoid_arr_addr_4', AXISEnhanced.cpp:137) [373]  (0 ns)
+	'load' operation ('sigmoid_arr_load_4', AXISEnhanced.cpp:137) on array 'sigmoid_arr' [374]  (2.39 ns)
+
+ <State 51>: 4.78ns
+The critical path consists of the following:
+	'load' operation ('sigmoid_arr_load_4', AXISEnhanced.cpp:137) on array 'sigmoid_arr' [374]  (2.39 ns)
+	'store' operation (AXISEnhanced.cpp:137) of variable 'tmp_15_4', AXISEnhanced.cpp:137 on array 'values_hidden_layer' [376]  (2.39 ns)
+
+ <State 52>: 4.11ns
+The critical path consists of the following:
+	'phi' operation ('j_4', AXISEnhanced.cpp:143) with incoming values : ('j_7', AXISEnhanced.cpp:143) [382]  (0 ns)
+	'sub' operation ('tmp_46', AXISEnhanced.cpp:144) [387]  (1.72 ns)
+	'getelementptr' operation ('weights_HO_addr_1', AXISEnhanced.cpp:144) [389]  (0 ns)
+	'load' operation ('b', AXISEnhanced.cpp:144) on array 'weights_HO' [397]  (2.39 ns)
+
+ <State 53>: 2.39ns
+The critical path consists of the following:
+	'load' operation ('a', AXISEnhanced.cpp:144) on array 'values_hidden_layer' [396]  (2.39 ns)
+
+ <State 54>: 6.38ns
+The critical path consists of the following:
+	'mul' operation ('tmp_2_i5', AXISEnhanced.cpp:167->AXISEnhanced.cpp:144) [400]  (6.38 ns)
+
+ <State 55>: 1.96ns
+The critical path consists of the following:
+	'add' operation ('tmp_22', AXISEnhanced.cpp:144) [402]  (1.96 ns)
+
+ <State 56>: 2.39ns
+The critical path consists of the following:
+	'store' operation (AXISEnhanced.cpp:149) of constant 1023 on array 'values_output_layer' [412]  (2.39 ns)
+
+ <State 57>: 2.39ns
+The critical path consists of the following:
+	'load' operation ('values_output_layer_s', AXISEnhanced.cpp:151) on array 'values_output_layer' [420]  (2.39 ns)
+
+ <State 58>: 6.74ns
+The critical path consists of the following:
+	'load' operation ('values_output_layer_s', AXISEnhanced.cpp:151) on array 'values_output_layer' [420]  (2.39 ns)
+	'add' operation ('tmp_24', AXISEnhanced.cpp:151) [422]  (1.96 ns)
+	'getelementptr' operation ('sigmoid_arr_addr_5', AXISEnhanced.cpp:151) [424]  (0 ns)
+	'load' operation ('sigmoid_arr_load_5', AXISEnhanced.cpp:151) on array 'sigmoid_arr' [425]  (2.39 ns)
+
+ <State 59>: 4.78ns
+The critical path consists of the following:
+	'load' operation ('sigmoid_arr_load_5', AXISEnhanced.cpp:151) on array 'sigmoid_arr' [425]  (2.39 ns)
+	'store' operation (AXISEnhanced.cpp:151) of variable 'highest_pred_2', AXISEnhanced.cpp:151 on array 'values_output_layer' [427]  (2.39 ns)
+
+ <State 60>: 5.01ns
+The critical path consists of the following:
+	'phi' operation ('j_3_1', AXISEnhanced.cpp:143) with incoming values : ('j_7_1', AXISEnhanced.cpp:143) [433]  (0 ns)
+	'sub' operation ('tmp_48', AXISEnhanced.cpp:144) [438]  (1.31 ns)
+	'add' operation ('tmp_49', AXISEnhanced.cpp:144) [439]  (1.31 ns)
+	'getelementptr' operation ('weights_HO_addr_2', AXISEnhanced.cpp:144) [441]  (0 ns)
+	'load' operation ('b', AXISEnhanced.cpp:144) on array 'weights_HO' [449]  (2.39 ns)
+
+ <State 61>: 2.39ns
+The critical path consists of the following:
+	'load' operation ('a', AXISEnhanced.cpp:144) on array 'values_hidden_layer' [448]  (2.39 ns)
+
+ <State 62>: 6.38ns
+The critical path consists of the following:
+	'mul' operation ('tmp_2_i6', AXISEnhanced.cpp:167->AXISEnhanced.cpp:144) [452]  (6.38 ns)
+
+ <State 63>: 1.96ns
+The critical path consists of the following:
+	'add' operation ('tmp_11_1', AXISEnhanced.cpp:144) [454]  (1.96 ns)
+
+ <State 64>: 2.39ns
+The critical path consists of the following:
+	'store' operation (AXISEnhanced.cpp:149) of constant 1023 on array 'values_output_layer' [464]  (2.39 ns)
+
+ <State 65>: 2.39ns
+The critical path consists of the following:
+	'load' operation ('values_output_layer_1', AXISEnhanced.cpp:151) on array 'values_output_layer' [472]  (2.39 ns)
+
+ <State 66>: 6.74ns
+The critical path consists of the following:
+	'load' operation ('values_output_layer_1', AXISEnhanced.cpp:151) on array 'values_output_layer' [472]  (2.39 ns)
+	'add' operation ('tmp_17_1', AXISEnhanced.cpp:151) [474]  (1.96 ns)
+	'getelementptr' operation ('sigmoid_arr_addr_6', AXISEnhanced.cpp:151) [476]  (0 ns)
+	'load' operation ('sigmoid_arr_load_6', AXISEnhanced.cpp:151) on array 'sigmoid_arr' [477]  (2.39 ns)
+
+ <State 67>: 8.15ns
+The critical path consists of the following:
+	'load' operation ('sigmoid_arr_load_6', AXISEnhanced.cpp:151) on array 'sigmoid_arr' [477]  (2.39 ns)
+	'icmp' operation ('tmp_18_1', AXISEnhanced.cpp:152) [480]  (2 ns)
+	'select' operation ('highest_pred_2_highe', AXISEnhanced.cpp:152) [481]  (1.37 ns)
+	'getelementptr' operation ('sigmoid_arr_addr_8', AXISEnhanced.cpp:151) [483]  (0 ns)
+	'load' operation ('sigmoid_arr_load_8', AXISEnhanced.cpp:152) on array 'sigmoid_arr' [484]  (2.39 ns)
+
+ <State 68>: 2.39ns
+The critical path consists of the following:
+	'load' operation ('sigmoid_arr_load_8', AXISEnhanced.cpp:152) on array 'sigmoid_arr' [484]  (2.39 ns)
+
+ <State 69>: 5.01ns
+The critical path consists of the following:
+	'phi' operation ('j_3_2', AXISEnhanced.cpp:143) with incoming values : ('j_7_2', AXISEnhanced.cpp:143) [490]  (0 ns)
+	'sub' operation ('tmp_51', AXISEnhanced.cpp:144) [495]  (1.31 ns)
+	'add' operation ('tmp_52', AXISEnhanced.cpp:144) [496]  (1.31 ns)
+	'getelementptr' operation ('weights_HO_addr_3', AXISEnhanced.cpp:144) [498]  (0 ns)
+	'load' operation ('b', AXISEnhanced.cpp:144) on array 'weights_HO' [506]  (2.39 ns)
+
+ <State 70>: 2.39ns
+The critical path consists of the following:
+	'load' operation ('a', AXISEnhanced.cpp:144) on array 'values_hidden_layer' [505]  (2.39 ns)
+
+ <State 71>: 6.38ns
+The critical path consists of the following:
+	'mul' operation ('tmp_2_i7', AXISEnhanced.cpp:167->AXISEnhanced.cpp:144) [509]  (6.38 ns)
+
+ <State 72>: 1.96ns
+The critical path consists of the following:
+	'add' operation ('tmp_11_2', AXISEnhanced.cpp:144) [511]  (1.96 ns)
+
+ <State 73>: 2.39ns
+The critical path consists of the following:
+	'store' operation (AXISEnhanced.cpp:149) of constant 1023 on array 'values_output_layer' [521]  (2.39 ns)
+
+ <State 74>: 2.39ns
+The critical path consists of the following:
+	'load' operation ('values_output_layer_3', AXISEnhanced.cpp:151) on array 'values_output_layer' [529]  (2.39 ns)
+
+ <State 75>: 6.74ns
+The critical path consists of the following:
+	'load' operation ('values_output_layer_3', AXISEnhanced.cpp:151) on array 'values_output_layer' [529]  (2.39 ns)
+	'add' operation ('tmp_17_2', AXISEnhanced.cpp:151) [531]  (1.96 ns)
+	'getelementptr' operation ('sigmoid_arr_addr_7', AXISEnhanced.cpp:151) [533]  (0 ns)
+	'load' operation ('sigmoid_arr_load_7', AXISEnhanced.cpp:151) on array 'sigmoid_arr' [534]  (2.39 ns)
+
+ <State 76>: 5.76ns
+The critical path consists of the following:
+	'load' operation ('sigmoid_arr_load_7', AXISEnhanced.cpp:151) on array 'sigmoid_arr' [534]  (2.39 ns)
+	'icmp' operation ('tmp_18_2', AXISEnhanced.cpp:152) [537]  (2 ns)
+	'select' operation ('prediction_write_out', AXISEnhanced.cpp:152) [538]  (0 ns)
+	'select' operation ('tmp.data', AXISEnhanced.cpp:152) [540]  (1.37 ns)
+
+ <State 77>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+	State 26
+	State 27
+	State 28
+	State 29
+	State 30
+	State 31
+	State 32
+	State 33
+	State 34
+	State 35
+	State 36
+	State 37
+	State 38
+	State 39
+	State 40
+	State 41
+	State 42
+	State 43
+	State 44
+	State 45
+	State 46
+	State 47
+	State 48
+	State 49
+	State 50
+	State 51
+	State 52
+	State 53
+	State 54
+	State 55
+	State 56
+	State 57
+	State 58
+	State 59
+	State 60
+	State 61
+	State 62
+	State 63
+	State 64
+	State 65
+	State 66
+	State 67
+	State 68
+	State 69
+	State 70
+	State 71
+	State 72
+	State 73
+	State 74
+	State 75
+	State 76
+	State 77
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A
