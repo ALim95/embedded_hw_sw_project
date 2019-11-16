@@ -143,10 +143,11 @@ input                          M_AXIS_TREADY;  // Connected slave device is read
   reg [15:0] highest_pred = 0;
   reg flag = 0;
 
-  // Counters to store the number inputs read & outputs written
+  // Variables for number of reads and writes.
   reg [$clog2(NUMBER_OF_INPUT_WEIGHTSIH) - 1:0] nr_of_reads;
   reg [$clog2(NUMBER_OF_OUTPUT_WORDS) - 1:0]nr_of_writes;
-    
+  
+  // Counters to store the number inputs read & outputs written
   reg [3:0] counter_hidden = 0;
   reg [1:0] counter_output = 0;
   // variables for ROM and RAM
@@ -325,29 +326,32 @@ input                          M_AXIS_TREADY;  // Connected slave device is read
             
         Computing_Hidden:
           begin
-              if (write_enable_testdata) begin
+              if (write_enable_testdata) begin // after previous test data read has been stored in RAM_testdata, disable write for RAM_testdata.
                 write_enable_testdata <= 0;
                 write_addr <= 0;
               end
+              
               if (write_enable_hidden == 1) begin // if values for hidden layer were stored, increment addr and disable write.
                 write_enable_hidden <= 0;
                 write_addr <= write_addr + 1;
               end
-              if (read_ROM_enable) begin
+              
+              if (read_ROM_enable) begin // after reading of ROM_sigmoid, disable read and enable write to RAM_hidden_in.
                   read_ROM_enable <= 0;
                   write_enable_hidden <= 1;
                   RAM_hidden_in <= sigmoid_element;
               end
               else 
                 write_enable_hidden <= 0;
-              if (counter_hidden == 5) begin // if value for last hidden node computed
+                
+              if (counter_hidden == 5) begin // if value for last hidden node computed, change state to Computing_Output and reset variables.
                 state <= Computing_Output;
                 highest_pred <= 0;
                 accum <= 0;
                 counter_hidden <= 0;
                 read_addr_testdata <= 0;
                 read_addr_IH <= 0;
-              end else begin
+              end else begin // else continue the computation for hidden node's output.
                   accum <= accum + (RAM_out_IH * RAM_out_testdata >>> 8);
                   read_addr_testdata  <= read_addr_testdata + 1; // next test data
                   read_addr_IH <= read_addr_IH + 5; // next weightIH
@@ -370,15 +374,17 @@ input                          M_AXIS_TREADY;  // Connected slave device is read
           
         Computing_Output:
           begin
-            if (write_enable_hidden) begin
+            if (write_enable_hidden) begin // after previous hidden node output has been stored in RAM_hidden, disable write for RAM_hidden.
                 write_addr <= 0;
                 write_enable_hidden <= 0;
             end
+            
             if (write_enable_output == 1) begin // if values for output layer were stored, increment addr and disable write.
               write_enable_output <= 0;
               write_addr <= write_addr + 1;
             end
-            if (read_ROM_enable) begin
+            
+            if (read_ROM_enable) begin // after reading of ROM_sigmoid, disable read and enable write to RAM_output_in.
                 read_ROM_enable <= 0;
                 if (highest_pred < sigmoid_element) begin
                     highest_pred <= sigmoid_element;
@@ -389,13 +395,14 @@ input                          M_AXIS_TREADY;  // Connected slave device is read
             end
             else 
               write_enable_output <= 0;
-            if (counter_output == 3) begin // if value for last output node computed
+              
+            if (counter_output == 3) begin // if value for last output node computed, change state to write_output and reset variables.
               state <= Write_Outputs;
               counter_output <= 0;
               read_addr_hidden <= 0;
               read_addr_HO <= 0;
               accum <= 0;
-            end else begin
+            end else begin // else continue the computation for output node.
                 accum <= accum + (RAM_out_HO * RAM_out_hidden >>> 8);
                 read_addr_hidden  <= read_addr_hidden + 1; // next hidden node data
                 read_addr_HO <= read_addr_HO + 3; // next weightHO
@@ -427,7 +434,6 @@ input                          M_AXIS_TREADY;  // Connected slave device is read
                 if (nr_of_writes == 0) 
                    state <= Idle;
                 else begin
-//                   if (S_AXIS_TVALID) begin
                        if (write_enable_HO)
                           write_enable_HO <= 0;
                        write_addr <= 0;
@@ -435,7 +441,6 @@ input                          M_AXIS_TREADY;  // Connected slave device is read
                        nr_of_reads <= NUM_FEATURES - 1;
                        state <= Read_Test_Data;
                        nr_of_writes <= nr_of_writes - 1;
-//                   end
                 end
               end
           end

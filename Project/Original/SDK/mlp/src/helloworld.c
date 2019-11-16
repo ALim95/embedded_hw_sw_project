@@ -139,13 +139,8 @@
 
 // number of training epochs (iterations)
 #define NUM_EPOCHS 30
-// number of batch size
-#define BATCH_SIZE 4
 
-#define SHIFT_AMOUNT 8 // 2^8 = 256
-#define SHIFT_MASK ((1 << SHIFT_AMOUNT) - 1) // 255 (all LSB set, all MSB clear)
-
-
+// fixed point related constant
 #define FRACTIONAL_BITS 8
 #define ONE (1 << FRACTIONAL_BITS)
 
@@ -176,7 +171,6 @@ int16_t toFix(float val);
 int16_t fixed_sigmoid (int16_t x);
 int mul(int16_t a, int16_t b);
 void weights_to_fixed(void);
-float floatVal(int16_t fix);
 /************************** Variable Definitions *****************************/
 /*
  * Device instance definitions
@@ -218,6 +212,7 @@ u8 test_data[NUM_TEST_DATA][NUM_FEATURES];
 u8 test_labels[NUM_TEST_DATA];
 int16_t fixedtest_data[NUM_TEST_DATA][NUM_FEATURES];
 
+// sigmoid array to act as lookup table for sigmoid function
 static int sigmoid_arr[2048] = {4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,13,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,14,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,19,21,21,21,21,21,21,21,21,21,21,21,21,21,21,21,21,21,21,21,21,21,21,21,21,21,21,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,23,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,25,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,27,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,30,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,33,36,36,36,36,36,36,36,36,36,36,36,36,36,36,36,36,36,36,36,36,36,36,36,36,36,39,39,39,39,39,39,39,39,39,39,39,39,39,39,39,39,39,39,39,39,39,39,39,39,39,39,43,43,43,43,43,43,43,43,43,43,43,43,43,43,43,43,43,43,43,43,43,43,43,43,43,46,46,46,46,46,46,46,46,46,46,46,46,46,46,46,46,46,46,46,46,46,46,46,46,46,46,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,50,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,54,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,59,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,68,73,73,73,73,73,73,73,73,73,73,73,73,73,73,73,73,73,73,73,73,73,73,73,73,73,73,79,79,79,79,79,79,79,79,79,79,79,79,79,79,79,79,79,79,79,79,79,79,79,79,79,84,84,84,84,84,84,84,84,84,84,84,84,84,84,84,84,84,84,84,84,84,84,84,84,84,84,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,96,96,96,96,96,96,96,96,96,96,96,96,96,96,96,96,96,96,96,96,96,96,96,96,96,96,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,108,115,115,115,115,115,115,115,115,115,115,115,115,115,115,115,115,115,115,115,115,115,115,115,115,115,115,121,121,121,121,121,121,121,121,121,121,121,121,121,121,121,121,121,121,121,121,121,121,121,121,121,127,127,127,127,127,127,127,127,127,127,127,127,127,127,127,127,127,127,127,127,127,127,127,127,127,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,134,140,140,140,140,140,140,140,140,140,140,140,140,140,140,140,140,140,140,140,140,140,140,140,140,140,147,147,147,147,147,147,147,147,147,147,147,147,147,147,147,147,147,147,147,147,147,147,147,147,147,147,153,153,153,153,153,153,153,153,153,153,153,153,153,153,153,153,153,153,153,153,153,153,153,153,153,159,159,159,159,159,159,159,159,159,159,159,159,159,159,159,159,159,159,159,159,159,159,159,159,159,159,165,165,165,165,165,165,165,165,165,165,165,165,165,165,165,165,165,165,165,165,165,165,165,165,165,165,171,171,171,171,171,171,171,171,171,171,171,171,171,171,171,171,171,171,171,171,171,171,171,171,171,176,176,176,176,176,176,176,176,176,176,176,176,176,176,176,176,176,176,176,176,176,176,176,176,176,176,182,182,182,182,182,182,182,182,182,182,182,182,182,182,182,182,182,182,182,182,182,182,182,182,182,187,187,187,187,187,187,187,187,187,187,187,187,187,187,187,187,187,187,187,187,187,187,187,187,187,187,192,192,192,192,192,192,192,192,192,192,192,192,192,192,192,192,192,192,192,192,192,192,192,192,192,192,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,196,201,201,201,201,201,201,201,201,201,201,201,201,201,201,201,201,201,201,201,201,201,201,201,201,201,201,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,209,212,212,212,212,212,212,212,212,212,212,212,212,212,212,212,212,212,212,212,212,212,212,212,212,212,212,216,216,216,216,216,216,216,216,216,216,216,216,216,216,216,216,216,216,216,216,216,216,216,216,216,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,219,222,222,222,222,222,222,222,222,222,222,222,222,222,222,222,222,222,222,222,222,222,222,222,222,222,225,225,225,225,225,225,225,225,225,225,225,225,225,225,225,225,225,225,225,225,225,225,225,225,225,225,228,228,228,228,228,228,228,228,228,228,228,228,228,228,228,228,228,228,228,228,228,228,228,228,228,228,230,230,230,230,230,230,230,230,230,230,230,230,230,230,230,230,230,230,230,230,230,230,230,230,230,232,232,232,232,232,232,232,232,232,232,232,232,232,232,232,232,232,232,232,232,232,232,232,232,232,232,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,234,236,236,236,236,236,236,236,236,236,236,236,236,236,236,236,236,236,236,236,236,236,236,236,236,236,236,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,238,239,239,239,239,239,239,239,239,239,239,239,239,239,239,239,239,239,239,239,239,239,239,239,239,239,241,241,241,241,241,241,241,241,241,241,241,241,241,241,241,241,241,241,241,241,241,241,241,241,241,241,242,242,242,242,242,242,242,242,242,242,242,242,242,242,242,242,242,242,242,242,242,242,242,242,242,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,243,244,244,244,244,244,244,244,244,244,244,244,244,244,244,244,244,244,244,244,244,244,244,244,244,244,244,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,246,246,246,246,246,246,246,246,246,246,246,246,246,246,246,246,246,246,246,246,246,246,246,246,246,246,247,247,247,247,247,247,247,247,247,247,247,247,247,247,247,247,247,247,247,247,247,247,247,247,247,248,248,248,248,248,248,248,248,248,248,248,248,248,248,248,248,248,248,248,248,248,248,248,248,248,248,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,249,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,250,251};
 
 /*****************************************************************************/
@@ -237,56 +232,47 @@ static int sigmoid_arr[2048] = {4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,
 int main()
 {
   init_platform();
-  int Status;
   int rows,cols;
-  int i,j;
   int choice_predict;
 
-  XTime tRandSeed;
+  XTime tRandSeed; // used to set seed for randomization of initial weights
   xil_printf("\r\n--- Entering main() --- \r\n");
+
+  // Receiving training data from realterm input
   xil_printf("\r\n--- Send Data --- \r\n");
-  XTime_GetTime(&tRandSeed);
-  srand(tRandSeed);
-  init_weights();
   for(rows = 0; rows < NUM_TRAIN_DATA; rows++) {
     for (cols = 0; cols < NUM_FEATURES+1; cols++) {
       scanf("%d", &train_data[rows][cols]);
-//      xil_printf("%d ", train_data[rows][cols]);
     }
-//    xil_printf("\n");
   }
+
+  // Initialize weights
+  XTime_GetTime(&tRandSeed);
+  srand(tRandSeed);
+  init_weights();
+
+  // Training using input data
   xil_printf("\r\n--- Training Data... --- \r\n");
   train();
   weights_to_fixed();
-//  for(i = 0; i < NUM_FEATURES; i++){
-//	for (j = 0; j < NUM_HIDDEN_NODES; j++){
-//		printf("%f ",weights_IH[i][j]);
-//		printf("%f ", floatVal(fixed_weights_IH[i][j]));
-//		printf("%d\n\r", fixed_weights_IH[i][j]);
-//	}
-//  }
-//
-//  for(i = 0; i < NUM_HIDDEN_NODES; i++){
-//	for (j = 0; j < NUM_OUTPUT_NODES; j++){
-//		printf("%f ",weights_HO[i][j]);
-//		printf("%f ", floatVal(fixed_weights_HO[i][j]));
-//		printf("%d\n\r", fixed_weights_HO[i][j]);
-//	}
-//  }
   xil_printf("\r\n--- Training Completed! --- \r\n");
+
+  // Receiving test labels from realterm input. Used for calculation of accuracy.
   xil_printf("\r\n--- Send Test Labels --- \r\n");
   for(rows = 0; rows < NUM_TEST_DATA; rows++) {
 	scanf("%d", &test_labels[rows]);
   }
+
+  // Receiving test data from realterm input.
   xil_printf("\r\n--- Send Test Data --- \r\n");
   for(rows = 0; rows < NUM_TEST_DATA; rows++) {
 	  for (cols = 0; cols < NUM_FEATURES; cols++) {
 		scanf("%d", &test_data[rows][cols]);
 		fixedtest_data[rows][cols] = toFix((float)test_data[rows][cols]/255.0);
-//	      xil_printf("%d ", train_data[rows][cols+1]);
 	  }
-//	    xil_printf("\n");
 	}
+
+  // Will run forever and continually prompt user for choice of prediction or to retrain weights.
   while (1) {
 	  xil_printf("\r\n--- Enter choice for prediction (0 - soft, 1 - HDL, 2 - HLS): --- \r\n");
 	  xil_printf("--- Enter '3' to retrain weights --- \r\n");
@@ -304,20 +290,11 @@ int main()
 		  init_weights();
 		  train();
 		  weights_to_fixed();
+	  } else {
+		  xil_printf("Please enter appropriate choice.\r\n");
 	  }
   }
-  /* Run the poll example for simple transfer */
-//  Status = XAxiDma_SimplePollExample(DMA_DEV_ID_0);
-//
-//  if (Status != XST_SUCCESS) {
-//
-//    xil_printf("XAxiDma_SimplePollExample: Failed\r\n");
-//    return XST_FAILURE;
-//  }
-//
-//  xil_printf("XAxiDma_SimplePollExample: Passed\r\n");
-//
-//  xil_printf("--- Exiting main() --- \r\n");
+
   cleanup_platform();
   return XST_SUCCESS;
 
@@ -381,41 +358,31 @@ int XAxiDma_SimplePollExample(u16 DeviceId)
   XAxiDma_IntrDisable(&AxiDma, XAXIDMA_IRQ_ALL_MASK,
       XAXIDMA_DMA_TO_DEVICE);
 
-//  printf("weights IH\n\r");
+  // Initialise TxBufferPtr with weights values.
   for(i = 0; i < NUM_FEATURES; i++){
 	for (j = 0; j < NUM_HIDDEN_NODES; j++){
 		TxBufferPtr[Index++] = (int)fixed_weights_IH[i][j];
-//		printf("%d ", TxBufferPtr[Index-1]);
-//		printf("%f ",floatVal((int16_t)TxBufferPtr[Index-1]));
 	}
-//	printf("\r\n");
   }
-
-//  printf("weights HO\n\r");
   for(i = 0; i < NUM_HIDDEN_NODES; i++){
 	for (j = 0; j < NUM_OUTPUT_NODES; j++){
 		TxBufferPtr[Index++] = (int)fixed_weights_HO[i][j];
-//		printf("%d ", TxBufferPtr[Index-1]);
-//		printf("%f ",floatVal((int16_t)TxBufferPtr[Index-1]));
 	}
-//	printf("\r\n");
   }
 
+  // Initialise TxBufferPtr with test data values.
   for (i = 0; i < NUM_TEST_DATA; i++){
-//	  printf("Test data\n\r");
 	  for (j = 0; j < NUM_FEATURES; j++){
 		  TxBufferPtr[Index++] = (int)fixedtest_data[i][j];
-//		  printf("%f ",floatVal((int16_t)TxBufferPtr[Index-1]));
-//		  printf("%d ", TxBufferPtr[Index-1]);
 	  }
-//	  printf("\r\n");
   }
+
 	/* Flush the SrcBuffer before the DMA transfer, in case the Data Cache
 	* is enabled
 	*/
   Xil_DCacheFlushRange((u32)TxBufferPtr, NUM_BYTES_TX);
 
-  // TRANSFERS WEIGHTS OVER FIRST AND EXPECT AN INT OF '12345'
+  // Transfers weights over first and expect an int of '12345' as confirmation.
   Status = XAxiDma_SimpleTransfer(&AxiDma,(u32) (RxBufferPtr),
   			1*4, XAXIDMA_DEVICE_TO_DMA); // this sets up transfer from coprocessor to dma
 
@@ -429,23 +396,24 @@ int XAxiDma_SimplePollExample(u16 DeviceId)
 	return XST_FAILURE;
   }
 
-  xil_printf("Waiting for AXI DMA \n\r");
+  xil_printf("Waiting for AXI DMA for transferring of weights \n\r");
 
   while (XAxiDma_Busy(&AxiDma,XAXIDMA_DMA_TO_DEVICE)) {
 	  //wait
   }
-  xil_printf("DMA_TO_DEVICE finishes \n\r");
+  xil_printf("DMA_TO_DEVICE finishes for transferring of weights \n\r");
   while (XAxiDma_Busy(&AxiDma,XAXIDMA_DEVICE_TO_DMA)) {
 	  //wait
   }
-  xil_printf("DEVICE_TO_DMA finishes \n\r");
-  printf("%d\n\r",RxBufferPtr[0]);
-  printf("%d\n\r",TxBufferPtr[0]);
-//  if (RxBufferPtr[0] != 12345) {
-//	  return XST_FAILURE;
-//  }
+  xil_printf("DEVICE_TO_DMA finishes for transferring of weights \n\r");
 
-  XTime_GetTime(&tStart);
+  if (RxBufferPtr[0] != 12345) { // if co-processor did not send back an int of '12345' as confirmation, return XST_FAILURE.
+	  return XST_FAILURE;
+  }
+
+  XTime_GetTime(&tStart); // start of timer to time prediction duration
+
+  // Begin sending test data one by one
   for (Index = 0; Index < NUM_TEST_DATA; Index++){
 	Status = XAxiDma_SimpleTransfer(&AxiDma,(u32) (RxBufferPtr + 1 + Index),
 			1 * 4, XAXIDMA_DEVICE_TO_DMA); // this sets up transfer from coprocessor to dma
@@ -473,44 +441,16 @@ int XAxiDma_SimplePollExample(u16 DeviceId)
 	}
 //	xil_printf("DEVICE_TO_DMA finishes \n\r");
   }
-  XTime_GetTime(&tEnd);
+
+  XTime_GetTime(&tEnd); // end of timer to time prediction duration
   Status = CheckData();
   printf("Run took %.4f ms.\n", 1.0 * (tEnd - tStart) / (COUNTS_PER_SECOND/1000));
   if (Status != XST_SUCCESS) {
 	  return XST_FAILURE;
   }
-//	Status = XAxiDma_SimpleTransfer(&AxiDma,(u32) (RxBufferPtr),
-//			NUM_BYTES_RX, XAXIDMA_DEVICE_TO_DMA); // this sets up transfer from coprocessor to dma
-//
-//	if (Status != XST_SUCCESS) {
-//	  return XST_FAILURE;
-//	}
-//
-//	Status = XAxiDma_SimpleTransfer(&AxiDma,(u32) (TxBufferPtr),
-//			NUM_BYTES_TX, XAXIDMA_DMA_TO_DEVICE); // this sets up transfer from dma to coprocessor
-//
-//	if (Status != XST_SUCCESS) {
-//	  return XST_FAILURE;
-//	}
-//
-//	xil_printf("Waiting for AXI DMA \n\r");
-//
-//	while (XAxiDma_Busy(&AxiDma,XAXIDMA_DMA_TO_DEVICE)) {
-//		//wait
-//	}
-//	xil_printf("DMA_TO_DEVICE finishes \n\r");
-//
-//	while (XAxiDma_Busy(&AxiDma,XAXIDMA_DEVICE_TO_DMA)) {
-//	  //wait
-//	}
-//	xil_printf("DEVICE_TO_DMA finishes \n\r");
-//	Status = CheckData();
-//	if (Status != XST_SUCCESS) {
-//		return XST_FAILURE;
-//	}
-//
-//  /* Test finishes successfully
-//   */
+
+  /* Test finishes successfully
+   */
   return XST_SUCCESS;
 }
 
@@ -551,7 +491,6 @@ static int CheckData()
 
 // random number for first init of matrices
 float get_rand(void){
-//	printf("%f\n\r", (float)rand());
 	return ((float)rand()) / (float)RAND_MAX;
 }
 
@@ -562,14 +501,10 @@ void init_weights(void){
     	for(int i = 0; i < NUM_FEATURES; i++)
     	{
      		weights_IH[i][j] = get_rand();
-//     		printf("%f ", weights_IH[i][j]);
     	}
-//    	printf("\n\r");
     	for(int i = 0; i < NUM_OUTPUT_NODES; i++) {
         	weights_HO[j][i] = get_rand();
     	}
-
-//		printf("%f\n\r", weights_HO[j][k]);
   	}
 }
 
@@ -613,15 +548,12 @@ void backprop(void){
 	} else{
 		labels[2] = 1;
 	}
+
 	//Getting output errors and error terms
-//	printf("Output error:");
 	for (i = 0; i < NUM_OUTPUT_NODES; i++){
 		output_error[i] = (float)labels[i] - values_output_layer[i];
 		output_error_term[i] = output_error[i] * values_output_layer[i] * (1 - values_output_layer[i]);
-//		printf("%f ", output_error[i]);
 	}
-
-//	printf("\n\r");
 
 	//Getting hidden layer errors and error terms
 	for (i = 0; i < NUM_HIDDEN_NODES; i++){
@@ -701,18 +633,17 @@ void calc_error(void){
     rms_error = sqrt(rms_error / NUM_TRAIN_DATA);
 }
 
-// calculate the overall error
+// prediction using software
 void predict_soft(void){
-	u32 *RxBufferPtr;
 	int prediction[NUM_TEST_DATA] = {0};
 	int16_t highest_pred = 0;
 	int correct = 0;
+
 	// vector to store results in hidden and output layer
 	int16_t fixedvalues_hidden_layer[NUM_HIDDEN_NODES];
 	int16_t fixedvalues_output_layer[NUM_OUTPUT_NODES];
 	int i,j,k;
-	RxBufferPtr = (u32 *)RX_BUFFER_BASE;
-	XTime_GetTime(&tStart);
+	XTime_GetTime(&tStart); // start of timer to time prediction duration
 	for (k = 0; k < NUM_TEST_DATA; k++){
 		data_num = k;
 		highest_pred = 0;
@@ -722,69 +653,35 @@ void predict_soft(void){
 			values_hidden_layer[i] = 0.0;
 			for (j = 0; j < NUM_FEATURES; j++){
 				fixedvalues_hidden_layer[i] += mul(fixedtest_data[data_num][j], fixed_weights_IH[j][i]);
-//				values_hidden_layer[i] += (float)test_data[data_num][j]/(float)255 * weights_IH[j][i];
 			}
-//			printf("hidden val is: %d\n\r",fixedvalues_hidden_layer[i]);
-//			fixedvalues_hidden_layer[i] = fixed_sigmoid(fixedvalues_hidden_layer[i]);
 			if (fixedvalues_hidden_layer[i] < -1024) {
 				fixedvalues_hidden_layer[i] = -1024;
 			} else if (fixedvalues_hidden_layer[i] > 1023) {
 				fixedvalues_hidden_layer[i] = 1023;
 			}
-//			printf("HIDDEN LAYER: %d\n\r",1024+fixedvalues_hidden_layer[i]);
 			fixedvalues_hidden_layer[i] = sigmoid_arr[1024+fixedvalues_hidden_layer[i]];
-//			printf("sigmoid hidden val is: %d\n\r",fixedvalues_hidden_layer[i]);
-//			values_hidden_layer[i] = sigmoid(values_hidden_layer[i]);
-//			printf("HIDDEN LAYER: %f %f\n\r",values_hidden_layer[i], floatVal(fixedvalues_hidden_layer[i]));
 		}
 
 		// values for output layer output
-//		printf("output layer: ");
 		for (i = 0; i < NUM_OUTPUT_NODES; i++){
 			fixedvalues_output_layer[i] = 0;
-//			values_output_layer[i] = 0.0;
 			for (j = 0; j < NUM_HIDDEN_NODES; j++){
 				fixedvalues_output_layer[i] += mul(fixedvalues_hidden_layer[j], fixed_weights_HO[j][i]);
-//				values_output_layer[i] += values_hidden_layer[j] * weights_HO[j][i];
-//				printf("OUTPUT LAYER: %f %f",values_output_layer[i], floatVal(fixedvalues_output_layer[i]));
 			}
-//			printf("OUTPUT LAYER: %f %f",values_output_layer[i], floatVal(fixedvalues_output_layer[i]));
-//			fixedvalues_output_layer[i] = fixed_sigmoid(fixedvalues_output_layer[i]);
-//			printf("output val is: %d\n\r",fixedvalues_output_layer[i]);
 			if (fixedvalues_output_layer[i] < -1024) {
 				fixedvalues_output_layer[i] = -1024;
 			} else if (fixedvalues_output_layer[i] > 1023) {
 				fixedvalues_output_layer[i] = 1023;
 			}
-//			printf("OUTPUT LAYER: %d\n\r",1024+fixedvalues_output_layer[i]);
 			fixedvalues_output_layer[i] = sigmoid_arr[1024+fixedvalues_output_layer[i]];
-//			printf("sigmoid output val is: %d\n\r",fixedvalues_output_layer[i]);
-//			values_output_layer[i] = sigmoid(values_output_layer[i]);
-//			printf("OUTPUT LAYER: %f %f\n\r",values_output_layer[i], floatVal(fixedvalues_output_layer[i]));
-//			printf("Highest pred is:%d %f....fixedvalues_output_layer is:%d %f\n\r",highest_pred, floatVal(highest_pred), fixedvalues_output_layer[i], floatVal(fixedvalues_output_layer[i]));
 			if (fixedvalues_output_layer[i] > highest_pred) {
 				highest_pred = fixedvalues_output_layer[i];
 				prediction[k] = i+1;
 			}
-//			printf("\n\r");
 		}
-//		printf("%d | %d\n\r", prediction,test_labels[data_num]);
-
-//		RxBufferPtr[k] = (unsigned int)prediction;
-//		printf("%d\n\r", (unsigned int)RxBufferPtr[k]);
-
-		// Used for debug
-//		if (test_labels[data_num] != prediction){
-//			printf("Test data %d:\n\r", k);
-//			printf("Actual:%d\n\r", test_labels[data_num]);
-//			printf("Predicted:%d\n\rOutput values are:\n\r", prediction);
-//			for (i = 0; i < NUM_OUTPUT_NODES; i++) {
-//				printf("%f ", values_output_layer[i]);
-//			}
-//			printf("\n\r");
-//		}
 	}
-	XTime_GetTime(&tEnd);
+
+	XTime_GetTime(&tEnd); // end of timer to time prediction duration
 	printf("Predictions | Actual are: \n\r");
 	for (i = 0; i < NUM_TEST_DATA; i++){
 		if (prediction[i] == test_labels[i]){
@@ -797,15 +694,17 @@ void predict_soft(void){
 
 }
 
+// converts floating point to fixed point of 8.8 format.
 int16_t toFix(float val) {
-//    printf("%f\n\r",val);
     return (int16_t) (val * ONE);
 }
 
+// multiplies two fixed point numbers and right shift by FRACTIONAL_BITS to get fixed point of 8 fractional bits.
 int mul(int16_t a, int16_t b){
     return (int)((int)a * (int)b >> FRACTIONAL_BITS);
 }
 
+// converts floating point weights to fixed point.
 void weights_to_fixed(void){
 	int i,j;
 	// converts weightsIH to fixed point
@@ -820,8 +719,4 @@ void weights_to_fixed(void){
 			fixed_weights_HO[i][j] = toFix(weights_HO[i][j]);
 		}
 	}
-}
-
-float floatVal(int16_t fix) {
-    return ((float) fix) / ONE;
 }
